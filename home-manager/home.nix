@@ -173,6 +173,8 @@
     enable = true;
     nix-direnv.enable = true;
   };
+  
+  programs.home-manager.enable = true;
 
   # Though shall not mess with
   home.stateVersion = "25.11";
