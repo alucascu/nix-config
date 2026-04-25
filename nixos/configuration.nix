@@ -58,7 +58,7 @@
       openssh.authorizedKeys.keys = [
         # add SSH public keys
       ];
-      extraGroups = ["wheel" "networkmanager", "docker"];
+      extraGroups = ["wheel" "networkmanager" "docker"];
     };
   };
 

@@ -3,11 +3,11 @@
 
   inputs = {
     # nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager/unstable";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -21,7 +21,7 @@
   in {
     # NixOS config entrypoint
     # Use 'nixos-rebuild --flake .#hostname'
-    nixConfigurations = {
+    nixosConfigurations = {
       hades = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
 
