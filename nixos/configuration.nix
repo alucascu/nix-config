@@ -92,13 +92,16 @@
 
 
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.displayManager = {
+    defaultSession = "plasma";
+    sddm = {
+      enable = true;
+    };
+  };
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.desktopManager = {
+      plasma6.enable = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -110,6 +113,8 @@
   programs.firefox.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
+
+  services.dbus.implementation = "broker";
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -159,6 +164,8 @@
   hardware.bluetooth.enable = true;
 
   programs.nix-ld.enable = true;
+
+
 
   # Do not mess with this unless you have a REALLY good reason!
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
