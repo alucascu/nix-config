@@ -7,6 +7,8 @@
   ...
 }: {
 
+  imports = [];
+
   nixpkgs = {
     overlays = [];
 

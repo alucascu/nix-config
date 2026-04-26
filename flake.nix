@@ -7,7 +7,7 @@
 
     # home-manager
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -39,7 +39,7 @@
 	extraSpecialArgs = {inherit inputs;};
 
 	# Main home-manager configuration file
-	modules = [./home-manager/home.nix];
+	modules = [ ./home-manager/home.nix ];
       };
     };
   };
