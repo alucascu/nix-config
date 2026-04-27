@@ -38,7 +38,7 @@
   };
 
   boot = {
-    loader.systemd-boot.enable = true;
+    loader.limine.enable = true;
     loader.efi.canTouchEfiVariables = true;
     
     # Latest linux kernel
@@ -113,6 +113,7 @@
   programs.firefox.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  networking.networkmanager.enable = true;
 
   services.dbus.implementation = "broker";
 
