@@ -56,6 +56,8 @@
     gawk
     zstd
     gnupg
+    opencode
+    claude-code
 
     fish
 
@@ -86,6 +88,8 @@
     devenv
 
     obsidian
+
+    signal-desktop
   ];
 
 
@@ -105,7 +109,23 @@
     };
   };
 
-  programs.lazyvim.enable = true;
+  programs.lazyvim = {
+    enable = true;
+
+    extras = {
+      lang.nix.enable = true;
+      lang.python = {
+        enable = true;
+        installDependencies = true;
+      };
+    };
+
+    extraPackages = with pkgs; [
+      nixd
+      alejandra
+      ty
+    ];
+  };
 
   programs.git = {
     enable = true;
@@ -181,6 +201,10 @@
   };
   
   programs.home-manager.enable = true;
+
+  home.sessionPath = [
+    "/home/alucascu/.local/bin"
+  ];
 
   # Though shall not mess with
   home.stateVersion = "25.11";
