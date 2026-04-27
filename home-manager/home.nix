@@ -7,7 +7,7 @@
   ...
 }: {
 
-  imports = [];
+  imports = [ inputs.lazyvim.homeManagerModules.default ];
 
   nixpkgs = {
     overlays = [];
@@ -104,6 +104,8 @@
       };
     };
   };
+
+  programs.lazyvim.enable = true;
 
   programs.git = {
     enable = true;
