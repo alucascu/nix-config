@@ -118,6 +118,18 @@
         enable = true;
         installDependencies = true;
       };
+
+      lang.tex = {
+        enable = true;
+        installDependencies = true;
+        installRuntimeDependencies = true;
+      };
+
+      lang.haskell = {
+        enable = true;
+        installDependencies = true;
+        installRuntimeDependencies = true;
+      };
     };
 
     extraPackages = with pkgs; [
