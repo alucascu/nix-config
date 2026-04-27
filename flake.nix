@@ -10,12 +10,15 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    lazyvim,
     ...
   } @ inputs: let
   in {
