@@ -84,6 +84,8 @@
     nerd-fonts.lilex
 
     devenv
+
+    obsidian
   ];
 
 
