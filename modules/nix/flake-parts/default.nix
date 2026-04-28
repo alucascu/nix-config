@@ -13,6 +13,7 @@
   flake.lib = {
     mkNixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
         modules = [
           inputs.self.modules.nixos.${name}
           {nixpkgs.hostPlatform = lib.mkDefault system;}
@@ -20,6 +21,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {inherit inputs;};
           }
         ];
       };

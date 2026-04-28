@@ -1,9 +1,9 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   flake.modules.nixos.hades = {
+    inputs,
+    pkgs,
+    ...
+  }: {
     imports =
       [
         ./hardware-configuration.nix
@@ -11,7 +11,7 @@
       ++ (with inputs.self.modules.nixos; [
         system-desktop
         docker
-        asher
+        alucascu
       ]);
 
     networking.hostName = "hades";
