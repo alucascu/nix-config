@@ -12,6 +12,7 @@
         system-desktop
         docker
         alucascu
+        work
       ]);
 
     networking.hostName = "hades";
