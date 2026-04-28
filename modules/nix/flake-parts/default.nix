@@ -1,3 +1,4 @@
+# modules/nix/flake-parts/default.nix
 {
   inputs,
   lib,
@@ -7,11 +8,7 @@
     inputs.flake-parts.flakeModules.modules
   ];
 
-  systems = [
-    "x86_64-linux"
-    "aarch64-linux"
-    "aarch64-darwin"
-  ];
+  systems = ["x86_64-linux"];
 
   flake.lib = {
     mkNixos = system: name: {
