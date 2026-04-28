@@ -17,7 +17,10 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [./modules/nix/flake-parts];
+      imports = [
+        ./modules/nix/flake-parts
+        ./modules/system/settings/locale.nix
+      ];
 
       systems = ["x86_64-linux"];
 

@@ -5,12 +5,12 @@
   pkgs,
   ...
 }: {
-  
   # Import NixOS modules
   imports = [
     ./hardware-configuration.nix
+    inputs.self.modules.nixos.locale
   ];
-  
+
   nixpkgs = {
     overlays = [
       # Overlays exported from other flakes
@@ -40,7 +40,7 @@
   boot = {
     loader.limine.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    
+
     # Latest linux kernel
     kernelPackages = pkgs.linuxPackages_latest;
 
@@ -69,28 +69,7 @@
     };
   };
 
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  
-  time.timeZone = "America/Detroit";
-
-
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-
+  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   services.displayManager = {
     defaultSession = "plasma";
@@ -100,7 +79,7 @@
   };
 
   services.desktopManager = {
-      plasma6.enable = true;
+    plasma6.enable = true;
   };
 
   # Configure keymap in X11
@@ -165,8 +144,6 @@
   hardware.bluetooth.enable = true;
 
   programs.nix-ld.enable = true;
-
-
 
   # Do not mess with this unless you have a REALLY good reason!
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
