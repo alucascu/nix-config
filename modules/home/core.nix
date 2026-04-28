@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  flake.modules.homeManager.core = {
+{...}: {
+  flake.modules.homeManager.core = {pkgs, ...}: {
     nixpkgs = {
       overlays = [];
       config.allowUnfree = true;

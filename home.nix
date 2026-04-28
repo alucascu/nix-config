@@ -1,6 +1,5 @@
 {inputs, ...}: {
   imports = [
-    inputs.lazyvim.homeManagerModules.default
-    ./modules/home
+    inputs.self.modules.homeManager.alucascu
   ];
 }

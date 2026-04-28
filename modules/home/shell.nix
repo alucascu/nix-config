@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  flake.modules.homeManager.shell = {
+{...}: {
+  flake.modules.homeManager.shell = {pkgs, ...}: {
     programs = {
       fish.enable = true;
 
