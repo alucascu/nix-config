@@ -24,6 +24,7 @@
         ./modules/services/pipewire.nix
         ./modules/programs/desktop-kde.nix
         ./modules/services/docker.nix
+        ./modules/system/system-types/default.nix
       ];
 
       systems = ["x86_64-linux"];

@@ -8,11 +8,9 @@
   # Import NixOS modules
   imports = [
     ./hardware-configuration.nix
-    inputs.self.modules.nixos.locale
-    inputs.self.modules.nixos.nix-settings
-    inputs.self.modules.nixos.pipewire
-    inputs.self.modules.nixos.desktop-kde
-    inputs.self.modules.nixos.docker
+    inputs.self.modules.nixos.system-default
+    inputs.self.modules.nixos.system-cli
+    inputs.self.modules.nixos.system-desktop
   ];
 
   nixpkgs = {
