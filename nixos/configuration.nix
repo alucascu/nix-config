@@ -12,6 +12,7 @@
     inputs.self.modules.nixos.nix-settings
     inputs.self.modules.nixos.pipewire
     inputs.self.modules.nixos.desktop-kde
+    inputs.self.modules.nixos.docker
   ];
 
   nixpkgs = {

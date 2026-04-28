@@ -23,6 +23,7 @@
         ./modules/system/settings/nix.nix
         ./modules/services/pipewire.nix
         ./modules/programs/desktop-kde.nix
+        ./modules/services/docker.nix
       ];
 
       systems = ["x86_64-linux"];
