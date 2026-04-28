@@ -24,7 +24,8 @@
         ./modules/services/pipewire.nix
         ./modules/programs/desktop-kde.nix
         ./modules/services/docker.nix
-        ./modules/system/system-types/default.nix
+        ./modules/system/system-types
+        ./modules/hosts/hades
         ./modules/users/alucascu.nix
         # home-manager modules
         ./modules/home/neovim
