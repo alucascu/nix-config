@@ -20,6 +20,7 @@
       imports = [
         ./modules/nix/flake-parts
         ./modules/system/settings/locale.nix
+        ./modules/system/settings/nix.nix
       ];
 
       systems = ["x86_64-linux"];

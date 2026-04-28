@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.self.modules.nixos.locale
+    inputs.self.modules.nixos.nix
   ];
 
   nixpkgs = {
