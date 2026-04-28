@@ -22,6 +22,7 @@
         ./modules/system/settings/locale.nix
         ./modules/system/settings/nix.nix
         ./modules/services/pipewire.nix
+        ./modules/programs/desktop-kde.nix
       ];
 
       systems = ["x86_64-linux"];

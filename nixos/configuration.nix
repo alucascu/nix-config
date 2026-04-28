@@ -11,6 +11,7 @@
     inputs.self.modules.nixos.locale
     inputs.self.modules.nixos.nix-settings
     inputs.self.modules.nixos.pipewire
+    inputs.self.modules.nixos.desktop-kde
   ];
 
   nixpkgs = {
