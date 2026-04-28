@@ -1,6 +1,5 @@
 {inputs, ...}: {
-  flake.modules = {
-    nixos.alucascu = {
+  flake.modules.nixos.alucascu = {
       users.users.alucascu = {
         uid = 1000;
         initialPassword = "correcthorsebatterystaple";
@@ -14,7 +13,7 @@
       ];
     };
 
-    homeManager.alucascu = {
+  flake.modules.homeManager.alucascu = {
       imports = with inputs.self.modules.homeManager; [
         core
         shell
@@ -24,5 +23,4 @@
         terminal
       ];
     };
-  };
 }

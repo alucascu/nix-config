@@ -2,12 +2,12 @@
   flake.modules.homeManager.neovim = {
     imports = [
       inputs.lazyvim.homeManagerModules.default
-      ./plugins
-      ./config
-      ./extras.nix
-      ./packages.nix
+      ./_extras.nix
+      ./_packages.nix
+      ./plugins/_conform.nix
+      ./plugins/_lsp.nix
+      ./config/_keymaps.nix
+      ./config/_options.nix
     ];
-
-    programs.lazyvim.enable = true;
   };
 }

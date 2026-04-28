@@ -13,7 +13,11 @@
   flake.lib = {
     mkNixos = system: name: {
       ${name} = inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit (inputs.nixpkgs) lib;
+          modulesPath = "${inputs.nixpkgs}/nixos/modules";
+        };
         modules = [
           inputs.self.modules.nixos.${name}
           {nixpkgs.hostPlatform = lib.mkDefault system;}

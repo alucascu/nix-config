@@ -6,7 +6,7 @@
   }: {
     imports =
       [
-        ./hardware-configuration.nix
+        ./_hardware-configuration.nix
       ]
       ++ (with inputs.self.modules.nixos; [
         system-desktop

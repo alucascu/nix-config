@@ -16,26 +16,6 @@
   };
 
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      imports = [
-        ./modules/nix/flake-parts
-        ./modules/system/settings/locale.nix
-        ./modules/system/settings/nix.nix
-        ./modules/services/pipewire.nix
-        ./modules/programs/desktop-kde.nix
-        ./modules/services/docker.nix
-        ./modules/system/system-types
-        ./modules/hosts/hades
-        ./modules/users/alucascu.nix
-        # home-manager modules
-        ./modules/home/neovim
-        ./modules/home/core.nix
-        ./modules/home/git.nix
-        ./modules/home/shell.nix
-        ./modules/home/ssh.nix
-        ./modules/home/terminal.nix
-      ];
-
-      systems = ["x86_64-linux"];
-    };
+    inputs.flake-parts.lib.mkFlake {inherit inputs;}
+    (inputs.import-tree ./modules);
 }
