@@ -1,10 +1,5 @@
 {...}: {
   flake.modules.homeManager.core = {pkgs, ...}: {
-    nixpkgs = {
-      overlays = [];
-      config.allowUnfree = true;
-    };
-
     home = {
       username = "alucascu";
       homeDirectory = "/home/alucascu";
@@ -14,6 +9,7 @@
 
       packages = with pkgs; [
         fastfetch
+        home-manager
 
         # Archives
         zip

@@ -40,7 +40,15 @@
       flake = {
         nixosConfigurations.hades = inputs.nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
-          modules = [./nixos/configuration.nix];
+          modules = [
+            ./nixos/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {inherit inputs;};
+            }
+          ];
         };
 
         homeConfigurations."alucascu@hades" = inputs.home-manager.lib.homeManagerConfiguration {

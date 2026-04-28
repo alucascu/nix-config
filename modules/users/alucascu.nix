@@ -2,6 +2,7 @@
   flake.modules = {
     nixos.alucascu = {
       users.users.alucascu = {
+        uid = 1000;
         initialPassword = "correcthorsebatterystaple";
         isNormalUser = true;
         extraGroups = ["wheel" "networkmanager" "docker"];

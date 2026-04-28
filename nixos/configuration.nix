@@ -11,6 +11,7 @@
     inputs.self.modules.nixos.system-default
     inputs.self.modules.nixos.system-cli
     inputs.self.modules.nixos.system-desktop
+    inputs.self.modules.nixos.alucascu
   ];
 
   nixpkgs.overlays = [
