@@ -13,6 +13,7 @@
         docker
         alucascu
         work
+        fprintd
       ]);
 
     networking.hostName = "hades";
