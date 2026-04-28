@@ -10,40 +10,25 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:vic/import-tree";
     lazyvim.url = "github:pfassina/lazyvim-nix";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    lazyvim,
-    ...
-  } @ inputs: let
-  in {
-    # NixOS config entrypoint
-    # Use 'nixos-rebuild --flake .#hostname'
-    nixosConfigurations = {
-      hades = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = ["x86_64-linux"];
 
-        # Main NixOS config file
-        modules = [./nixos/configuration.nix];
+      flake = {
+        nixosConfigurations.hades = inputs.nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
+          modules = [./nixos/configuration.nix];
+        };
+
+        homeConfigurations."alucascu@hades" = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+          modules = [./home.nix];
+        };
       };
     };
-
-    # Standalone home-manager configurations entrypoint
-    # Available with 'home-manager --flake .#username@hostname'
-    homeConfigurations = {
-      "alucascu@hades" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-        extraSpecialArgs = {inherit inputs;};
-
-        # Main home-manager configuration file
-        modules = [./home.nix];
-      };
-    };
-  };
 }

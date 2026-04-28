@@ -1,6 +1,7 @@
 {
   imports = [
     ./plugins
+    ./config
     ./extras.nix
     ./packages.nix
   ];
