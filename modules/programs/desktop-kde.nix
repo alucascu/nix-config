@@ -1,5 +1,5 @@
 {...}: {
-  flake.modules.nixos.desktop-kde = {
+  flake.modules.nixos.desktop-kde = {pkgs, ...}: {
     services = {
       displayManager = {
         defaultSession = "plasma";
@@ -16,5 +16,6 @@
     };
 
     programs.firefox.enable = true;
+    environment.systemPackages = with pkgs; [libreoffice];
   };
 }

@@ -23,6 +23,7 @@
       terminal
       gnupg
       work
+      plasma
     ];
   };
 }
