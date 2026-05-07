@@ -11,6 +11,9 @@
         fastfetch
         home-manager
 
+        # Secret management
+        pass
+
         # Archives
         zip
         xz
