@@ -2,6 +2,7 @@
   flake.modules.nixos.odysseus = {
     inputs,
     pkgs,
+    lib,
     ...
   }: {
     imports =
@@ -15,9 +16,13 @@
         alucascu
       ]);
 
-    networking.hostName = "odysseus";
-    networking.networkmanager.enable = true;
-    networking.wireless.enable = true;
+    networking = {
+      hostName = "odysseus";
+      networkmanager = {
+        enable = true;
+        wifi.backend = "iwd";
+      };
+    };
 
     services.openssh = {
       enable = true;
@@ -37,6 +42,9 @@
       loader.limine.enable = true;
       loader.efi.canTouchEfiVariables = true;
       kernelPackages = pkgs.linuxPackages_latest;
+      extraModprobeConfig = ''
+        options mt7925e disable_aspm=1
+      '';
     };
 
     environment.sessionVariables = {
