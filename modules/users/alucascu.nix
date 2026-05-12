@@ -21,6 +21,7 @@
       neovim
       ssh
       terminal
+      gnupg
       work
     ];
   };

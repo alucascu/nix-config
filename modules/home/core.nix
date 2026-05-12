@@ -11,6 +11,9 @@
         fastfetch
         home-manager
 
+        # Secret management
+        pass
+
         # Archives
         zip
         xz
@@ -27,9 +30,6 @@
         direnv
         zoxide
         starship
-
-        # Databases
-        mysql-workbench
 
         # Misc
         file

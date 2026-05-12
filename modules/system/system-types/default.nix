@@ -32,6 +32,9 @@
         desktop-kde
         pipewire
       ];
+      services = {
+        pcscd.enable = true;
+      };
     };
   };
 }

@@ -21,7 +21,14 @@
           host = "github.com";
           hostname = "github.com";
           user = "git";
-          identityFile = "/home/alucascu/.ssh/hades";
+          identityFile = "/home/alucascu/.ssh/odysseus";
+        };
+
+        "codeberg" = {
+          host = "codeberg.org";
+          hostname = "codeberg.org";
+          user = "git";
+          identityFile = "/home/alucascu/.ssh/odysseus";
         };
       };
     };
