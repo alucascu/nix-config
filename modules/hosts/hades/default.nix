@@ -14,7 +14,10 @@
         alucascu
         work
         fprintd
+        globalprotect
       ]);
+
+    home-manager.users.alucascu.myConfig.sshKeyName = "hades";
 
     networking.hostName = "hades";
     networking.networkmanager.enable = true;

@@ -1,6 +1,12 @@
-{
-  flake.modules.homeManager.ssh = {
-    programs.ssh = {
+{ lib, ... }: {
+  flake.modules.homeManager.ssh = { lib, config, ... }: {
+    options.myConfig.sshKeyName = lib.mkOption {
+      type = lib.types.str;
+      default = "id_ed25519";
+      description = "SSH key basename under ~/.ssh/ used for all host identity files.";
+    };
+
+    config.programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
       matchBlocks = {
@@ -21,14 +27,14 @@
           host = "github.com";
           hostname = "github.com";
           user = "git";
-          identityFile = "/home/alucascu/.ssh/odysseus";
+          identityFile = "~/.ssh/${config.myConfig.sshKeyName}";
         };
 
         "codeberg" = {
           host = "codeberg.org";
           hostname = "codeberg.org";
           user = "git";
-          identityFile = "/home/alucascu/.ssh/odysseus";
+          identityFile = "~/.ssh/${config.myConfig.sshKeyName}";
         };
       };
     };

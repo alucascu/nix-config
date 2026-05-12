@@ -16,6 +16,8 @@
         alucascu
       ]);
 
+    home-manager.users.alucascu.myConfig.sshKeyName = "odysseus";
+
     networking = {
       hostName = "odysseus";
       networkmanager = {
