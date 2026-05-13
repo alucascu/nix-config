@@ -20,6 +20,7 @@
         home-manager.follows = "home-manager";
       };
     };
+    globalprotect-openconnect.url = "github:yuezk/GlobalProtect-openconnect";
   };
 
   outputs = inputs:

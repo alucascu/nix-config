@@ -1,8 +1,7 @@
-{pkgs, ...}: {
+{inputs, ...}: {
   flake.modules.nixos.globalprotect = {pkgs, ...}: {
-    environment.systemPackages = with pkgs; [
-      gpclient
-      gpauth
+    environment.systemPackages = [
+      inputs.globalprotect-openconnect.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
