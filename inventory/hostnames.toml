@@ -1,0 +1,477 @@
+# Hostname Reference
+# pantheon -> realm -> host (god)
+
+# ── Pantheons ──────────────────────────────────────────────────────────────────
+
+[pantheons.norse]
+type = "vm"
+description = "Nine worlds hanging from Yggdrasil, the world-tree"
+
+[pantheons.greek]
+type = "physical"
+description = "Realms of Greek cosmology, from Olympus to the primordial void"
+
+[pantheons.roman]
+type = "container"
+description = "The seven hills of Rome and their civic gods"
+
+[pantheons.egyptian]
+type = "cloud"
+description = "Cosmic order and the sun's nightly journey through the underworld"
+
+[pantheons.mesopotamian]
+type = "network"
+description = "Oldest written mythology, gods of fundamental forces"
+
+# ── Norse Realms ───────────────────────────────────────────────────────────────
+
+[realms.asgard]
+pantheon = "norse"
+description = "Home of the Aesir gods, seat of Valhalla"
+hosts = [
+  { name = "odin",     domain = "wisdom, war, death, poetry — the Allfather" },
+  { name = "thor",     domain = "thunder, strength, protection of mankind" },
+  { name = "freya",    domain = "love, war, magic, death — leader of the Valkyries" },
+  { name = "freyr",    domain = "fertility, sunshine, rain, prosperity" },
+  { name = "loki",     domain = "trickery, shapeshifting, chaos" },
+  { name = "tyr",      domain = "justice, law, heroic glory" },
+  { name = "baldur",   domain = "light, purity, beauty — the beloved god" },
+  { name = "heimdall", domain = "watchman of the gods, dawn, foresight" },
+  { name = "njord",    domain = "sea, wind, fishing, coastal wealth" },
+  { name = "skadi",    domain = "winter, mountains, hunting" },
+  { name = "mimir",    domain = "wisdom, memory, the well of knowledge" },
+  { name = "sigyn",    domain = "loyalty, fidelity, compassion" },
+  { name = "bragi",    domain = "poetry, eloquence, music" },
+  { name = "idun",     domain = "youth, spring, keeper of the golden apples" },
+  { name = "forseti",  domain = "justice, reconciliation, mediation" },
+  { name = "ullr",     domain = "archery, skiing, hunting, winter" },
+  { name = "vidar",    domain = "silence, vengeance, the forest" },
+  { name = "hermod",   domain = "speed, messengers, the bold" },
+]
+
+[realms.midgard]
+pantheon = "norse"
+description = "Realm of humans, encircled by Jormungandr — use mortal hero names"
+hosts = [
+  { name = "sigurd",   domain = "dragon-slayer, greatest of Norse heroes" },
+  { name = "gunnar",   domain = "Nibelung hero, Sigurd's brother-in-law" },
+  { name = "brunhild", domain = "Valkyrie queen, greatest shield-maiden" },
+  { name = "ragnar",   domain = "legendary Viking king and explorer" },
+  { name = "bjorn",    domain = "son of Ragnar, ironside warrior" },
+  { name = "leif",     domain = "first European to reach North America" },
+  { name = "egil",     domain = "skald-warrior, poet and fighter" },
+  { name = "helgi",    domain = "heroic prince, beloved of a Valkyrie" },
+  { name = "hrolf",    domain = "legendary Danish king, the Walker" },
+  { name = "gudrun",   domain = "tragic heroine of the Volsung saga" },
+]
+
+[realms.vanaheim]
+pantheon = "norse"
+description = "Realm of the Vanir, older gods of nature, fertility, and foresight"
+hosts = [
+  { name = "nerthus",   domain = "earth mother, fertility, peace" },
+  { name = "kvasir",    domain = "wisdom, created from the mingled saliva of the Aesir and Vanir" },
+  { name = "gullveig",  domain = "gold-power, seidr magic, possibly Freya's earlier form" },
+  { name = "heidrun",   domain = "the goat whose udder flows with mead" },
+  { name = "ran",       domain = "sea, storms, she who drags sailors to the deep" },
+  { name = "aegir",     domain = "ocean, brewing, host of the gods' great feasts" },
+]
+
+[realms.jotunheim]
+pantheon = "norse"
+description = "Realm of the giants, wild and mountainous, enemies and allies of the gods"
+hosts = [
+  { name = "ymir",      domain = "primordial frost-giant, from whose body the world was made" },
+  { name = "thrym",     domain = "king of the frost-giants, stole Thor's hammer" },
+  { name = "surtr",     domain = "fire-giant king, destined to burn the world at Ragnarok" },
+  { name = "hrungnir",  domain = "strongest of the giants, slain by Thor" },
+  { name = "thiazi",    domain = "storm-giant who kidnapped Idun" },
+  { name = "gerd",      domain = "radiant giantess, bride of Freyr" },
+  { name = "angrboda",  domain = "mother of monsters, bore Loki's monstrous children" },
+]
+
+[realms.niflheim]
+pantheon = "norse"
+description = "Primordial realm of ice and mist, predates the gods"
+hosts = [
+  { name = "hel",          domain = "ruler of the dead, daughter of Loki" },
+  { name = "nidhogg",      domain = "corpse-gnawer, serpent gnawing at Yggdrasil's roots" },
+  { name = "ratatoskr",    domain = "squirrel carrying insults along the world-tree" },
+  { name = "jormungandr",  domain = "world serpent, encircles Midgard, destined to kill Thor" },
+  { name = "fenrir",       domain = "the great wolf, destined to swallow Odin" },
+  { name = "garm",         domain = "hound who guards the gates of Helheim" },
+]
+
+[realms.muspelheim]
+pantheon = "norse"
+description = "Realm of primordial fire, whose sparks became the stars"
+hosts = [
+  { name = "sinmara",   domain = "Surtr's wife, keeper of the scythe Hævateinn" },
+  { name = "logi",      domain = "personification of wildfire" },
+  { name = "glut",      domain = "glow, Logi's wife" },
+  { name = "eisa",      domain = "embers, daughter of Logi" },
+  { name = "einmyria",  domain = "ashes, daughter of Logi" },
+]
+
+[realms.alfheim]
+pantheon = "norse"
+description = "Realm of the light elves, given to Freyr as a teething gift"
+hosts = [
+  { name = "delling",  domain = "the shining one, personification of dawn" },
+  { name = "alvis",    domain = "all-wise dwarf who sought Thor's daughter" },
+  { name = "andvari",  domain = "dwarf guardian of a cursed treasure hoard" },
+  { name = "berling",  domain = "one of the four dwarves who made Freya's necklace" },
+  { name = "dvalin",   domain = "one of the four great dwarves" },
+  { name = "fialar",   domain = "dwarf who brewed the mead of poetry" },
+]
+
+[realms.svartalfheim]
+pantheon = "norse"
+description = "Realm of dark elves and dwarves, master craftsmen of the gods' weapons"
+hosts = [
+  { name = "durin",      domain = "second great dwarf, father of many clans" },
+  { name = "modsognir",  domain = "first and greatest of the dwarves" },
+  { name = "dain",       domain = "king of the dwarves under the Iron Hills" },
+  { name = "nori",       domain = "companion dwarf, master craftsman" },
+  { name = "ori",        domain = "scribe of the dwarves" },
+  { name = "bifur",      domain = "craftsman dwarf" },
+  { name = "bofur",      domain = "miner dwarf, cousin of Bifur" },
+]
+
+[realms.helheim]
+pantheon = "norse"
+description = "Land of the dead for those who die of illness or age, not in battle"
+hosts = [
+  { name = "modgud",   domain = "skeleton-maiden guarding the bridge to the underworld" },
+  { name = "slidr",    domain = "blade-river flowing through Helheim" },
+  { name = "gjoll",    domain = "resounding river bordering Hel" },
+  { name = "naglfar",  domain = "ship of nails made from fingernails of the dead" },
+  { name = "rind",     domain = "earth goddess, mother of Vali by Odin" },
+]
+
+# ── Greek Realms ───────────────────────────────────────────────────────────────
+
+[realms.olympus]
+pantheon = "greek"
+description = "Mountain home of the twelve Olympians, seat of divine governance"
+hosts = [
+  { name = "zeus",       domain = "sky, thunder, kingship, law" },
+  { name = "hera",       domain = "marriage, women, queen of the gods" },
+  { name = "athena",     domain = "wisdom, warfare strategy, crafts" },
+  { name = "apollo",     domain = "sun, music, prophecy, medicine" },
+  { name = "artemis",    domain = "moon, hunt, wilderness" },
+  { name = "ares",       domain = "war, violence, courage" },
+  { name = "hephaestus", domain = "fire, forge, craftsmanship" },
+  { name = "aphrodite",  domain = "love, beauty, desire" },
+  { name = "hermes",     domain = "messengers, travel, commerce" },
+  { name = "poseidon",   domain = "sea, earthquakes, horses" },
+  { name = "demeter",    domain = "harvest, agriculture, seasons" },
+  { name = "dionysus",   domain = "wine, festivity, theatre" },
+  { name = "hestia",     domain = "hearth, home, domestic life" },
+  { name = "persephone", domain = "underworld, spring, vegetation" },
+  { name = "hecate",     domain = "magic, crossroads, the night" },
+  { name = "nike",       domain = "victory, speed, strength" },
+  { name = "iris",       domain = "rainbow, messenger of the gods" },
+  { name = "eos",        domain = "dawn, the rosy-fingered" },
+  { name = "selene",     domain = "moon goddess (Titan)" },
+  { name = "helios",     domain = "sun god (Titan), drives the solar chariot" },
+]
+
+[realms.erebus]
+pantheon = "greek"
+description = "Primordial darkness beneath the earth, domain of night and shadow"
+hosts = [
+  { name = "nyx",      domain = "night, one of the first beings, feared even by Zeus" },
+  { name = "hypnos",   domain = "sleep, twin brother of Thanatos" },
+  { name = "morpheus", domain = "dreams, takes human form in sleep" },
+  { name = "thanatos", domain = "peaceful death, twin of Hypnos" },
+  { name = "nemesis",  domain = "retribution, divine vengeance against hubris" },
+  { name = "eris",     domain = "discord, strife, competition" },
+  { name = "moros",    domain = "doom, fate, the bringer of death's dark hour" },
+  { name = "charon",   domain = "ferryman of the dead across the Styx" },
+  { name = "styx",     domain = "river of hatred bordering the underworld" },
+  { name = "lethe",    domain = "river of oblivion, causes forgetfulness" },
+  { name = "phobos",   domain = "fear, panic, son of Ares" },
+  { name = "deimos",   domain = "dread, terror, brother of Phobos" },
+]
+
+[realms.elysium]
+pantheon = "greek"
+description = "Paradise of the Underworld, where heroes spend their afterlife"
+hosts = [
+  { name = "achilles",      domain = "greatest Greek warrior, near-invincible" },
+  { name = "patroclus",     domain = "beloved companion of Achilles" },
+  { name = "ajax",          domain = "mightiest Greek warrior after Achilles" },
+  { name = "diomedes",      domain = "king of Argos, wounded Ares in battle" },
+  { name = "odysseus",      domain = "cunning hero of the Odyssey" },
+  { name = "cadmus",        domain = "founder of Thebes, slayer of the dragon" },
+  { name = "rhadamanthus",  domain = "judge of the dead in Elysium" },
+  { name = "minos",         domain = "king of Crete, judge of the dead" },
+]
+
+[realms.tartarus]
+pantheon = "greek"
+description = "The deepest abyss, prison of the Titans and place of eternal punishment"
+hosts = [
+  { name = "prometheus", domain = "fire-bringer, friend of humanity, eternally punished" },
+  { name = "sisyphus",   domain = "trickster king, condemned to roll a boulder forever" },
+  { name = "tantalus",   domain = "condemned to eternal hunger and thirst" },
+  { name = "ixion",      domain = "first murderer, bound to a spinning wheel of fire" },
+  { name = "cerberus",   domain = "three-headed hound who guards the underworld gate" },
+  { name = "echidna",    domain = "mother of monsters, half-woman half-serpent" },
+  { name = "typhon",     domain = "deadliest monster, last great challenger to Zeus" },
+]
+
+[realms.aether]
+pantheon = "greek"
+description = "The pure upper air breathed by the gods, the very substance of heaven"
+hosts = [
+  { name = "chronos",  domain = "personification of time itself" },
+  { name = "ananke",   domain = "necessity, inevitability, compulsion" },
+  { name = "phanes",   domain = "firstborn light, creator god of the Orphic tradition" },
+  { name = "eros",     domain = "primordial love, one of the first forces at creation" },
+  { name = "hemera",   domain = "day, the light of the mortal world" },
+]
+
+[realms.pontus]
+pantheon = "greek"
+description = "The primordial sea, father of sea creatures and sea-gods"
+hosts = [
+  { name = "nereus",      domain = "the old man of the sea, shapeshifter, truth-teller" },
+  { name = "proteus",     domain = "sea god of change, prophetic shapeshifter" },
+  { name = "triton",      domain = "messenger of the sea, son of Poseidon" },
+  { name = "thetis",      domain = "sea-nymph, mother of Achilles" },
+  { name = "amphitrite",  domain = "queen of the sea, wife of Poseidon" },
+  { name = "galatea",     domain = "sea-nymph beloved of the Cyclops Polyphemus" },
+  { name = "glaucus",     domain = "mortal fisherman transformed into a sea god" },
+  { name = "leucothea",   domain = "white goddess of the sea, protects sailors" },
+  { name = "phorcys",     domain = "ancient god of the hidden dangers of the deep" },
+]
+
+[realms.chaos]
+pantheon = "greek"
+description = "The primordial void from which all existence emerged"
+hosts = [
+  { name = "gaia",    domain = "earth, the great mother, first solid ground" },
+  { name = "uranus",  domain = "sky, father of the Titans" },
+  { name = "nyx",     domain = "night, one of the oldest powers" },
+  { name = "erebus",  domain = "darkness, the shadows of the earth" },
+  { name = "hemera",  domain = "day, born of Nyx and Erebus" },
+  { name = "ourea",   domain = "mountains, the primordial peaks" },
+]
+
+# ── Roman Realms ───────────────────────────────────────────────────────────────
+
+[realms.palatine]
+pantheon = "roman"
+description = "The central hill of Rome, home of Romulus and the emperors"
+hosts = [
+  { name = "jupiter",  domain = "sky, thunder, kingship, law — king of the gods" },
+  { name = "juno",     domain = "marriage, women, childbirth — queen of the gods" },
+  { name = "minerva",  domain = "wisdom, strategy, crafts, medicine" },
+  { name = "mars",     domain = "war, agriculture, guardian of Rome" },
+  { name = "venus",    domain = "love, beauty, desire, prosperity" },
+  { name = "mercury",  domain = "commerce, travel, communication" },
+  { name = "saturn",   domain = "time, agriculture, wealth, liberation" },
+  { name = "diana",    domain = "hunt, moon, wilderness, childbirth" },
+  { name = "vulcan",   domain = "fire, forge, craftsmanship" },
+  { name = "bacchus",  domain = "wine, festivity, theatre, freedom" },
+]
+
+[realms.aventine]
+pantheon = "roman"
+description = "Hill of the plebeians, sacred to Diana and Hercules"
+hosts = [
+  { name = "hercules", domain = "strength, labor, heroism" },
+  { name = "remus",    domain = "twin brother of Romulus, co-founder of Rome" },
+  { name = "ops",      domain = "abundance, wealth, the harvest" },
+  { name = "pax",      domain = "peace, goddess of the Pax Romana" },
+  { name = "spes",     domain = "hope, expectation, promise" },
+  { name = "fides",    domain = "faith, honesty, trust between Romans" },
+  { name = "honos",    domain = "honor, military distinction" },
+]
+
+[realms.capitoline]
+pantheon = "roman"
+description = "Most sacred hill, home of the Capitoline Triad"
+hosts = [
+  { name = "roma",       domain = "personification of the city and Roman state" },
+  { name = "victoria",   domain = "victory in war and competition" },
+  { name = "felicitas",  domain = "happiness, good luck, success" },
+  { name = "concordia",  domain = "harmony, agreement, civic unity" },
+  { name = "libertas",   domain = "freedom, liberty, manumission" },
+  { name = "salus",      domain = "safety, welfare, public health" },
+  { name = "pietas",     domain = "duty, devotion, loyalty to gods and state" },
+]
+
+[realms.quirinal]
+pantheon = "roman"
+description = "Hill of the deified Romulus, one of Rome's oldest sacred sites"
+hosts = [
+  { name = "quirinus",  domain = "deified Romulus, god of the Roman people" },
+  { name = "flora",     domain = "flowers, spring, fertility of crops" },
+  { name = "consus",    domain = "grain storage, underground granaries" },
+  { name = "furrina",   domain = "ancient goddess of springs and wells" },
+  { name = "carmenta",  domain = "prophecy, childbirth, inventor of the Latin alphabet" },
+  { name = "pales",     domain = "flocks, shepherds, the pastoral life" },
+  { name = "terminus",  domain = "boundaries, border stones, property limits" },
+]
+
+[realms.esquiline]
+pantheon = "roman"
+description = "Largest hill, associated with dawn, magic, and ancient groves"
+hosts = [
+  { name = "aurora",    domain = "dawn, the rosy morning light" },
+  { name = "lucifer",   domain = "light-bringer, the morning star" },
+  { name = "vesper",    domain = "evening star, Venus at dusk" },
+  { name = "carna",     domain = "door hinges, the vital organs, protector of children" },
+  { name = "mefitis",   domain = "volcanic vapors, sulfurous springs" },
+  { name = "angerona",  domain = "silence, secrecy, the winter solstice" },
+  { name = "libitina",  domain = "death, funerals, the undertakers' guild" },
+]
+
+[realms.viminal]
+pantheon = "roman"
+description = "Smallest hill, associated with fortune and household gods"
+hosts = [
+  { name = "fortuna",  domain = "luck, fate, fortune — the wheel ever turns" },
+  { name = "genius",   domain = "the divine spirit within every person and place" },
+  { name = "janus",    domain = "transitions, doorways, beginnings and endings" },
+  { name = "silvanus", domain = "forests, wild fields, uncultivated land" },
+  { name = "faunus",   domain = "forests, secrets, prophecy through dreams" },
+]
+
+[realms.caelian]
+pantheon = "roman"
+description = "Southernmost hill, associated with sky deities and the heavens"
+hosts = [
+  { name = "caelus",     domain = "the sky itself, Roman equivalent of Uranus" },
+  { name = "sol",        domain = "the sun, light, the solar day" },
+  { name = "luna",       domain = "the moon, months, the tides" },
+  { name = "tellus",     domain = "the fertile earth, earthquakes, marriage" },
+  { name = "pluto",      domain = "the underworld, hidden wealth beneath the earth" },
+  { name = "proserpina", domain = "underworld and spring, daughter of Ceres" },
+  { name = "ceres",      domain = "grain, agriculture, the harvest" },
+]
+
+# ── Egyptian Realms ────────────────────────────────────────────────────────────
+
+[realms.aaru]
+pantheon = "egyptian"
+description = "The Field of Reeds — Egyptian paradise, a mirror of the Nile delta"
+hosts = [
+  { name = "osiris",    domain = "death, resurrection, the afterlife, fertility" },
+  { name = "ra",        domain = "sun, creation, kingship — the supreme god" },
+  { name = "horus",     domain = "sky, kingship, the falcon-headed son of Osiris" },
+  { name = "thoth",     domain = "writing, wisdom, the moon, scribes and magic" },
+  { name = "anubis",    domain = "death, embalming, the weighing of the heart" },
+  { name = "isis",      domain = "magic, motherhood, healing, the throne" },
+  { name = "nephthys",  domain = "death, service, night, lamentation" },
+  { name = "hathor",    domain = "love, music, beauty, motherhood" },
+  { name = "bastet",    domain = "cats, home, fertility, protection" },
+  { name = "sekhmet",   domain = "war, healing, the desert sun, divine wrath" },
+]
+
+[realms.duat]
+pantheon = "egyptian"
+description = "The underworld through which Ra travels each night"
+hosts = [
+  { name = "ammit",   domain = "devourer of hearts — part lion, hippo, crocodile" },
+  { name = "sobek",   domain = "crocodiles, water, military power" },
+  { name = "set",     domain = "chaos, storms, the desert, foreigners" },
+  { name = "apep",    domain = "chaos serpent, eternal enemy of Ra" },
+  { name = "khepri",  domain = "the rising sun, renewal, the scarab beetle" },
+  { name = "aten",    domain = "the solar disc, pure light" },
+  { name = "atum",    domain = "the complete one, the setting sun" },
+  { name = "khnum",   domain = "creation, the Nile, potter of human souls" },
+  { name = "ptah",    domain = "craftsmanship, creation through thought and speech" },
+  { name = "montu",   domain = "war, the scorching heat of the sun" },
+]
+
+[realms.nun]
+pantheon = "egyptian"
+description = "Primordial waters of chaos that existed before creation"
+hosts = [
+  { name = "naunet",   domain = "female aspect of Nun, the primordial deep" },
+  { name = "amun",     domain = "hidden one, king of the gods, the breath of life" },
+  { name = "amunet",   domain = "female hidden one, consort of Amun" },
+  { name = "heh",      domain = "infinity, eternity, endlessness" },
+  { name = "kek",      domain = "darkness, the obscurity before creation" },
+  { name = "shu",      domain = "air, wind, the space between earth and sky" },
+  { name = "tefnut",   domain = "moisture, rain, the dew" },
+]
+
+[realms.iunu]
+pantheon = "egyptian"
+description = "Heliopolis — City of the Sun, most ancient center of solar worship"
+hosts = [
+  { name = "atum",      domain = "the complete one, self-created, first god" },
+  { name = "shu",       domain = "air, wind, light, supporter of the sky" },
+  { name = "tefnut",    domain = "moisture, rain, the lunar eye of Ra" },
+  { name = "geb",       domain = "the earth, earthquakes, vegetation" },
+  { name = "nut",       domain = "the sky, stars, the vault of heaven" },
+  { name = "maat",      domain = "truth, justice, cosmic order, balance" },
+  { name = "nefertum",  domain = "the lotus blossom, perfume, the rising sun" },
+]
+
+# ── Mesopotamian Realms ────────────────────────────────────────────────────────
+
+[realms.eridu]
+pantheon = "mesopotamian"
+description = "First city of the gods, birthplace of civilization and kingship"
+hosts = [
+  { name = "enki",       domain = "wisdom, water, magic, creation, mischief" },
+  { name = "enlil",      domain = "wind, storms, earth, the breath of life" },
+  { name = "anu",        domain = "sky, kingship, the heavens" },
+  { name = "inanna",     domain = "love, war, fertility, political power" },
+  { name = "nanna",      domain = "the moon, wisdom, the calendar" },
+  { name = "utu",        domain = "sun, justice, truth, the laws" },
+  { name = "ninhursag",  domain = "earth mother, birth, wild animals" },
+  { name = "ereshkigal", domain = "queen of the underworld" },
+  { name = "nergal",     domain = "underworld, plague, the scorching sun" },
+  { name = "marduk",     domain = "patron of Babylon, magic, water, vegetation" },
+]
+
+[realms.dilmun]
+pantheon = "mesopotamian"
+description = "Paradise island of immortality, the Sumerian Eden"
+hosts = [
+  { name = "ziusudra",     domain = "Sumerian Noah, granted immortality after the flood" },
+  { name = "utnapishtim",  domain = "Akkadian flood survivor, keeper of immortality" },
+  { name = "adapa",        domain = "first man, sage of Eridu" },
+  { name = "etana",        domain = "first king, who flew to heaven on an eagle" },
+  { name = "gilgamesh",    domain = "greatest Sumerian hero, seeker of immortality" },
+  { name = "enkidu",       domain = "wild man, beloved companion of Gilgamesh" },
+  { name = "lugalbanda",   domain = "deified king, father of Gilgamesh" },
+  { name = "dumuzid",      domain = "shepherd god, beloved of Inanna" },
+  { name = "geshtinanna",  domain = "goddess of wine and dream interpretation" },
+  { name = "shulgi",       domain = "deified king of Ur, patron of scribes" },
+]
+
+[realms.irkalla]
+pantheon = "mesopotamian"
+description = "The Sumerian underworld, the land of no return"
+hosts = [
+  { name = "ereshkigal",  domain = "queen of the great below, ruler of the dead" },
+  { name = "nergal",      domain = "king of the underworld, god of plague and death" },
+  { name = "namtar",      domain = "fate, destiny, the demon of disease" },
+  { name = "gugalanna",   domain = "the great bull of heaven, first husband of Ereshkigal" },
+  { name = "ninshubur",   domain = "faithful vizier of Inanna, the loyal servant" },
+  { name = "lamashtu",    domain = "child-stealing demoness, most feared of all demons" },
+  { name = "pazuzu",      domain = "king of wind demons, invoked to ward off Lamashtu" },
+  { name = "humbaba",     domain = "guardian of the cedar forest, slain by Gilgamesh" },
+]
+
+[realms.kur]
+pantheon = "mesopotamian"
+description = "The primordial underworld mountain, space between earth and the primeval sea"
+hosts = [
+  { name = "tiamat",  domain = "primordial saltwater chaos, mother of the first gods" },
+  { name = "apsu",    domain = "primordial freshwater, father of the first gods" },
+  { name = "mummu",   domain = "mist and clouds, vizier of Apsu" },
+  { name = "lahmu",   domain = "first-born of Tiamat and Apsu, the hairy one" },
+  { name = "lahamu",  domain = "sister of Lahmu, the muddy one" },
+  { name = "anshar",  domain = "the horizon, sky's circular boundary" },
+  { name = "kishar",  domain = "the earth's circular boundary" },
+  { name = "qingu",   domain = "Tiamat's champion, whose blood created humanity" },
+]
