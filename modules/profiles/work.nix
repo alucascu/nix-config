@@ -28,24 +28,5 @@
         };
       };
     };
-
-    xdg.desktopEntries.gpclient = {
-      name = "GlobalProtect";
-      exec = "gpclient callback %u";
-      noDisplay = true;
-      mimeType = ["x-scheme-handler/globalprotectcallback"];
-    };
-
-    xdg.mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "x-scheme-handler/globalprotectcallback" = "gpclient.desktop";
-      };
-    };
-
-    home.shellAliases = {
-      vpn = "sudo -E gpclient --fix-openssl --ignore-tls-errors connect --browser firefox gp2.northcrossgroup.com";
-      vpn-off = "sudo gpclient disconnect";
-    };
   };
 }
