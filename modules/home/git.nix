@@ -8,8 +8,14 @@
           name = "Asher Lucas-Cuddeback";
           email = "alucascu@proton.me";
         };
+        pull.ff = "only";
+        rebase.autoStash = true;
         core.editor = "nvim";
         init.defaultBranch = "main";
+        signing = {
+          format = "gpg";
+          signByDefault = true;
+        };
       };
 
       ignores = [
