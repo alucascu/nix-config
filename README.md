@@ -25,11 +25,14 @@ modules/
 ├── system/
 │   ├── settings/       # locale (America/Detroit), nix settings (allowUnfree, flakes)
 │   └── system-types/   # system-default → system-cli → system-desktop inheritance ladder
-├── services/           # docker, pipewire
-├── programs/           # desktop-kde (plasma6, sddm, firefox)
-├── home/               # core, shell, git, ssh, terminal, neovim
+├── services/           # docker, pipewire, fprintd, globalprotect, restic
+├── programs/           # desktop-kde (plasma6, sddm, firefox), chromium, libreoffice
+├── profiles/           # gaming, work — opt-in bundles of services/programs
+├── home/               # core, shell, git, gnupg, ssh, terminal, plasma, neovim
 ├── users/              # alucascu — NixOS account + home-manager wiring
-└── hosts/hades/        # host config + hardware-configuration
+└── hosts/
+    ├── hades/          # desktop host config + hardware-configuration
+    └── odysseus/       # laptop host config + hardware-configuration
 ```
 
 ## Key concepts
@@ -48,13 +51,18 @@ They are consumed via `inputs.self.modules.<class>.<name>` inside `imports` list
 | `system-cli` | git, neovim, wget, tmux, `EDITOR=nvim` |
 | `system-desktop` | desktop-kde, pipewire |
 
+**Profiles** are opt-in aspect bundles (e.g. `gaming`, `work`) that layer additional services and programs on top of a system type.
+
 **Host `hades`** uses `system-desktop` + `docker` + `alucascu`.
+**Host `odysseus`** uses `system-desktop` + `docker` + `gaming` + `alucascu` (laptop).
 
 ## Adding things
 
 **New home module** — create `modules/home/<name>.nix`, then add `<name>` to the imports in `modules/users/alucascu.nix`.
 
-**New NixOS service** — create `modules/services/<name>.nix`, then add `<name>` to the host or system-type imports.
+**New NixOS service** — create `modules/services/<name>.nix`, then add `<name>` to the host, system-type, or profile imports.
+
+**New profile** — create `modules/profiles/<name>.nix` as a NixOS aspect, then add `<name>` to whichever hosts need it.
 
 **New host** — create `modules/hosts/<hostname>/default.nix` + `_hardware-configuration.nix`, then run `sudo nixos-rebuild switch --flake .#<hostname>`. See [CLAUDE.md](CLAUDE.md) for the full template.
 
@@ -76,4 +84,4 @@ They are consumed via `inputs.self.modules.<class>.<name>` inside `imports` list
 - Always `git add` new files before rebuilding.
 - Internal files must be prefixed with `_`.
 
-For full reference including neovim setup and detailed how-to guides, see [OVERVIEW.md](OVERVIEW.md).
+For full reference including neovim setup and detailed how-to guides, see [CLAUDE.md](CLAUDE.md).
