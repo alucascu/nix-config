@@ -1,5 +1,7 @@
 {inputs, ...}: {
   flake.modules.nixos.alucascu = {
+    home-manager.backupFileExtension = "bak";
+
     users.users.alucascu = {
       uid = 1000;
       initialPassword = "correcthorsebatterystaple";
