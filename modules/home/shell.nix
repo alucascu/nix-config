@@ -45,24 +45,9 @@
           bind -r K resize-pane -U 5
           bind -r L resize-pane -R 5
 
-          # Aesthetics
-          ## Cursor
-          cursor_shape block
-          cursor_blink_interval 0
-
-          ## Font rendering
-          font_features LilexNerdFont-Regular +ss01  # optional stylistic sets
-          adjust_line_height 0
-          adjust_column_width 0
-
-          ## Color precision
-          color_scheme_preference dark
-
-          ## Undercurl support (Neovim uses this for diagnostics)
-          undercurl_style thin-sparse
 
           ## Color
-          term xterm-256color
+          set -g default-terminal "tmux-256color"
         '';
       };
 

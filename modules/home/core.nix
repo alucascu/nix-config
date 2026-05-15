@@ -30,6 +30,8 @@
         direnv
         zoxide
         starship
+        fx
+        jaq
 
         # Misc
         file
