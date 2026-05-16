@@ -6,6 +6,7 @@
       ./_packages.nix
       ./plugins/_conform.nix
       ./plugins/_lsp.nix
+      ./plugins/_rust.nix
       ./plugins/_obsidian.nix
       ./config/_keymaps.nix
       ./config/_options.nix
