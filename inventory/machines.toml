@@ -35,6 +35,19 @@ ram_gb = 64
 gpu = "Zotac RTX 4070 Twin Edge"
 storage_tb = 4
 
+[realms.tartarus]
+pantheon = "greek"
+owner = "Asher Lucas-Cuddeback"
+status = "active"
+form_factor = "ATX"
+
+[realms.tartarus.hardware]
+cpu = "AMD Ryzen 5 7600X"
+ram_gb = 32
+gpu = "AMD Radeon RX 6600 XT"
+storage_tb = 4
+
+
 [hosts.hades]
 realm = "erebus"
 os = "NixOS"
@@ -75,3 +88,15 @@ user = "asher"
 restic_local = "/home/asher/.local/restic"
 restic_ssd = "/run/media/asher/Extreme SSD/restic/"
 status = "active"
+
+
+[hosts.tantalus]
+realm = "tartarus"
+os = "NixOS"
+wm = "KDE"
+shell = "fish"
+terminal_emulator = "kitty"
+user = "alucascu"
+status = "active"
+restic_local = "/home/alucascu/.local/restic-repo/"
+restic_ssd = "/run/media/alucascu/Extreme SSD/restic/"
