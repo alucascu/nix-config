@@ -36,14 +36,12 @@
       loader.limine.enable = true;
       loader.efi.canTouchEfiVariables = true;
       kernelPackages = pkgs.linuxPackages_latest;
-      extraModprobeConfig = ''
-        options mt7925e disable_aspm=1
-      '';
     };
 
-    environment.sessionVariables = {
-      KWIN_DRM_DEVICES = "/dev/dri/card2";
-    };
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+};
 
     system.stateVersion = "25.11";
   };
