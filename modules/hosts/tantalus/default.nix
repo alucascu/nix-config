@@ -31,9 +31,8 @@
     };
 
 
-    boot.initrd.kernelModules = ["amdgpu"];
-
     boot = {
+      initrd.kernelModules = ["amdgpu"];
       loader.limine.enable = true;
       loader.efi.canTouchEfiVariables = true;
       kernelPackages = pkgs.linuxPackages_latest;
@@ -45,10 +44,6 @@
     environment.sessionVariables = {
       KWIN_DRM_DEVICES = "/dev/dri/card2";
     };
-
-    home-manager.users.alucascu.imports = [
-      inputs.self.modules.homeManager.gaming
-    ];
 
     system.stateVersion = "25.11";
   };
