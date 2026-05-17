@@ -35,6 +35,35 @@
       };
 
       immich.mediaLocation = "/mnt/atlas/immich";
+
+      restic.backups.immich-atlas = {
+        paths = ["/mnt/atlas/immich/"];
+        repository = "/mnt/atlas/restic-repo";
+        passwordFile = "/etc/restic-password";
+        timerConfig = {
+          OnCalendar = "daily";
+          Persistent = true;
+        };
+      };
+      restic.backups.immich-triton = {
+        paths = ["/mnt/atlas/immich/"];
+        repository = "/mnt/triton/restic-repo";
+        passwordFile = "/etc/restic-password";
+        timerConfig = {
+          OnCalendar = "daily";
+          Persistent = true;
+        };
+      };
+      services.restic.backups.immich-proton = {
+        paths = ["/mnt/atlas/immich"];
+        repository = "rclone:proton:immich-backup";
+        passwordFile = "/etc/restic-password";
+        rcloneConfigFile = "/etc/rclone/rclone.conf";
+        timerConfig = {
+          OnCalendar = "daily";
+          Persistent = true;
+        };
+      };
     };
 
     boot = {
