@@ -28,11 +28,20 @@ COLORS = {
     "hw_stroke":       "#5F5E5A",  # gray-600
     "hw_text":         "#444441",  # gray-800
     "host_fill":       "#FAECE7",  # coral-50
-    "host_stroke":     "#993C1D",  # coral-600
     "host_title":      "#712B13",  # coral-800
     "host_sub":        "#993C1D",  # coral-600
     "bg":              "#FFFFFF",
 }
+
+STATUS_ACCENT = {
+    "active":         "#16A34A",  # green-600
+    "dormant":        "#D97706",  # amber-600
+    "unprovisioned":  "#6B7280",  # gray-500
+    "decommissioned": "#9F1239",  # rose-800
+}
+
+ACCENT_W_HOST  = 4
+ACCENT_W_REALM = 5
 
 FONT = "system-ui, -apple-system, 'Segoe UI', sans-serif"
 
@@ -70,6 +79,7 @@ class RealmRow:
     owner: str
     form_factor: str | None
     model: str | None
+    status: str
     hw: dict | None          # realm_hardware row or None
     hosts: list[HostRow] = field(default_factory=list)
 
@@ -93,7 +103,7 @@ def load_data(db_path: str) -> list[PantheonRow]:
 
     realms: dict[str, RealmRow] = {}
     for row in con.execute(
-        "SELECT r.name, r.pantheon, r.owner, r.form_factor, r.model, "
+        "SELECT r.name, r.pantheon, r.owner, r.status, r.form_factor, r.model, "
         "       h.cpu, h.ram_gb, h.gpu, h.storage_tb "
         "FROM realms r "
         "LEFT JOIN realm_hardware h ON h.realm = r.name "
@@ -112,6 +122,7 @@ def load_data(db_path: str) -> list[PantheonRow]:
             owner=row["owner"],
             form_factor=row["form_factor"],
             model=row["model"],
+            status=row["status"],
             hw=hw,
         )
         realms[row["name"]] = realm
@@ -180,6 +191,19 @@ def text(x, y, content, anchor="start", size=13, weight=400, color="#000",
     )
 
 
+def left_accent_path(x, y, h, rx, accent_w, color) -> str:
+    """Filled path sharing a rect's left rounded corners — used for status accents."""
+    d = (
+        f"M {x+accent_w},{y} "
+        f"L {x+rx},{y} "
+        f"Q {x},{y} {x},{y+rx} "
+        f"L {x},{y+h-rx} "
+        f"Q {x},{y+h} {x+rx},{y+h} "
+        f"L {x+accent_w},{y+h} Z"
+    )
+    return f'<path d="{d}" fill="{color}"/>'
+
+
 # ── rendering passes ──────────────────────────────────────────────────────────
 
 def render_hw(lines: list[str], realm: RealmRow, x: int, y: int, w: int) -> None:
@@ -203,16 +227,18 @@ def render_hw(lines: list[str], realm: RealmRow, x: int, y: int, w: int) -> None
 
 
 def render_host_chip(lines: list[str], host: HostRow, x: int, y: int, w: int) -> None:
-    lines.append(rect(x, y, w, HOST_H, rx=6,
-                       fill=COLORS["host_fill"], stroke=COLORS["host_stroke"], sw=0.5))
-    lines.append(text(x + 10, y + 14, host.name,
+    lines.append(rect(x, y, w, HOST_H, rx=6, fill=COLORS["host_fill"], stroke="none"))
+    accent = STATUS_ACCENT.get(host.status, "#6B7280")
+    lines.append(left_accent_path(x, y, HOST_H, rx=6, accent_w=ACCENT_W_HOST, color=accent))
+    tx = x + ACCENT_W_HOST + 8
+    lines.append(text(tx, y + 14, host.name,
                        size=13, weight=500, color=COLORS["host_title"]))
     sub_parts = [host.os]
     if host.wm:
         sub_parts.append(host.wm)
     if host.shell:
         sub_parts.append(host.shell)
-    lines.append(text(x + 10, y + 30, "  ·  ".join(sub_parts),
+    lines.append(text(tx, y + 30, "  ·  ".join(sub_parts),
                        size=11, weight=400, color=COLORS["host_sub"]))
 
 
@@ -222,6 +248,8 @@ def render_realm(lines: list[str], realm: RealmRow,
     h = realm_inner_h(realm)
     lines.append(rect(x, y, w, h, rx=10,
                        fill=COLORS["realm_fill"], stroke=COLORS["realm_stroke"], sw=0.8))
+    accent = STATUS_ACCENT.get(realm.status, "#6B7280")
+    lines.append(left_accent_path(x, y, h, rx=10, accent_w=ACCENT_W_REALM, color=accent))
 
     cy = y + PAD_R
     lines.append(text(x + PAD_R, cy + TITLE_H // 2, realm.name,
