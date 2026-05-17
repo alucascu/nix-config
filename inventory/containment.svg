@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="704" height="1040" viewBox="0 0 704 1040" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
-<rect width="704" height="1040" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="704" height="1086" viewBox="0 0 704 1086" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+<rect width="704" height="1086" fill="#FFFFFF"/>
 <rect x="32" y="32" width="640" height="726" rx="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.0" />
 <text x="52" y="63" text-anchor="start" font-size="15" font-weight="500" fill="#3C3489" dominant-baseline="central">greek  —  Physical</text>
 <rect x="52" y="84" width="600" height="176" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8" />
@@ -46,14 +46,16 @@
 <path d="M 72,678 L 74,678 Q 68,678 68,684 L 68,716 Q 68,722 74,722 L 72,722 Z" fill="#16A34A"/>
 <text x="80" y="692" text-anchor="start" font-size="13" font-weight="500" fill="#712B13" dominant-baseline="auto">tantalus</text>
 <text x="80" y="708" text-anchor="start" font-size="11" font-weight="400" fill="#993C1D" dominant-baseline="auto">NixOS  ·  KDE Plasma 6  ·  fish</text>
-<rect x="32" y="782" width="640" height="202" rx="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.0" />
+<rect x="32" y="782" width="640" height="248" rx="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.0" />
 <text x="52" y="813" text-anchor="start" font-size="15" font-weight="500" fill="#3C3489" dominant-baseline="central">mesopotamian  —  Network</text>
-<rect x="52" y="834" width="600" height="130" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8" />
-<path d="M 57,834 L 62,834 Q 52,834 52,844 L 52,954 Q 52,964 62,964 L 57,964 Z" fill="#16A34A"/>
+<rect x="52" y="834" width="600" height="176" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8" />
+<path d="M 57,834 L 62,834 Q 52,834 52,844 L 52,1000 Q 52,1010 62,1010 L 57,1010 Z" fill="#16A34A"/>
 <text x="68" y="861" text-anchor="start" font-size="14" font-weight="500" fill="#085041" dominant-baseline="central">kur</text>
 <text x="68" y="880" text-anchor="start" font-size="11" font-weight="400" fill="#0F6E56" dominant-baseline="central">ATX  ·  Asher Lucas-Cuddeback</text>
-<rect x="68" y="904" width="279" height="44" rx="6" fill="#FAECE7" stroke="none" stroke-width="1.0" />
-<path d="M 72,904 L 74,904 Q 68,904 68,910 L 68,942 Q 68,948 74,948 L 72,948 Z" fill="#16A34A"/>
-<text x="80" y="918" text-anchor="start" font-size="13" font-weight="500" fill="#712B13" dominant-baseline="auto">apsu</text>
-<text x="80" y="934" text-anchor="start" font-size="11" font-weight="400" fill="#993C1D" dominant-baseline="auto">pfSense  ·  bash</text>
+<rect x="68" y="904" width="568" height="36" rx="6" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5" />
+<text x="78" y="922" text-anchor="start" font-size="11" font-weight="400" fill="#444441" dominant-baseline="central">Intel Core i5-10400  ·  12 GB RAM  ·  NULL  ·  0.2 TB</text>
+<rect x="68" y="950" width="279" height="44" rx="6" fill="#FAECE7" stroke="none" stroke-width="1.0" />
+<path d="M 72,950 L 74,950 Q 68,950 68,956 L 68,988 Q 68,994 74,994 L 72,994 Z" fill="#16A34A"/>
+<text x="80" y="964" text-anchor="start" font-size="13" font-weight="500" fill="#712B13" dominant-baseline="auto">apsu</text>
+<text x="80" y="980" text-anchor="start" font-size="11" font-weight="400" fill="#993C1D" dominant-baseline="auto">pfSense  ·  bash</text>
 </svg>

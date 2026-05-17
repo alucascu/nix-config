@@ -14,7 +14,8 @@ INSERT INTO realms (name, pantheon, owner, status, form_factor, model) VALUES
 
 INSERT INTO realm_hardware (realm, cpu, ram_gb, gpu, storage_tb) VALUES
     ('elysium', 'AMD Ryzen 9 9900x3d', 64, 'Zotac RTX 4070 Twin Edge', 4),
-    ('tartarus', 'AMD Ryzen 5 7600X', 32, 'MSI GAMING X Radeon RX 6600 XT 8 GB', 4);
+    ('tartarus', 'AMD Ryzen 5 7600X', 32, 'MSI GAMING X Radeon RX 6600 XT 8 GB', 4),
+    ('kur', 'Intel Core i5-10400', 12, 'NULL', 0.2);
 
 INSERT INTO hosts (name, realm, owner, os, wm, shell, terminal_emulator, user, status, restic_local, restic_ssd) VALUES
     ('hades', 'erebus', NULL, 'NixOS', 'KDE', 'fish', 'kitty', 'alucascu', 'active', '/home/alucascu/.local/restic-repo/', '/run/media/alucascu/Extreme SSD/restic/'),
