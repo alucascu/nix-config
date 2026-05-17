@@ -26,6 +26,7 @@
       gnupg
       work
       globalprotect
+      browser
     ];
   };
 }

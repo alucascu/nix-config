@@ -5,22 +5,17 @@
       globalprotect
     ];
   };
-  flake.modules.homeManager.work = {config, ...}: {
-    imports = with inputs.self.modules.homeManager; [];
 
+  flake.modules.homeManager.work = {
     programs.chromium = {
       enable = true;
       commandLineArgs = [
         "--profile-directory=work"
-        "--enable-features=WebUIDarkMode"
-        "--force-dark-mode"
       ];
     };
 
     programs.firefox = {
-      enable = true;
-      configPath = "${config.xdg.configHome}/mozilla/firefox";
-      profiles.default = {
+      profiles.work = {
         settings = {
           "network.protocol-handler.expose.globalprotectcallback" = false;
           "network.protocol-handler.external.globalprotectcallback" = true;
