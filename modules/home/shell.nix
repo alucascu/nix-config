@@ -1,7 +1,13 @@
-{...}: {
+{
   flake.modules.homeManager.shell = {pkgs, ...}: {
     programs = {
-      fish.enable = true;
+      fish = {
+        enable = true;
+        plugins = [];
+        interactiveShellInit = ''
+          any-nix-shell fish | source
+        '';
+      };
 
       starship = {
         enable = true;
