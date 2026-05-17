@@ -2,34 +2,23 @@
   flake.modules.nixos.tantalus = {
     inputs,
     pkgs,
-    lib,
     ...
   }: {
     imports =
-      [
-        ./_hardware-configuration.nix
-      ]
+      [./_hardware-configuration.nix]
       ++ (with inputs.self.modules.nixos; [
-        system-desktop
+        system-cli
         docker
         alucascu
       ]);
 
-    home-manager.users.alucascu.myConfig.sshKeyName = "tantalus";
-
-    networking = {
-      hostName = "tantalus";
-      networkmanager = {
-        enable = true;
-        wifi.backend = "iwd";
-      };
-    };
+    networking.hostName = "tantalus";
+    networking.networkmanager.enable = true;
 
     services.openssh = {
       enable = true;
       settings.PermitRootLogin = "no";
     };
-
 
     boot = {
       initrd.kernelModules = ["amdgpu"];
@@ -41,10 +30,11 @@
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
-};
+    };
 
     system.stateVersion = "25.11";
   };
 
-  flake.nixosConfigurations = inputs.self.lib.mkNixos "x86_64-linux" "tantalus";
+  flake.nixosConfigurations =
+    inputs.self.lib.mkNixos "x86_64-linux" "tantalus";
 }

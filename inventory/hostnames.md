@@ -4,10 +4,10 @@ Three-tier scheme: `pantheon → realm → host (god)`
 
 ---
 
-## Norse — physical machines
+## Norse — virtual machines
 
 The nine worlds of Norse cosmology hang from Yggdrasil, the world-tree. Each realm is a distinct
-physical domain, making them a natural fit for bare-metal devices.
+but interconnected domain, making them a natural fit for virtual machines.
 
 ### Asgard
 *Home of the Aesir gods, seat of Odin's hall Valhalla. Connected to Midgard by the rainbow bridge Bifrost.*
@@ -153,9 +153,10 @@ physical domain, making them a natural fit for bare-metal devices.
 
 ---
 
-## Greek — virtual machines
+## Greek — physical machines
 
-Greek mythology offers the richest naming pool, with clear domains for each realm of their cosmology.
+Greek cosmology spans the full physical spectrum from the heights of Olympus to the depths of Tartarus.
+Each realm is a distinct, grounded domain — a natural fit for bare-metal hardware.
 
 ### Olympus
 *The mountain home of the twelve Olympians, seat of divine power and governance.*

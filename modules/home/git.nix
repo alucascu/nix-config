@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.git = {
+  flake.modules.homeManager.git = {pkgs, ...}: {
     programs.git = {
       enable = true;
 
@@ -29,9 +29,20 @@
 
     programs.gh = {
       enable = true;
+      extensions = [pkgs.gh-dash];
       settings = {
         git_protocol = "ssh";
         editor = "nvim";
+        prSections = [
+          {
+            title = "My PRs";
+            filters = "is:open author:@me";
+          }
+          {
+            title = "Review";
+            filters = "is:open review-requested:@me";
+          }
+        ];
       };
     };
   };
