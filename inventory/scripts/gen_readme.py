@@ -3,7 +3,7 @@ gen_readme.py — regenerate inventory/README.md with prose, live tables, and an
 embedded containment SVG.
 
 Runs the full pipeline:
-  machines.toml → seed.sql → machines.db → containment.svg → README.md
+  seed.sql → machines.db → containment.svg → README.md
 
 Usage
 -----
@@ -76,11 +76,9 @@ def _run_pipeline() -> None:
         spec.loader.exec_module(mod)
         return mod
 
-    migrate_toml = load("migrate_toml")
-    build_db     = load("build_db")
-    gen_svg      = load("gen_containment")
+    build_db = load("build_db")
+    gen_svg  = load("gen_containment")
 
-    migrate_toml.migrate(INVENTORY / "machines.toml", INVENTORY / "seed.sql")
     build_db.build(INVENTORY / "machines.db")
 
     pantheons = gen_svg.load_data(str(INVENTORY / "machines.db"))
@@ -149,9 +147,8 @@ def _build_readme(db_path: pathlib.Path) -> str:
     # ── introduction ──────────────────────────────────────────────────────────
     parts.append(
         "This directory tracks every machine in the fleet. "
-        "The source of truth is `machines.toml`; everything else — "
-        "`seed.sql`, `machines.db`, and this README — is derived from it "
-        "by the scripts in `scripts/`.\n\n"
+        "The source of truth is `seed.sql`; `machines.db` and this README "
+        "are derived from it by the scripts in `scripts/`.\n\n"
         "Machines are organised in a three-tier hierarchy:\n\n"
         "```\n"
         "pantheon  →  realm  →  host\n"

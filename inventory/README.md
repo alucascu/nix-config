@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED — do not edit by hand; run `python inventory/scripts/gen_readme.py` -->
 # Inventory
 
-This directory tracks every machine in the fleet. The source of truth is `machines.toml`; everything else — `seed.sql`, `machines.db`, and this README — is derived from it by the scripts in `scripts/`.
+This directory tracks every machine in the fleet. The source of truth is `seed.sql`; `machines.db` and this README are derived from it by the scripts in `scripts/`.
 
 Machines are organised in a three-tier hierarchy:
 
@@ -33,6 +33,7 @@ A **realm** represents a physical or logical device. It belongs to a pantheon (a
 | elysium | greek | Asher Lucas-Cuddeback | Mini-ITX | AMD Ryzen 9 9900x3d  ·  64 GB RAM  ·  Zotac RTX 4070 Twin Edge  ·  4.0 TB | active |
 | erebus | greek | NCG | laptop | HP Elitebook 8 G1i 14in | active |
 | olympus | greek | NCG | laptop | HP Elitebook 840 G11 | active |
+| tartarus | greek | Asher Lucas-Cuddeback | ATX | AMD Ryzen 5 7600X  ·  32 GB RAM  ·  MSI GAMING X Radeon RX 6600 XT 8 GB  ·  4.0 TB | active |
 
 ## Hosts
 
@@ -45,6 +46,7 @@ A **host** represents a specific OS environment running on a realm. Multiple hos
 | odysseus | elysium | NixOS | KDE Plasma 6 | fish | alucascu | active |
 | hades | erebus | NixOS | KDE | fish | alucascu | active |
 | helios | erebus | Windows 11 | — | powershell | ncgmail/alucascuddeback | unprovisioned |
+| tantalus | tartarus | NixOS | KDE Plasma 6 | fish | alucascu | active |
 
 
 > **`helios`** is unprovisioned — the OS has been wiped and awaits reinstall.
