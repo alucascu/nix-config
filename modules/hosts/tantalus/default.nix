@@ -13,6 +13,7 @@
         alucascu
       ]);
 
+    home-manager.users.alucascu.myConfig.sshKeyName = "tantalus";
     networking.hostName = "tantalus";
     networking.networkmanager.enable = true;
 
