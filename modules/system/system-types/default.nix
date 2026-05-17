@@ -21,6 +21,7 @@
         neovim
         wget
         tmux
+        just
       ];
 
       environment.variables.EDITOR = "nvim";
