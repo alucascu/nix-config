@@ -28,7 +28,7 @@ modules/
 ├── services/           # docker, pipewire, fprintd, globalprotect, restic
 ├── programs/           # desktop-kde (plasma6, sddm, firefox), chromium, libreoffice
 ├── profiles/           # gaming, work — opt-in bundles of services/programs
-├── home/               # core, shell, git, gnupg, ssh, terminal, plasma, neovim
+├── home/               # core, shell, git, gnupg, ssh, terminal, plasma, browser, neovim
 ├── users/              # alucascu — NixOS account + home-manager wiring
 └── hosts/
     ├── hades/          # desktop host config + hardware-configuration

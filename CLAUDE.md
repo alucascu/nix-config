@@ -11,6 +11,8 @@ to their parent feature.
 .
 ├── flake.nix                          # inputs + import-tree bootstrap only
 ├── flake.lock
+├── justfile                           # task runner shortcuts
+├── inventory/                         # machine inventory (toml, sql schema, migration script)
 └── modules/
     ├── nix/
     │   └── flake-parts/
@@ -23,15 +25,26 @@ to their parent feature.
     │       └── default.nix            # system-default -> system-cli -> system-desktop
     ├── services/
     │   ├── pipewire.nix               # aspect: pipewire
-    │   └── docker.nix                 # aspect: docker
+    │   ├── docker.nix                 # aspect: docker
+    │   ├── fprintd.nix                # aspect: fprintd — fingerprint reader
+    │   ├── globalprotect.nix          # aspect: globalprotect — VPN (globalprotect-openconnect)
+    │   └── restic.nix                 # aspect: restic — backups to external SSD
     ├── programs/
-    │   └── desktop-kde.nix            # aspect: desktop-kde — plasma6, sddm, firefox, printing
+    │   ├── desktop-kde.nix            # aspect: desktop-kde — plasma6, sddm, printing
+    │   ├── chromium.nix               # aspect: chromium
+    │   └── libreoffice.nix            # aspect: libreoffice
+    ├── profiles/
+    │   ├── gaming.nix                 # aspects: gaming (nixos: steam, gamemode) + gaming (homeManager: mangohud)
+    │   └── work.nix                   # aspect: work — bundles chromium + globalprotect
     ├── home/
     │   ├── core.nix                   # aspect: core — packages, session vars, stateVersion
     │   ├── shell.nix                  # aspect: shell — fish, starship, direnv, tmux
     │   ├── git.nix                    # aspect: git — git + gh config
     │   ├── ssh.nix                    # aspect: ssh
     │   ├── terminal.nix               # aspect: terminal — kitty (Gruvbox, Lilex Nerd Font)
+    │   ├── browser.nix                # aspect: browser — BROWSER env var, xdg mime associations
+    │   ├── gnupg.nix                  # aspect: gnupg — gpg + gpg-agent
+    │   ├── plasma.nix                 # aspect: plasma — plasma-manager home config
     │   └── neovim/
     │       ├── default.nix            # aspect: neovim — imports lazyvim + internals
     │       ├── _extras.nix
@@ -41,12 +54,16 @@ to their parent feature.
     │       │   └── _options.nix
     │       └── plugins/
     │           ├── _conform.nix
-    │           └── _lsp.nix
+    │           ├── _lsp.nix
+    │           └── _obsidian.nix
     ├── users/
     │   └── alucascu.nix               # NixOS user + homeManager aspects
     └── hosts/
-        └── hades/
-            ├── default.nix            # host aspect + flake.nixosConfigurations
+        ├── hades/
+        │   ├── default.nix            # host aspect + flake.nixosConfigurations
+        │   └── _hardware-configuration.nix
+        └── odysseus/
+            ├── default.nix            # host aspect + flake.nixosConfigurations (nvidia, gaming)
             └── _hardware-configuration.nix
 ```
 
@@ -58,16 +75,21 @@ Classes used here: `nixos`, `homeManager`, `generic`.
 **Features** are files or directories that register one or more aspects.
 Only feature entry points are unprefixed — internal files use `_` prefix.
 
+**Profiles** (`modules/profiles/`) bundle multiple aspects into a named configuration
+for a use-case (e.g. `gaming`, `work`). A profile registers one or more nixos/homeManager
+aspects and is imported from a host, just like any other aspect.
+
 **System types** form an inheritance ladder:
 - `system-default` — imports `nix-settings` + `locale`; adds dbus-broker, bluetooth, nix-ld
-- `system-cli` — inherits system-default; adds git, neovim, wget, tmux; sets `EDITOR=nvim`
-- `system-desktop` — inherits system-cli; adds `desktop-kde` + `pipewire`
+- `system-cli` — inherits system-default; adds git, neovim, wget, tmux, just; sets `EDITOR=nvim`
+- `system-desktop` — inherits system-cli; adds `desktop-kde` + `pipewire`; enables pcscd
 
 ## Rebuild Commands
 
 ```bash
 # NixOS system + home-manager (home-manager is managed by NixOS module)
 sudo nixos-rebuild switch --flake .#hades
+sudo nixos-rebuild switch --flake .#odysseus
 
 # Check flake evaluates cleanly
 nix flake check
@@ -190,6 +212,8 @@ Then add `<name>` to the appropriate system-type or host imports.
 | `flake-parts` | module registry, flake output wiring |
 | `import-tree` | recursive auto-import of modules/ |
 | `lazyvim` | LazyVim home-manager module (pfassina/lazyvim-nix) |
+| `plasma-manager` | plasma-manager home-manager module (nix-community/plasma-manager) |
+| `globalprotect-openconnect` | GlobalProtect VPN client (yuezk/globalprotect-openconnect) |
 
 ## Important Rules
 
