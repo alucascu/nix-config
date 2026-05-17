@@ -43,11 +43,11 @@ A **host** represents a specific OS environment running on a realm. Multiple hos
 | Host | Realm | OS | WM | Shell | User | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | diomedes | elysium | Omarchy | hyprland | bash | asher | active |
-| hestia | elysium | CachyOS | hyprland | zsh | asherl | active |
 | odysseus | elysium | NixOS | KDE Plasma 6 | fish | alucascu | active |
 | hades | erebus | NixOS | KDE | fish | alucascu | active |
 | helios | erebus | Windows 11 | — | powershell | ncgmail/alucascuddeback | unprovisioned |
 | apsu | kur | pfSense | — | bash | admin | active |
+| hestia | olympus | CachyOS | hyprland | zsh | asherl | active |
 | tantalus | tartarus | NixOS | KDE Plasma 6 | fish | alucascu | active |
 
 
@@ -60,8 +60,8 @@ Hosts that carry restic backup configuration. `restic_local` is a repository on 
 | Host | Local repo | SSD repo |
 | --- | --- | --- |
 | diomedes | /home/asher/.local/restic | /run/media/asher/Extreme SSD/restic/ |
-| hestia | /home/asherl/.local/restic-repo/ | /run/media/asherl/Extreme SSD/restic/ |
 | hades | /home/alucascu/.local/restic-repo/ | /run/media/alucascu/Extreme SSD/restic/ |
+| hestia | /home/asherl/.local/restic-repo/ | /run/media/asherl/Extreme SSD/restic/ |
 
 ## Status Values
 
