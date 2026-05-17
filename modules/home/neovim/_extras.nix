@@ -20,5 +20,22 @@
       installDependencies = true;
       installRuntimeDependencies = true;
     };
+
+    rust = {
+      enable = true;
+      installDependencies = true; # rust-analyzer
+    };
+    ocaml = {
+      enable = true;
+      installDependencies = true;
+    };
+    dotnet = {
+      enable = true;
+      installDependencies = true; # fantomas, fsautocomplete via Mason
+    };
+    toml = {
+      enable = true;
+      installDependencies = true;
+    };
   };
 }
