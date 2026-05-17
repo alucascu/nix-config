@@ -75,3 +75,12 @@ user = "asher"
 restic_local = "/home/asher/.local/restic"
 restic_ssd = "/run/media/asher/Extreme SSD/restic/"
 status = "active"
+
+[hosts.odysseus]
+realm = "elysium"
+os = "NixOS"
+wm = "KDE Plasma 6"
+shell = "fish"
+terminal_emulator = "kitty"
+user = "alucascu"
+status = "active"
