@@ -7,15 +7,10 @@
   };
 
   flake.modules.homeManager.work = {
-    programs.chromium = {
-      enable = true;
-      commandLineArgs = [
-        "--profile-directory=work"
-      ];
-    };
-
     programs.firefox = {
       profiles.work = {
+        isDefault = false;
+        id = 1;
         settings = {
           "network.protocol-handler.expose.globalprotectcallback" = false;
           "network.protocol-handler.external.globalprotectcallback" = true;

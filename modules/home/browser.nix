@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.browser = {
+  flake.modules.homeManager.browser = {config, ...}: {
     home.sessionVariables.BROWSER = "firefox";
 
     xdg.mimeApps = {
@@ -15,8 +15,10 @@
 
     programs.firefox = {
       enable = true;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
       profiles.alucascu = {
         isDefault = true;
+        id = 0;
         settings = {
           "browser.startup.homepage" = "about:blank";
           "browser.newtabpage.enabled" = false;
@@ -26,13 +28,6 @@
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
       };
-    };
-
-    programs.chromium = {
-      commandLineArgs = [
-        "--enable-features=WebUIDarkMode"
-        "--force-dark-mode"
-      ];
     };
   };
 }
