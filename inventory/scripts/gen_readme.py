@@ -64,8 +64,10 @@ STATUS_DESCRIPTIONS = {
 
 # ── pipeline ──────────────────────────────────────────────────────────────────
 
-def _run_pipeline() -> str:
-    """Run migrate → build → gen_containment; return SVG text."""
+SVG_PATH = INVENTORY / "containment.svg"
+
+def _run_pipeline() -> None:
+    """Run migrate → build → gen_containment; write containment.svg."""
     import importlib.util
 
     def load(name: str):
@@ -82,7 +84,7 @@ def _run_pipeline() -> str:
     build_db.build(INVENTORY / "machines.db")
 
     pantheons = gen_svg.load_data(str(INVENTORY / "machines.db"))
-    return gen_svg.generate_svg(pantheons)
+    SVG_PATH.write_text(gen_svg.generate_svg(pantheons), encoding="utf-8")
 
 
 # ── DB queries ────────────────────────────────────────────────────────────────
@@ -133,7 +135,7 @@ def _section(title: str, body: str, level: int = 2) -> str:
 
 # ── README assembly ───────────────────────────────────────────────────────────
 
-def _build_readme(svg: str, db_path: pathlib.Path) -> str:
+def _build_readme(db_path: pathlib.Path) -> str:
     pantheons, realms, hosts = _load_tables(db_path)
 
     parts: list[str] = []
@@ -258,7 +260,8 @@ def _build_readme(svg: str, db_path: pathlib.Path) -> str:
         _section(
             "Containment Diagram",
             "Auto-generated from `machines.db` by `scripts/gen_containment.py`. "
-            "Shows the full pantheon → realm → host hierarchy at a glance.\n\n" + svg,
+            "Shows the full pantheon → realm → host hierarchy at a glance.\n\n"
+            '<img src="containment.svg" alt="Containment diagram">',
         )
     )
 
@@ -273,8 +276,8 @@ def main() -> None:
                         help="Exit 1 if README.md would change without writing it")
     args = parser.parse_args()
 
-    svg = _run_pipeline()
-    content = _build_readme(svg, INVENTORY / "machines.db")
+    _run_pipeline()
+    content = _build_readme(INVENTORY / "machines.db")
 
     if args.check:
         current = README_PATH.read_text() if README_PATH.exists() else ""
@@ -286,6 +289,7 @@ def main() -> None:
 
     README_PATH.write_text(content)
     print(f"wrote {README_PATH}")
+    print(f"wrote {SVG_PATH}")
 
 
 if __name__ == "__main__":
