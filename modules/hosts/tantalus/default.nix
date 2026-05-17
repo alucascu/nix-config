@@ -9,6 +9,7 @@
       ++ (with inputs.self.modules.nixos; [
         system-cli
         docker
+        immich
         alucascu
       ]);
 
