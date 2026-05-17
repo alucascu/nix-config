@@ -16,9 +16,24 @@
     networking.hostName = "tantalus";
     networking.networkmanager.enable = true;
 
-    services.openssh = {
-      enable = true;
-      settings.PermitRootLogin = "no";
+    fileSystems = {
+      "/mnt/atlas" = {
+        device = "/dev/disk/by-label/atlas";
+        fsType = "ext4";
+      };
+      "/mnt/triton" = {
+        device = "/dev/disk/by-label/triton";
+        fsType = "ext4";
+      };
+    };
+
+    services = {
+      openssh = {
+        enable = true;
+        settings.PermitRootLogin = "no";
+      };
+
+      immich.mediaLocation = "/mnt/atlas/immich";
     };
 
     boot = {
