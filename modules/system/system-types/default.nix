@@ -39,6 +39,7 @@
         system-cli
         desktop-kde
         pipewire
+        printing
       ];
       services = {
         pcscd.enable = true;
