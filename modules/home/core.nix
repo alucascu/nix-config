@@ -67,6 +67,7 @@
         tectonic
         typst
         zathura
+        zotero
 
         # Fonts
         nerd-fonts.lilex
