@@ -1,4 +1,3 @@
-# modules/nix/flake-parts/default.nix
 {
   inputs,
   lib,
@@ -27,6 +26,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {inherit inputs;};
           }
+          inputs.agenix.nixosModules.default # ← add this
         ];
       };
     };
