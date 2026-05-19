@@ -75,6 +75,7 @@
         devenv
         obsidian
         signal-desktop
+        chromium
       ];
     };
   };
