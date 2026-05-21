@@ -1,5 +1,9 @@
-{ lib, ... }: {
-  flake.modules.homeManager.ssh = { lib, config, ... }: {
+{lib, ...}: {
+  flake.modules.homeManager.ssh = {
+    lib,
+    config,
+    ...
+  }: {
     options.myConfig.sshKeyName = lib.mkOption {
       type = lib.types.str;
       default = "id_ed25519";
@@ -9,7 +13,7 @@
     config.programs.ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks = {
+      settings = {
         "*" = {
           forwardAgent = false;
           addKeysToAgent = "no";
@@ -24,17 +28,21 @@
         };
 
         "github" = {
-          host = "github.com";
-          hostname = "github.com";
-          user = "git";
-          identityFile = "~/.ssh/${config.myConfig.sshKeyName}";
+          HostName = "github.com";
+          User = "git";
+          IdentityFile = "~/.ssh/${config.myConfig.sshKeyName}";
         };
 
         "codeberg" = {
-          host = "codeberg.org";
-          hostname = "codeberg.org";
-          user = "git";
-          identityFile = "~/.ssh/${config.myConfig.sshKeyName}";
+          HostName = "codeberg.org";
+          User = "git";
+          IdentityFile = "~/.ssh/${config.myConfig.sshKeyName}";
+        };
+
+        "tantalus" = {
+          Host = "tantalus";
+          HostName = "10.93.247.105";
+          User = "alucascu";
         };
       };
     };
