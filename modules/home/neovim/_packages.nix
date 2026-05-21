@@ -32,5 +32,10 @@
 
     # TOML
     taplo
+
+    # Typescript
+    vtsls
+    prettierd
+    vscode-langservers-extracted
   ];
 }

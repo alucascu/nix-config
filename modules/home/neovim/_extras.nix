@@ -37,5 +37,10 @@
       enable = true;
       installDependencies = true;
     };
+
+    typescript = {
+      enable = true;
+      installDependencies = true;
+    };
   };
 }
