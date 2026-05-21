@@ -38,12 +38,12 @@
     };
     services.xserver.videoDrivers = ["nvidia"];
 
-    boot.initrd.kernelModules = ["amdgpu"];
-
     boot = {
       loader.limine.enable = true;
       loader.efi.canTouchEfiVariables = true;
+      initrd.kernelModules = ["amdgpu"];
       kernelPackages = pkgs.linuxPackages_latest;
+      kernelParams = ["iommu=pt"];
       extraModprobeConfig = ''
         options mt7925e disable_aspm=1
       '';
