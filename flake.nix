@@ -28,6 +28,11 @@
       url = "github:yuezk/globalprotect-openconnect";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    starttree = {
+      url = "github:Paul-Houser/StartTree";
+      flake = false;
+    };
   };
 
   outputs = inputs:
