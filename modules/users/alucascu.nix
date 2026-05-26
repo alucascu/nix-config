@@ -28,6 +28,7 @@
       work
       globalprotect
       browser
+      vscode
     ];
   };
 }
