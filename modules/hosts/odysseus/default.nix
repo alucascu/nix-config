@@ -13,6 +13,7 @@
         system-desktop
         docker
         gaming
+        work
         alucascu
       ]);
 
