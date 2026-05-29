@@ -6,7 +6,12 @@
     ];
   };
 
-  flake.modules.homeManager.work = {
+  flake.modules.homeManager.work = {pkgs, ...}: {
+    home.packages = with pkgs; [
+      slack
+      zoom-us
+    ];
+
     programs.firefox.profiles.alucascu.settings = {
       "network.protocol-handler.expose.globalprotectcallback" = false;
       "network.protocol-handler.external.globalprotectcallback" = true;
