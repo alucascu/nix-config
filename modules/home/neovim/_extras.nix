@@ -42,5 +42,10 @@
       enable = true;
       installDependencies = true;
     };
+
+    julia = {
+      enable = true;
+      installDependencies = true;
+    };
   };
 }
