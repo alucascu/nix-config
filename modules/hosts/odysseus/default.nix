@@ -14,6 +14,7 @@
         gaming
         work
         alucascu
+        globalprotect
       ]);
 
     home-manager.users.alucascu.myConfig.sshKeyName = "odysseus";
