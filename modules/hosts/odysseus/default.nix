@@ -2,7 +2,6 @@
   flake.modules.nixos.odysseus = {
     inputs,
     pkgs,
-    lib,
     ...
   }: {
     imports =
