@@ -7,6 +7,7 @@
       ./plugins/_conform.nix
       ./plugins/_lsp.nix
       ./plugins/_obsidian.nix
+      ./plugins/_colorscheme.nix
       ./config/_keymaps.nix
       ./config/_options.nix
     ];
