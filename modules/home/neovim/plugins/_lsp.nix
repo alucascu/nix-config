@@ -17,6 +17,17 @@
             },
           },
         }
+        opts.servers.ocamllsp = {
+          settings = {
+            codelens = { enable = true },
+            inlayHints = {
+              hintLetBindings = true,
+              hintPatternVariables = true,
+            },
+            extendedHover = { enable = true },
+            syntaxDocumentation = { enable = true },
+          },
+        }
         return opts
       end,
     }

@@ -19,9 +19,13 @@
     # Rust
     rust-analyzer
 
-    # OCaml — Mason can't install ocaml-lsp on NixOS
+    # OCaml toolchain
+    ocamlPackages.OCaml
     ocamlPackages.ocaml-lsp
     ocamlPackages.ocamlformat
+    dune_3
+    ocamlPackages.findlib
+    ocamlPackages.utop
 
     # F# / .NET — needs dotnet SDK on PATH
     dotnet-sdk_8
