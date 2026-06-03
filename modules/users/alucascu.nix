@@ -29,6 +29,7 @@
       globalprotect
       browser
       vscode
+      zellij
     ];
   };
 }
