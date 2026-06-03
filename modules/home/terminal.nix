@@ -19,8 +19,8 @@
         enable_audio_bell = false;
         window_padding_width = 4;
         confirm_os_window_close = 0;
-        shell = "fish";
         disable_ligatures = "never";
+        auto_reload_config = -1;
       };
     };
   };
