@@ -56,6 +56,8 @@
           bind -r K resize-pane -U 5
           bind -r L resize-pane -R 5
 
+          set -g focus-events on
+          setw -g aggresive-resize on
 
           ## Color
           set -g default-terminal "tmux-256color"
