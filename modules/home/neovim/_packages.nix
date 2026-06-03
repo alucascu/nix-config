@@ -20,7 +20,6 @@
     rust-analyzer
 
     # OCaml toolchain
-    ocamlPackages.OCaml
     ocamlPackages.ocaml-lsp
     ocamlPackages.ocamlformat
     dune_3
