@@ -19,13 +19,17 @@
         }
         opts.servers.ocamllsp = {
           settings = {
-            codelens = { enable = true },
-            inlayHints = {
-              hintLetBindings = true,
-              hintPatternVariables = true,
+            ocamllsp = {
+              codelens = { enable = true },
+              inlayHints = {
+                enable = true,
+                hintLetBindings = true,
+                hintPatternVariables = true,
+                hintFunctionParams = true,
+              },
+              extendedHover = { enable = true },
+              syntaxDocumentation = { enable = true },
             },
-            extendedHover = { enable = true },
-            syntaxDocumentation = { enable = true },
           },
         }
         return opts
