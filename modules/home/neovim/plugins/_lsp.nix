@@ -29,6 +29,7 @@
             basedpyright = {
               typeCheckingMode = "off",
               disableOrganizeImports = true,
+              disableTaggedHints = true,
             },
           },
           capabilities = {
