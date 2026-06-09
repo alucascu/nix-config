@@ -9,10 +9,32 @@
           settings = {
             nixd = {
               nixpkgs = {
-                expr = 'import (builtins.getflake "/home/alucascu/nixConfig").inputs.nixpkgs {}',
+                expr = 'import (builtins.getflake "/home/alucascu/nix-config").inputs.nixpkgs {}',
               },
               formatting = {
                 command = { "alejandra" },
+              },
+            },
+          },
+        }
+        opts.servers.ty = {
+          settings = {
+            ty = {
+              diagnosticMode = "workspace",
+            },
+          },
+        }
+        opts.servers.basedpyright = {
+          settings = {
+            basedpyright = {
+              typeCheckingMode = "off",
+              disableOrganizeImports = true,
+            },
+          },
+          capabilities = {
+            textDocument = {
+              semanticTokens = {
+                multilineTokenSupport = false,
               },
             },
           },

@@ -9,6 +9,7 @@
     # Python
     ruff
     ty
+    basedpyright
 
     # Haskell
     haskellPackages.haskell-debug-adapter
