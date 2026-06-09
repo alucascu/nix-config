@@ -6,6 +6,11 @@
       editor = {
         aerial.enable = true;
       };
+
+      util = {
+        octo.enable = true;
+      };
+
       lang = {
         nix.enable = true;
 
@@ -51,6 +56,10 @@
         julia = {
           enable = true;
           installDependencies = true;
+        };
+
+        git = {
+          enable = true;
         };
       };
     };
