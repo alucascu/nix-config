@@ -9,8 +9,8 @@
 
       caddy = {
         enable = true;
-        virtualHosts."http://immich.local".extraConfig = ''
-          reverse_proxy localhost:2283
+        virtualHosts."http://immich.lan".extraConfig = ''
+          reverse_proxy 127.0.0.1:2283
         '';
       };
     };

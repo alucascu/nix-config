@@ -14,8 +14,23 @@
       ]);
 
     home-manager.users.alucascu.myConfig.sshKeyName = "tantalus";
-    networking.hostName = "tantalus";
-    networking.networkmanager.enable = true;
+
+    networking = {
+      hostName = "tantalus";
+      networkmanager.enable = true;
+      useDHCP = false;
+      interfaces.enp14so = {
+        useDHCP = false;
+        ipv4.addresses = [
+          {
+            address = "10.93.247.105";
+            prefixLength = 24;
+          }
+        ];
+      };
+      defaultGateway = "10.93.247.97";
+      nameservers = ["10.93.247.97"];
+    };
 
     fileSystems = {
       "/mnt/atlas" = {
