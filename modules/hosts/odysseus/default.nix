@@ -33,9 +33,9 @@
     };
 
     hardware.nvidia = {
-      open = true;
+      open = false;
       modesetting.enable = true;
-      powerManagement.enable = false;
+      powerManagement.enable = true;
     };
     services.xserver.videoDrivers = ["nvidia"];
 
@@ -44,7 +44,7 @@
       loader.efi.canTouchEfiVariables = true;
       initrd.kernelModules = ["amdgpu"];
       kernelPackages = pkgs.linuxPackages_latest;
-      kernelParams = ["iommu=pt"];
+      kernelParams = ["iommu=pt" "panic=30"];
       extraModprobeConfig = ''
         options mt7925e disable_aspm=1
       '';
