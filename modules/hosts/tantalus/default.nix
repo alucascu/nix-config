@@ -10,6 +10,7 @@
         system-cli
         docker
         immich
+        freshrss
         alucascu
       ]);
 
@@ -30,6 +31,7 @@
       };
       defaultGateway = "10.93.247.97";
       nameservers = ["10.93.247.97"];
+      firewall.allowedTCPPorts = [80 443];
     };
 
     fileSystems = {
