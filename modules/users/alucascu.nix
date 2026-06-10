@@ -28,6 +28,8 @@
       work
       globalprotect
       browser
+      vscode
+      zellij
     ];
   };
 }

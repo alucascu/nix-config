@@ -16,6 +16,8 @@
         work
         fprintd
         globalprotect
+        agenix
+        openvpn
       ]);
 
     swapDevices = lib.mkForce [];

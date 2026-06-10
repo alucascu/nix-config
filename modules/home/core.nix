@@ -67,6 +67,7 @@
         tectonic
         typst
         zathura
+        zotero
 
         # Fonts
         nerd-fonts.lilex
@@ -74,6 +75,7 @@
         devenv
         obsidian
         signal-desktop
+        chromium
       ];
     };
   };

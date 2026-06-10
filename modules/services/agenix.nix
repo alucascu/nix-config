@@ -1,0 +1,11 @@
+{
+  flake.modules.nixos.agenix = {
+    inputs,
+    pkgs,
+    ...
+  }: {
+    environment.systemPackages = [
+      inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ];
+  };
+}

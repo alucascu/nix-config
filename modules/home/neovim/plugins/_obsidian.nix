@@ -12,7 +12,7 @@
         workspaces = {
           {
             name = "School",
-            path = "/home/asherl/Documents/School",
+            path = "/home/alucascu/Documents/School",
           },
         },
       },

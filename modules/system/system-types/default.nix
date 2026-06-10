@@ -10,8 +10,11 @@
         locale
       ];
 
+      hardware = {
+        enableRedistributableFirmware = true;
+        bluetooth.enable = true;
+      };
       services.dbus.implementation = "broker";
-      hardware.bluetooth.enable = true;
       programs.nix-ld.enable = true;
     };
 
@@ -39,6 +42,7 @@
         system-cli
         desktop-kde
         pipewire
+        printing
       ];
       services = {
         pcscd.enable = true;

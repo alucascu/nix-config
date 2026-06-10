@@ -28,6 +28,18 @@
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
       };
+
+      policies = {
+        EnableTrackingProtection = {
+          Value = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+          Exceptions = [
+            "https://outlook.cloud.microsoft"
+            "https://teams.cloud.microsoft"
+          ];
+        };
+      };
     };
   };
 }

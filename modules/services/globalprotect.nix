@@ -25,7 +25,7 @@
     ];
 
     home.shellAliases = {
-      vpn = "sudo -E gpclient --fix-openssl --ignore-tls-errors connect --browser firefox gp2.northcrossgroup.com & disown";
+      vpn = "sudo -E gpclient --fix-openssl --ignore-tls-errors connect --browser firefox gp2.northcrossgroup.com --as-gateway & disown";
       vpn-callback = "gp-callback";
       vpn-off = "sudo gpclient disconnect";
     };

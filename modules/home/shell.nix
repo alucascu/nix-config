@@ -7,6 +7,11 @@
         interactiveShellInit = ''
           any-nix-shell fish | source
         '';
+        shellAliases = {
+          ovpn-up = "sudo systemctl start openvpn-vpn";
+          ovpn-down = "sudo systemctl stop openvpn-vpn";
+          ovpn-status = "sudo systemctl status openvpn-vpn";
+        };
       };
 
       starship = {
@@ -51,6 +56,8 @@
           bind -r K resize-pane -U 5
           bind -r L resize-pane -R 5
 
+          set -g focus-events on
+          setw -g aggresive-resize on
 
           ## Color
           set -g default-terminal "tmux-256color"

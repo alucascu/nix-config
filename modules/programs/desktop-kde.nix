@@ -11,8 +11,6 @@
         layout = "us";
         variant = "";
       };
-
-      printing.enable = true;
     };
 
     programs.firefox.enable = true;

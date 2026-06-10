@@ -2,7 +2,6 @@
   flake.modules.nixos.odysseus = {
     inputs,
     pkgs,
-    lib,
     ...
   }: {
     imports =
@@ -13,7 +12,9 @@
         system-desktop
         docker
         gaming
+        work
         alucascu
+        globalprotect
       ]);
 
     home-manager.users.alucascu.myConfig.sshKeyName = "odysseus";
@@ -32,18 +33,18 @@
     };
 
     hardware.nvidia = {
-      open = true;
+      open = false;
       modesetting.enable = true;
-      powerManagement.enable = false;
+      powerManagement.enable = true;
     };
     services.xserver.videoDrivers = ["nvidia"];
-
-    boot.initrd.kernelModules = ["amdgpu"];
 
     boot = {
       loader.limine.enable = true;
       loader.efi.canTouchEfiVariables = true;
+      initrd.kernelModules = ["amdgpu"];
       kernelPackages = pkgs.linuxPackages_latest;
+      kernelParams = ["iommu=pt" "panic=30"];
       extraModprobeConfig = ''
         options mt7925e disable_aspm=1
       '';

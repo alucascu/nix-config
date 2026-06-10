@@ -9,11 +9,26 @@
           settings = {
             nixd = {
               nixpkgs = {
-                expr = 'import (builtins.getflake "/home/alucascu/nixConfig").inputs.nixpkgs {}',
+                expr = 'import (builtins.getflake "/home/alucascu/nix-config").inputs.nixpkgs {}',
               },
               formatting = {
                 command = { "alejandra" },
               },
+            },
+          },
+        }
+        opts.servers.ocamllsp = {
+          settings = {
+            ocamllsp = {
+              codelens = { enable = true },
+              inlayHints = {
+                enable = true,
+                hintLetBindings = true,
+                hintPatternVariables = true,
+                hintFunctionParams = true,
+              },
+              extendedHover = { enable = true },
+              syntaxDocumentation = { enable = true },
             },
           },
         }

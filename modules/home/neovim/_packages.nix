@@ -9,6 +9,7 @@
     # Python
     ruff
     ty
+    basedpyright
 
     # Haskell
     haskellPackages.haskell-debug-adapter
@@ -19,9 +20,12 @@
     # Rust
     rust-analyzer
 
-    # OCaml — Mason can't install ocaml-lsp on NixOS
+    # OCaml toolchain
     ocamlPackages.ocaml-lsp
     ocamlPackages.ocamlformat
+    dune_3
+    ocamlPackages.findlib
+    ocamlPackages.utop
 
     # F# / .NET — needs dotnet SDK on PATH
     dotnet-sdk_8
@@ -32,5 +36,10 @@
 
     # TOML
     taplo
+
+    # Typescript
+    vtsls
+    prettierd
+    vscode-langservers-extracted
   ];
 }
