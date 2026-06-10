@@ -17,29 +17,6 @@
             },
           },
         }
-        opts.servers.ty = {
-          settings = {
-            ty = {
-              diagnosticMode = "workspace",
-            },
-          },
-        }
-        opts.servers.basedpyright = {
-          settings = {
-            basedpyright = {
-              typeCheckingMode = "off",
-              disableOrganizeImports = true,
-              disableTaggedHints = true,
-            },
-          },
-          capabilities = {
-            textDocument = {
-              semanticTokens = {
-                multilineTokenSupport = false,
-              },
-            },
-          },
-        }
         opts.servers.ocamllsp = {
           settings = {
             ocamllsp = {
