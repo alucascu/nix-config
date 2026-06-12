@@ -11,6 +11,8 @@
           ovpn-up = "sudo systemctl start openvpn-vpn";
           ovpn-down = "sudo systemctl stop openvpn-vpn";
           ovpn-status = "sudo systemctl status openvpn-vpn";
+          wg-up = "sudo systemctl start wireguard-wg0";
+          wg-down = "sudo systemctl stop wireguard-wg0";
         };
       };
 
