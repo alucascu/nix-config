@@ -23,6 +23,7 @@
 
     networking = {
       hostName = "odysseus";
+      wireguard.interfaces.wg0.ips = ["10.100.0.3/24"];
       networkmanager = {
         enable = true;
         wifi.backend = "iwd";
