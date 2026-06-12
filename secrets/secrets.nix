@@ -1,5 +1,4 @@
 let
-  # Host SSH keys (used for system-level decryption at activation)
   hades = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINO3z2StZULhOzO2gmKJGLHpLjIBGKL3LNFhlPkZKRWv root@hades";
   odysseus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPogMWSjJAxiaBryiqK6YHFqMHT9gQlzttPGiIel4H9w root@odysseus";
   tantalus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB3kI7sQXaeiBL5saaK4HPD44+wpX74WjqtpXmxTHmMs root@tantalus";
@@ -12,4 +11,5 @@ let
 in {
   "vpn.age".publicKeys = systems ++ users;
   "freshrss-password.age".publicKeys = systems ++ users;
+  "wireguard-hades.age".publicKeys = [hades alucascu_hades];
 }
