@@ -11,6 +11,6 @@ let
 in {
   "vpn.age".publicKeys = systems ++ users;
   "freshrss-password.age".publicKeys = systems ++ users;
-  "wireguard-hades.age".publicKeys = [hades alucascu_hades];
-  "wireguard-odysseus.age".publicKeys = [odysseus alucascu_odysseus];
+  "wireguard-hades.age".publicKeys = [hades alucascu_hades alucascu_odysseus];
+  "wireguard-odysseus.age".publicKeys = [odysseus alucascu_odysseus alucascu_hades];
 }
