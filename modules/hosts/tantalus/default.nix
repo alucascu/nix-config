@@ -11,6 +11,7 @@
         docker
         immich
         freshrss
+        ollama
         alucascu
       ]);
 
