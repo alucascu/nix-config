@@ -2,7 +2,7 @@
   flake.modules.nixos.searxng = {
     services.searx = {
       enable = true;
-      runInUwsgi = false;
+      configureUwsgi = false;
       settings = {
         server = {
           port = 11437;
@@ -12,6 +12,7 @@
         search = {
           safe_search = 0;
           default_lang = "en";
+          formats = ["html" "json"];
         };
       };
     };
