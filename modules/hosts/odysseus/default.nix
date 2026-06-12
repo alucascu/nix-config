@@ -15,6 +15,8 @@
         work
         alucascu
         globalprotect
+        agenix
+        wireguard
       ]);
 
     home-manager.users.alucascu.myConfig.sshKeyName = "odysseus";
