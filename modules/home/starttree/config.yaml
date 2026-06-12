@@ -1,0 +1,48 @@
+font_size: 20
+theme: gruvbox
+
+tree_1:
+  self-hosted:
+    freshrss:
+      - "https://rss.tantalus.lan/"
+      - "freshrss"
+    immich: "http://immich.lan/"
+  daily:
+    gmail: "https://mail.google.com/"
+    proton:
+      - "https://account.proton.me/"
+      - "proton mail"
+  work:
+    teams: "https://teams.cloud.microsoft/"
+    outlook: "https://outlook.cloud.microsoft/mail/"
+    ncg-github: 
+      - "https://github.com/NorthcrossGroup/"
+      - "NCG Github"
+
+tree_2:
+  dev:
+    github: "https://github.com/alucascu/"
+    nixpkgs:
+      - "https://search.nixos.org/packages"
+      - "nixpkgs search"
+    nix-options:
+      - "https://search.nixos.org/options"
+      - "nixos options"
+    home-manager:
+      - "https://home-manager-options.extranix.com/"
+      - "home-manager options"
+    noogle: "https://noogle.dev/"
+  reference:
+    nixos-wiki:
+      - "https://wiki.nixos.org/"
+      - "nixos wiki"
+
+tree_3:
+  media:
+    youtube: "https://www.youtube.com/"
+    tidal: "https://tidal.com/"
+  social:
+    reddit: "https://www.reddit.com/"
+    hacker-news:
+      - "https://news.ycombinator.com/"
+      - "hacker news"

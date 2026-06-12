@@ -8,17 +8,16 @@
   in {
     home.file.".config/StartTree/config.yaml".source = ./config.yaml;
 
+    # generate.py reads its skeletons/themes from and writes index.html into
+    # ~/.cache/StartTree, so the supporting trees must live there.
     home.activation.starttree = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      WORK="$HOME/.local/share/StartTree"
-      mkdir -p "$WORK" "$HOME/.cache/StartTree"
+      CACHE="$HOME/.cache/StartTree"
+      mkdir -p "$CACHE/styles"
 
-      ln -sf ${inputs.starttree}/generate.py "$WORK/generate.py"
-      ln -sf ${inputs.starttree}/themes      "$WORK/themes"
-      ln -sf ${inputs.starttree}/skeletons   "$WORK/skeletons"
-      ln -sf "$HOME/.config/StartTree/config.yaml" "$WORK/config.yaml"
+      ln -sfn ${inputs.starttree}/themes    "$CACHE/themes"
+      ln -sfn ${inputs.starttree}/skeletons "$CACHE/skeletons"
 
-      cd "$WORK"
-      ${python}/bin/python3 generate.py
+      ${python}/bin/python3 ${inputs.starttree}/generate.py
     '';
 
     programs.firefox.profiles.alucascu.settings = {

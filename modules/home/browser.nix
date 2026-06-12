@@ -1,5 +1,9 @@
 {
-  flake.modules.homeManager.browser = {config, ...}: {
+  flake.modules.homeManager.browser = {
+    config,
+    lib,
+    ...
+  }: {
     home.sessionVariables.BROWSER = "firefox";
 
     xdg.mimeApps = {
@@ -20,7 +24,7 @@
         isDefault = true;
         id = 0;
         settings = {
-          "browser.startup.homepage" = "about:blank";
+          "browser.startup.homepage" = lib.mkDefault "about:blank";
           "browser.newtabpage.enabled" = false;
           "browser.shell.checkDefaultBrowser" = false;
           "dom.security.https_only_mode" = true;
