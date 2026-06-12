@@ -4,6 +4,9 @@
       file = ../../secrets/freshrss-password.age;
       owner = "freshrss";
     };
+    services.caddy.virtualHosts."rss.tantalus.lan".extraConfig = ''
+      tls internal
+    '';
 
     services.freshrss = {
       enable = true;
