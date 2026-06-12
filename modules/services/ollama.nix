@@ -6,6 +6,9 @@
       rocmOverrideGfx = "10.3.0";
       host = "127.0.0.1";
       port = 11434;
+      environmentVariables = {
+        OLLAMA_NUM_CTX = "16384";
+      };
     };
     networking.firewall.allowedTCPPorts = [11434];
   };

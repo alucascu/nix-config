@@ -13,6 +13,7 @@
         freshrss
         ollama
         open-webui
+        searxng
         alucascu
       ]);
 
