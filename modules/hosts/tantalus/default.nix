@@ -12,8 +12,13 @@
         immich
         freshrss
         ollama
+        open-webui
+        searxng
+        karakeep
         alucascu
       ]);
+
+    environment.systemPackages = with pkgs; [amdgpu_top];
 
     home-manager.users.alucascu.myConfig.sshKeyName = "tantalus";
 
