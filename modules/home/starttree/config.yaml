@@ -7,6 +7,8 @@ tree_1:
       - "https://rss.tantalus.lan/"
       - "freshrss"
     immich: "http://immich.lan/"
+    ai: "http://ai.tantalus.lan:8080"
+    karakeep: "http://karakeep.lan"
   daily:
     gmail: "https://mail.google.com/"
     proton:
