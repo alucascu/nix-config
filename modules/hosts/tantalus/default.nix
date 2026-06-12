@@ -12,6 +12,7 @@
         immich
         freshrss
         ollama
+        open-webui
         alucascu
       ]);
 
