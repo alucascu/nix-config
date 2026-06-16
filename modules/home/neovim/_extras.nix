@@ -61,6 +61,11 @@
         git = {
           enable = true;
         };
+
+        markdown = {
+          enable = true;
+          installDependencies = true;
+        };
       };
     };
   };

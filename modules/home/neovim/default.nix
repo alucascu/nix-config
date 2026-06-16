@@ -6,11 +6,12 @@
       ./_packages.nix
       ./plugins/_conform.nix
       ./plugins/_lsp.nix
-      ./plugins/_obsidian.nix
       ./plugins/_colorscheme.nix
       ./plugins/_pomo.nix
       ./config/_keymaps.nix
       ./config/_options.nix
+      ./plugins/_blink_luasnip.nix
+      ./plugins/_oil.nix
     ];
   };
 }
