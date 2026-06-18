@@ -1,7 +1,6 @@
 {
   programs.lazyvim = {
     enable = true;
-
     extras = {
       editor = {
         aerial.enable = true;
