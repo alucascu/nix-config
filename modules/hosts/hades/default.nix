@@ -17,8 +17,6 @@
         fprintd
         globalprotect
         agenix
-        openvpn
-        wireguard
       ]);
 
     swapDevices = lib.mkForce [];
