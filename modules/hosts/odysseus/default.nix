@@ -58,8 +58,11 @@
       KWIN_DRM_DEVICES = "/dev/dri/card2";
     };
 
-    home-manager.users.alucascu.imports = [
-      inputs.self.modules.homeManager.gaming
+    home-manager.users.alucascu.imports = with inputs.self.modules.homeManager; [
+      gaming
+      vlc
+      ffmpeg
+      mpv
     ];
 
     system.stateVersion = "25.11";
