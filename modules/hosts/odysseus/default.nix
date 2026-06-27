@@ -15,6 +15,9 @@
         work
         alucascu
         agenix
+        v4l2loopback
+        obs-studio
+        wireguard
       ]);
 
     home-manager.users.alucascu.myConfig.sshKeyName = "odysseus";
