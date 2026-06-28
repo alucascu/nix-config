@@ -31,6 +31,8 @@
       starttree
       vscode
       zellij
+      tagstudio
+      discord
     ];
   };
 }

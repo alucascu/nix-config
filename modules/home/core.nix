@@ -19,6 +19,7 @@
         xz
         unzip
         p7zip
+        veracrypt
 
         # CLI Utilities
         ripgrep
@@ -78,6 +79,7 @@
         chromium
         teams-for-linux
         thunderbird
+        digikam
       ];
     };
   };

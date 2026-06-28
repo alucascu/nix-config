@@ -19,5 +19,6 @@
 
   flake.modules.homeManager.gaming = {pkgs, ...}: {
     programs.mangohud.enable = true;
+    home.packages = [pkgs.prismlauncher];
   };
 }
