@@ -33,6 +33,7 @@
       zellij
       tagstudio
       discord
+      uv-tools
     ];
   };
 }

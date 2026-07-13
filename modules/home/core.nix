@@ -80,6 +80,10 @@
         teams-for-linux
         thunderbird
         digikam
+        python314
+        qbittorrent
+        proton-vpn-cli
+        nodejs
       ];
     };
   };
