@@ -14,6 +14,6 @@
     };
 
     programs.firefox.enable = true;
-    environment.systemPackages = with pkgs; [libreoffice];
+    environment.systemPackages = with pkgs; [libreoffice kdePackages.oxygen];
   };
 }
