@@ -84,6 +84,7 @@
         qbittorrent
         proton-vpn-cli
         nodejs
+        sqlite
       ];
     };
   };
