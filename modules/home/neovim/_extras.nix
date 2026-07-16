@@ -65,6 +65,11 @@
           enable = true;
           installDependencies = true;
         };
+
+        sql = {
+          enable = true;
+          installDependencies = true;
+        };
       };
     };
   };

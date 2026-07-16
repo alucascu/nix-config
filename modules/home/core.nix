@@ -85,6 +85,7 @@
         proton-vpn-cli
         nodejs
         sqlite
+        harlequin
       ];
     };
   };
