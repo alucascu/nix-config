@@ -43,6 +43,13 @@
             },
           },
         }
+        opts.servers.ltex_plus = {
+          settings = {
+            ltex = {
+              language = "en-US",
+            },
+          },
+        }
         return opts
       end,
     }
