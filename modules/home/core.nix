@@ -86,6 +86,8 @@
         nodejs
         sqlite
         harlequin
+        megasync
+        rclone
       ];
     };
   };
