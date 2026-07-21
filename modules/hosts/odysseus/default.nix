@@ -9,7 +9,7 @@
         ./_hardware-configuration.nix
       ]
       ++ (with inputs.self.modules.nixos; [
-        system-desktop
+        desktop
         docker
         gaming
         work
