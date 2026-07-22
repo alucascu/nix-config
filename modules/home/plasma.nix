@@ -3,6 +3,7 @@
     home.packages = [
       pkgs.kde-gruvbox
       pkgs.plasma-panel-colorizer
+      pkgs.kdePackages.kcharselect
     ];
 
     programs.plasma = {
