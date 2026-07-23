@@ -41,6 +41,7 @@
       imports = with inputs.self.modules.nixos; [
         system-cli
         desktop-kde
+        plymouth-nix-gruvbox
         pipewire
         printing
       ];

@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=nix-gruvbox
+Description=Gruvbox-toned Nix snowflake boot splash
+ModuleName=script
+
+[script]
+ImageDir=/etc/plymouth/themes/nix-gruvbox
+ScriptFile=/etc/plymouth/themes/nix-gruvbox/nix-gruvbox.script

@@ -1,0 +1,92 @@
+// nix-gruvbox plymouth theme script
+
+Window.SetBackgroundTopColor(0.157, 0.157, 0.157);    // gruvbox bg0 #282828
+Window.SetBackgroundBottomColor(0.157, 0.157, 0.157);
+
+logo.image = Image("snowflake.png");
+logo.sprite = Sprite(logo.image);
+logo.x = Window.GetWidth() / 2 - logo.image.GetWidth() / 2;
+logo.y = Window.GetHeight() / 2 - logo.image.GetHeight() / 2 - 20;
+logo.sprite.SetPosition(logo.x, logo.y, 10);
+
+// progress bar geometry
+bar.width = 240;
+bar.height = 4;
+bar.x = Window.GetWidth() / 2 - bar.width / 2;
+bar.y = logo.y + logo.image.GetHeight() + 40;
+
+// This Plymouth build has no Rectangle primitive, so solid fills are drawn by
+// scaling a single full-block glyph (█) up to the target size. The font is
+// already bundled into the initrd (also used by the password prompt below).
+fun solid(w, h, r, g, b)
+{
+    block = Image.Text("█", r, g, b);
+    return block.Scale(w, h);
+}
+
+bar.track = solid(bar.width, bar.height, 0.31, 0.28, 0.24); // gruvbox bg2 #504945
+bar.track_sprite = Sprite(bar.track);
+bar.track_sprite.SetPosition(bar.x, bar.y, 10);
+
+bar.fill_sprite = Sprite();
+
+fun progress_callback(duration, progress)
+{
+    fill_width = bar.width * progress;
+    if (fill_width < 1) fill_width = 1;
+    bar.fill = solid(fill_width, bar.height, 0.51, 0.65, 0.60); // gruvbox aqua #83a598
+    bar.fill_sprite.SetImage(bar.fill);
+    bar.fill_sprite.SetPosition(bar.x, bar.y, 11);
+}
+
+Plymouth.SetBootProgressFunction(progress_callback);
+
+// --- LUKS / password prompt ------------------------------------------------
+// Rendered when the initrd asks for a passphrase (cryptsetup unlocking the
+// LUKS root runs `plymouth ask-for-password`). Without these callbacks the
+// splash stays up with no visible prompt, so you'd be typing your passphrase
+// blind. Uses Image.Text (font bundled into the initrd by the NixOS plymouth
+// module) rather than Rectangle, which this Plymouth build doesn't provide.
+
+prompt.sprite = Sprite();
+bullets.sprite = Sprite();
+
+fun display_password_callback(text, n)
+{
+    prompt.image = Image.Text(text, 0.92, 0.86, 0.70); // gruvbox fg1 #ebdbb2
+    prompt.sprite.SetImage(prompt.image);
+    prompt.sprite.SetPosition(
+        Window.GetWidth() / 2 - prompt.image.GetWidth() / 2,
+        bar.y + 30, 20);
+
+    dots = "";
+    for (i = 0; i < n; i++)
+        dots = dots + "●";
+    bullets.image = Image.Text(dots, 0.51, 0.65, 0.60); // gruvbox aqua #83a598
+    bullets.sprite.SetImage(bullets.image);
+    bullets.sprite.SetPosition(
+        Window.GetWidth() / 2 - bullets.image.GetWidth() / 2,
+        bar.y + 56, 21);
+}
+
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+
+fun display_normal_callback()
+{
+    prompt.sprite.SetOpacity(0);
+    bullets.sprite.SetOpacity(0);
+}
+
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+
+fun quit_callback()
+{
+    logo.sprite.SetOpacity(0);
+    bar.track_sprite.SetOpacity(0);
+    if (bar.fill_sprite)
+        bar.fill_sprite.SetOpacity(0);
+    prompt.sprite.SetOpacity(0);
+    bullets.sprite.SetOpacity(0);
+}
+
+Plymouth.SetQuitFunction(quit_callback);

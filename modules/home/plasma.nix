@@ -13,6 +13,7 @@
       workspace = {
         colorScheme = "GruvboxDark";
         iconTheme = "Gruvbox-Plus-Dark";
+        wallpaper = ../../assets/nixos-wallpaper-gruvbox.png;
       };
 
       hotkeys.commands."launch-kitty" = {
