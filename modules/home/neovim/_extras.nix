@@ -2,6 +2,10 @@
   programs.lazyvim = {
     enable = true;
     extras = {
+      dap = {
+        core.enable = true;
+      };
+
       editor = {
         aerial.enable = true;
       };
