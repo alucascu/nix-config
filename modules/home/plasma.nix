@@ -4,6 +4,7 @@
       pkgs.kde-gruvbox
       pkgs.plasma-panel-colorizer
       pkgs.kdePackages.kcharselect
+      pkgs.gruvbox-plus-icons
     ];
 
     programs.plasma = {
@@ -11,7 +12,13 @@
 
       workspace = {
         colorScheme = "GruvboxDark";
-        iconTheme = "Papirus-Dark";
+        iconTheme = "Gruvbox-Plus-Dark";
+      };
+
+      hotkeys.commands."launch-kitty" = {
+        name = "Launch Kitty";
+        key = "Meta+Return";
+        command = "kitty";
       };
 
       panels = [
