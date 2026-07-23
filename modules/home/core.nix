@@ -88,6 +88,8 @@
         harlequin
         megasync
         rclone
+
+        onlyoffice-desktopeditors
       ];
     };
   };
