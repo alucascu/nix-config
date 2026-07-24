@@ -49,8 +49,7 @@
     };
 
     home.file.".config/git/commit-template".text = ''
-      # <type>(<scope>)!: <description> (72 characters maximum)
-      # No more than 50 chars. #### 50 chars is here:  #
+      # <type>(<scope>)!: <description> (72 characters) which is here        #
 
       # Leave the next line blank!
 
