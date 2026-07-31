@@ -44,6 +44,7 @@
         plymouth-nix-gruvbox
         pipewire
         printing
+        limine-nix-gruvbox
       ];
       services = {
         pcscd.enable = true;
