@@ -39,7 +39,13 @@
 
     mkHome = system: name: {
       ${name} = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = inputs.nixpkgs.legacyPackages.${system};
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = ["pnpm-9.15.9"];
+          };
+        };
         modules = [inputs.self.modules.homeManager.${name}];
       };
     };

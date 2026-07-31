@@ -48,7 +48,7 @@
           HostName = "98.81.113.75";
           User = "ubuntu";
           IdentityFile = "~/.ssh/asher.test.pem";
-          LocalForward = "8888 127.0.0.1:8888";
+          LocalForward = "3000 127.0.0.1:3000";
         };
       };
     };
