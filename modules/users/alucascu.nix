@@ -19,6 +19,7 @@
   flake.modules.homeManager.alucascu = {
     imports = with inputs.self.modules.homeManager; [
       core
+      desktop-apps
       shell
       git
       neovim

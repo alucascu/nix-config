@@ -19,7 +19,6 @@
         xz
         unzip
         p7zip
-        veracrypt
 
         # CLI Utilities
         ripgrep
@@ -64,32 +63,17 @@
         pciutils
         usbutils
 
-        # Academic Writing
+        # Academic Writing (CLI)
         tectonic
         typst
-        zathura
-        zotero
-
-        # Fonts
-        nerd-fonts.lilex
 
         devenv
-        obsidian
-        signal-desktop
-        chromium
-        teams-for-linux
-        thunderbird
-        digikam
         python314
-        qbittorrent
         proton-vpn-cli
         nodejs
         sqlite
         harlequin
-        megasync
         rclone
-
-        onlyoffice-desktopeditors
       ];
     };
   };
