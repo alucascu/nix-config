@@ -43,6 +43,13 @@
           HostName = "10.93.247.105";
           User = "alucascu";
         };
+
+        "asher-test" = {
+          HostName = "98.81.113.75";
+          User = "ubuntu";
+          IdentityFile = "~/.ssh/asher.test.pem";
+          LocalForward = "8888 127.0.0.1:8888";
+        };
       };
     };
   };
