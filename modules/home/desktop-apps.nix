@@ -1,4 +1,4 @@
-{...}: {
+{
   flake.modules.homeManager.desktop-apps = {pkgs, ...}: {
     home.packages = with pkgs; [
       # Encryption (GUI)
@@ -21,6 +21,8 @@
       qbittorrent
       megasync
       onlyoffice-desktopeditors
+      gitify
+      jetbrains.pycharm
     ];
   };
 }
