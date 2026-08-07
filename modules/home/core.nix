@@ -74,6 +74,8 @@
         sqlite
         harlequin
         rclone
+
+        jujutsu
       ];
     };
   };
