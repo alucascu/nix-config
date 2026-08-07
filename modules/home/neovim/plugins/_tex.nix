@@ -1,7 +1,6 @@
 {
-  # LaTeX authoring: kill VimTeX's math-symbol conceal (so `\omega` stays
-  # visible as `\omega` instead of being displayed as `ω`), enable LuaSnip
-  # autosnippets, and register context-aware math snippets. Snippets that
+  # LaTeX authoring: VimTeX conceal (`\omega` renders as `ω`), LuaSnip
+  # autosnippets, and context-aware math snippets. Snippets that
   # start math (`mk`, `dm`) fire in text; the rest only fire inside a math
   # zone, detected via `vimtex#syntax#in_mathzone()`.
   programs.lazyvim.plugins.tex = ''
@@ -9,16 +8,27 @@
       {
         "lervag/vimtex",
         init = function()
-          -- What you type is what you see. VimTeX otherwise conceals
-          -- `\omega`, `\frac`, super/subscripts, etc. under LazyVim's
-          -- global conceallevel=2, which reads as "unicode was inserted".
-          vim.g.vimtex_syntax_conceal_disable = 1
+          -- Conceal is drawn by VimTeX's Vim syntax engine, never by
+          -- Tree-sitter (lervag/vimtex#2388, `:help vimtex-faq-treesitter`).
+          -- LazyVim's tex extra already lists "latex" in the Tree-sitter
+          -- highlight.disable set, so `syntax=tex` stays in charge here; if
+          -- that ever changes, conceal silently stops working.
+          -- 'conceallevel'/'concealcursor' are window-local, so re-apply them
+          -- for every window showing a tex buffer, not just the first
+          -- FileType event (splits, `:b`, reused windows).
+          local function tex_conceal()
+            local ft = vim.bo.filetype
+            if ft ~= "tex" and ft ~= "plaintex" then
+              return
+            end
+            vim.wo.conceallevel = 2
+            -- Empty: the line under the cursor always shows raw source, so
+            -- editing a concealed `\frac{}{}` isn't done blind.
+            vim.wo.concealcursor = ""
+          end
 
-          vim.api.nvim_create_autocmd("FileType", {
-            pattern = { "tex", "plaintex" },
-            callback = function()
-              vim.opt_local.conceallevel = 0
-            end,
+          vim.api.nvim_create_autocmd({ "FileType", "BufWinEnter" }, {
+            callback = tex_conceal,
           })
 
           -- Math-aware snippets. Registered once, lazily requiring LuaSnip
