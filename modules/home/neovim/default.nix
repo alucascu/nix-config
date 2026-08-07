@@ -12,6 +12,7 @@
       ./config/_options.nix
       ./plugins/_blink_luasnip.nix
       ./plugins/_oil.nix
+      ./plugins/_tex.nix
     ];
   };
 }
