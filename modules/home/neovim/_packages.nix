@@ -17,6 +17,7 @@
     # LaTeX
     pplatex
     ltex-ls-plus
+    tex-fmt
 
     # Rust
     rust-analyzer
