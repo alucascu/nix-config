@@ -22,7 +22,6 @@
 
         # CLI Utilities
         ripgrep
-        eza
         fzf
         lazygit
         lazydocker

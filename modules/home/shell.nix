@@ -16,6 +16,13 @@
         };
       };
 
+      eza = {
+        enable = true;
+        enableFishIntegration = true;
+        git = true;
+        icons = "auto";
+      };
+
       starship = {
         enable = true;
         enableFishIntegration = true;
