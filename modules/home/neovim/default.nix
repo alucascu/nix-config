@@ -13,6 +13,7 @@
       ./plugins/_blink_luasnip.nix
       ./plugins/_oil.nix
       ./plugins/_tex.nix
+      ./plugins/_markdown_preview.nix
     ];
   };
 }
