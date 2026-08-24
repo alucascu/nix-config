@@ -23,6 +23,8 @@
       onlyoffice-desktopeditors
       gitify
       jetbrains.pycharm
+
+      anki
     ];
   };
 }
