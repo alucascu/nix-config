@@ -31,6 +31,7 @@
         starship
         fx
         jaq
+        tokei
 
         # Misc
         file

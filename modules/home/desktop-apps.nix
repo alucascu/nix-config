@@ -17,6 +17,7 @@
       chromium
       teams-for-linux
       thunderbird
+      protonmail-bridge-gui
       digikam
       qbittorrent
       megasync
