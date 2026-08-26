@@ -2,7 +2,9 @@
   # LaTeX authoring: VimTeX conceal (`\omega` renders as `ω`), LuaSnip
   # autosnippets, and context-aware math snippets. Snippets that
   # start math (`mk`, `dm`) fire in text; the rest only fire inside a math
-  # zone, detected via `vimtex#syntax#in_mathzone()`.
+  # zone, detected via `vimtex#syntax#in_mathzone()`. No autosnippet fires
+  # while a control word is being typed, so `\mathbb` survives passing
+  # through `\mat`.
   programs.lazyvim.plugins.tex = ''
     return {
       {
@@ -38,11 +40,29 @@
           local t = ls.text_node
           local i = ls.insert_node
 
-          local function in_math()
+          local function in_mathzone()
             return vim.fn["vimtex#syntax#in_mathzone"]() == 1
           end
-          local function in_text()
-            return not in_math()
+
+          -- A trigger sitting directly behind an odd run of backslashes is
+          -- the tail of a control word still being typed (`\mat` on the way
+          -- to `\mathbb`, `\int` on the way to `\intertext`), not something
+          -- the user wants expanded. An even run means the backslashes are
+          -- an escape/line break (`\\mat`) and the trigger stands alone.
+          -- LuaSnip passes (line_to_cursor, matched_trigger, captures).
+          local function typing_command(line_to_cursor, matched_trigger)
+            if not line_to_cursor or not matched_trigger then
+              return false
+            end
+            local before = line_to_cursor:sub(1, #line_to_cursor - #matched_trigger)
+            return #before:match("\\*$") % 2 == 1
+          end
+
+          local function in_math(line_to_cursor, matched_trigger)
+            return in_mathzone() and not typing_command(line_to_cursor, matched_trigger)
+          end
+          local function in_text(line_to_cursor, matched_trigger)
+            return not in_mathzone() and not typing_command(line_to_cursor, matched_trigger)
           end
 
           -- text-mode: enter math
@@ -92,6 +112,11 @@
             msnip("__", { t("_{"), i(1), t("}") }),
             msnip("td", { t("^{"), i(1), t("}") }),
             msnip("set", { t("\\{ "), i(1), t(" \\}") }),
+
+            -- math fonts
+            msnip("mbb", { t("\\mathbb{"), i(1), t("}") }),
+            msnip("mcal", { t("\\mathcal{"), i(1), t("}") }),
+            msnip("mrm", { t("\\mathrm{"), i(1), t("}") }),
 
             -- operators / relations
             msym("!=", "\\neq "),
