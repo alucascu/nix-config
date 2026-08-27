@@ -13,4 +13,12 @@ in {
   "freshrss-password.age".publicKeys = systems ++ users;
   "wireguard-hades.age".publicKeys = [hades alucascu_hades alucascu_odysseus];
   "wireguard-odysseus.age".publicKeys = [odysseus alucascu_odysseus alucascu_hades];
+  "gitlab-initial-root-password.age".publicKeys = systems ++ users;
+  "gitlab-secret.age".publicKeys = systems ++ users;
+  "gitlab-db.age".publicKeys = systems ++ users;
+  "gitlab-otp.age".publicKeys = systems ++ users;
+  "gitlab-jws.age".publicKeys = systems ++ users;
+  "gitlab-active-record-primary-key.age".publicKeys = systems ++ users;
+  "gitlab-active-record-deterministic-key.age".publicKeys = systems ++ users;
+  "gitlab-active-record-salt.age".publicKeys = systems ++ users;
 }

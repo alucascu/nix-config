@@ -15,6 +15,7 @@
         open-webui
         searxng
         karakeep
+        gitlab
         alucascu
       ]);
 
