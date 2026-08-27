@@ -16,6 +16,7 @@
         work
         fprintd
         globalprotect
+        pki
         agenix
       ]);
 
