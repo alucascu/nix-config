@@ -1,5 +1,11 @@
 {
-  flake.modules.nixos.gitlab = {config, ...}: {
+  flake.modules.nixos.gitlab = {
+    config,
+    inputs,
+    ...
+  }: {
+    imports = [inputs.self.modules.nixos.caddy];
+
     age.secrets = {
       gitlab-initial-root-password = {
         file = ../../secrets/gitlab-initial-root-password.age;

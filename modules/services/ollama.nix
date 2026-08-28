@@ -1,5 +1,11 @@
 {
-  flake.modules.nixos.ollama = {pkgs, ...}: {
+  flake.modules.nixos.ollama = {
+    inputs,
+    pkgs,
+    ...
+  }: {
+    imports = [inputs.self.modules.nixos.caddy];
+
     services.ollama = {
       enable = true;
       package = pkgs.ollama-rocm;
@@ -11,7 +17,10 @@
       };
     };
 
-    networking.firewall.allowedTCPPorts = [11434];
+    # Bound to loopback; reachable only through Caddy.
+    services.caddy.virtualHosts."http://ollama.tantalus.lan".extraConfig = ''
+      reverse_proxy 127.0.0.1:11434
+    '';
 
     systemd.services.ollama-create-models = {
       description = "Create custom Ollama models";

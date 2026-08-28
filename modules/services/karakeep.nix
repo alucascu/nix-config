@@ -1,5 +1,7 @@
 {
-  flake.modules.nixos.karakeep = {
+  flake.modules.nixos.karakeep = {inputs, ...}: {
+    imports = [inputs.self.modules.nixos.caddy];
+
     services.karakeep = {
       enable = true;
       meilisearch.enable = true;

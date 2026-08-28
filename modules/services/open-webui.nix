@@ -1,5 +1,7 @@
 {
-  flake.modules.nixos.open-webui = {
+  flake.modules.nixos.open-webui = {inputs, ...}: {
+    imports = [inputs.self.modules.nixos.caddy];
+
     services.open-webui = {
       enable = true;
       host = "127.0.0.1";

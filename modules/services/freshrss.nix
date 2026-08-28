@@ -1,5 +1,11 @@
 {
-  flake.modules.nixos.freshrss = {config, ...}: {
+  flake.modules.nixos.freshrss = {
+    config,
+    inputs,
+    ...
+  }: {
+    imports = [inputs.self.modules.nixos.caddy];
+
     age.secrets.freshrss-password = {
       file = ../../secrets/freshrss-password.age;
       owner = "freshrss";
