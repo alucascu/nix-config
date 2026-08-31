@@ -22,19 +22,16 @@
       imports = with inputs.self.modules.nixos; [
         system-default
       ];
+      # Rescue tools: available to root and to any user without a home config.
+      # The user-facing, configured copies of these come from home-manager.
       environment.systemPackages = with pkgs; [
         git
         neovim
         wget
-        tmux
         just
-        any-nix-shell
       ];
       programs.fish.enable = true;
       environment.variables.EDITOR = "nvim";
-      programs.fish.interactiveShellInit = ''
-        any-nix-shell fish | source
-      '';
     };
 
     system-desktop = {

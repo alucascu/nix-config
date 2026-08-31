@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   flake.modules.nixos.chromium = {pkgs, ...}: {
     programs.chromium = {
       enable = true;
@@ -46,8 +46,12 @@
       };
     };
 
-    # Dedicated launcher so it always opens into the work profile.
+    # This aspect owns the browser as well as its managed policies, so a host
+    # importing it always gets both.
     environment.systemPackages = [
+      pkgs.chromium
+
+      # Dedicated launcher so it always opens into the work profile.
       (pkgs.makeDesktopItem {
         name = "chromium-work";
         desktopName = "Chromium (Work)";
