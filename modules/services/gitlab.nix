@@ -62,7 +62,7 @@
     };
 
     services.openssh = {
-      authorizedKeysCommand = "${config.services.gitlab.packages.gitlab-shell}/bin/gitlab-shell-authorized-keys-check git %u %k";
+      authorizedKeysCommand = "${config.services.gitlab.packages.gitlab-shell}/bin/gitlab-shell-authorized-keys-check ${config.services.gitlab.user} %u %k";
       authorizedKeysCommandUser = config.services.gitlab.user;
     };
 
