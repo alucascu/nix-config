@@ -38,9 +38,8 @@
     };
 
     hardware.nvidia = {
-      open = false;
+      open = true;
       modesetting.enable = true;
-      powerManagement.enable = true;
     };
     services.xserver.videoDrivers = ["nvidia"];
 
@@ -55,8 +54,15 @@
       '';
     };
 
+    # kwin splits KWIN_DRM_DEVICES on ":", so a /dev/dri/by-path/ name is
+    # unusable -- its PCI address contains colons. Give the dGPU a stable,
+    # colon-free alias instead; DRM card numbers are probe-order dependent.
+    services.udev.extraRules = ''
+      SUBSYSTEM=="drm", KERNEL=="card*", SUBSYSTEMS=="pci", DRIVERS=="nvidia", SYMLINK+="dri/nvidia-card"
+    '';
+
     environment.sessionVariables = {
-      KWIN_DRM_DEVICES = "/dev/dri/card2";
+      KWIN_DRM_DEVICES = "/dev/dri/nvidia-card";
     };
 
     home-manager.sharedModules = with inputs.self.modules.homeManager; [
