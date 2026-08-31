@@ -1,11 +1,10 @@
-{ ... }:
-{
+{...}: {
   # Adds gruvbox styling to Limine's boot menu. Assumes the host already
   # sets `boot.loader.limine.enable = true` and its own partition/EFI
   # config — this aspect only layers `style.*` on top.
   flake.modules.nixos.limine-nix-gruvbox = {
     boot.loader.limine.style = {
-      wallpapers = [ ./assets/snowflake.png ];
+      wallpapers = [./assets/snowflake.png];
       wallpaperStyle = "centered";
       backdrop = "282828"; # gruvbox bg0
 

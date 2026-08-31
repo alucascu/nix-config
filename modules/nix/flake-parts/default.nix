@@ -42,8 +42,9 @@
         pkgs = import inputs.nixpkgs {
           inherit system;
           config = {
+            # Standalone home configs have no nix-settings aspect to inherit
+            # this from.
             allowUnfree = true;
-            permittedInsecurePackages = ["pnpm-9.15.9"];
           };
         };
         modules = [inputs.self.modules.homeManager.${name}];

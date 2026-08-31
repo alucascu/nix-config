@@ -11,6 +11,7 @@ let
 in {
   "vpn.age".publicKeys = systems ++ users;
   "freshrss-password.age".publicKeys = systems ++ users;
+  "searx-key.age".publicKeys = systems ++ users;
   "wireguard-hades.age".publicKeys = [hades alucascu_hades alucascu_odysseus];
   "wireguard-odysseus.age".publicKeys = [odysseus alucascu_odysseus alucascu_hades];
   "gitlab-initial-root-password.age".publicKeys = systems ++ users;

@@ -4,6 +4,8 @@
     config,
     ...
   }: {
+    home-manager.sharedModules = [inputs.self.modules.homeManager.wireguard];
+
     age.secrets.wireguard.file = "${inputs.self}/secrets/wireguard-${config.networking.hostName}.age";
     services.resolved.enable = true;
     networking.wireguard.interfaces.wg0 = {
@@ -29,6 +31,13 @@
           persistentKeepalive = 25;
         }
       ];
+    };
+  };
+
+  flake.modules.homeManager.wireguard = {
+    home.shellAliases = {
+      wg-up = "sudo systemctl start wireguard-wg0";
+      wg-down = "sudo systemctl stop wireguard-wg0";
     };
   };
 }

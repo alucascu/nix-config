@@ -14,7 +14,6 @@
       # Desktop applications
       obsidian
       signal-desktop
-      chromium
       teams-for-linux
       thunderbird
       protonmail-bridge-gui

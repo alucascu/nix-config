@@ -1,4 +1,4 @@
-{lib, ...}: {
+{...}: {
   flake.modules.homeManager.ssh = {
     lib,
     config,
@@ -30,6 +30,12 @@
         "github.com" = {
           HostName = "github.com";
           User = "git";
+          IdentityFile = "~/.ssh/${config.myConfig.sshKeyName}";
+        };
+
+        "gitlab.tantalus.lan" = {
+          HostName = "gitlab.tantalus.lan";
+          User = "gitlab";
           IdentityFile = "~/.ssh/${config.myConfig.sshKeyName}";
         };
 

@@ -1,5 +1,11 @@
 {
-  flake.modules.nixos.gitlab = {config, ...}: {
+  flake.modules.nixos.gitlab = {
+    config,
+    inputs,
+    ...
+  }: {
+    imports = [inputs.self.modules.nixos.caddy];
+
     age.secrets = {
       gitlab-initial-root-password = {
         file = ../../secrets/gitlab-initial-root-password.age;
@@ -53,6 +59,11 @@
         activeRecordDeterministicKeyFile = config.age.secrets.gitlab-active-record-deterministic-key.path;
         activeRecordSaltFile = config.age.secrets.gitlab-active-record-salt.path;
       };
+    };
+
+    services.openssh = {
+      authorizedKeysCommand = "${config.services.gitlab.packages.gitlab-shell}/bin/gitlab-shell-authorized-keys-check ${config.services.gitlab.user} %u %k";
+      authorizedKeysCommandUser = config.services.gitlab.user;
     };
 
     services.caddy.virtualHosts."gitlab.tantalus.lan".extraConfig = ''

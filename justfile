@@ -15,6 +15,14 @@ rebuild-host hostname:
 check:
     nix flake check
 
+# Format all nix files (generated hardware configs are exempt)
+fmt:
+    nix fmt
+
+# Check formatting without writing
+fmt-check:
+    nix fmt -- --check
+
 # Update all flake inputs
 update:
     nix flake update

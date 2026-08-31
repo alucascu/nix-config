@@ -19,22 +19,18 @@
   flake.modules.homeManager.alucascu = {
     imports = with inputs.self.modules.homeManager; [
       core
-      desktop-apps
       shell
       git
       neovim
       ssh
-      terminal
       gnupg
-      work
-      globalprotect
-      browser
-      starttree
-      vscode
       zellij
-      tagstudio
-      discord
       uv-tools
     ];
+
+    home = {
+      username = "alucascu";
+      homeDirectory = "/home/alucascu";
+    };
   };
 }

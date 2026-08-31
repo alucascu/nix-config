@@ -1,5 +1,7 @@
 {
-  flake.modules.nixos.immich = {config, ...}: {
+  flake.modules.nixos.immich = {inputs, ...}: {
+    imports = [inputs.self.modules.nixos.caddy];
+
     services = {
       immich = {
         enable = true;
@@ -7,13 +9,10 @@
         host = "0.0.0.0";
       };
 
-      caddy = {
-        enable = true;
-        virtualHosts."http://immich.lan".extraConfig = ''
-          reverse_proxy 127.0.0.1:2283
-        '';
-      };
+      caddy.virtualHosts."immich.lan".extraConfig = ''
+        tls internal
+        reverse_proxy 127.0.0.1:2283
+      '';
     };
-    networking.firewall.allowedTCPPorts = [80 443];
   };
 }

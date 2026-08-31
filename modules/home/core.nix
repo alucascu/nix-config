@@ -1,82 +1,87 @@
 {...}: {
-  flake.modules.homeManager.core = {pkgs, ...}: {
+  flake.modules.homeManager.core = {
+    config,
+    lib,
+    pkgs,
+    ...
+  }: {
     home = {
-      username = "alucascu";
-      homeDirectory = "/home/alucascu";
       stateVersion = "25.11";
 
-      sessionPath = ["/home/alucascu/.local/bin"];
+      sessionPath = ["${config.home.homeDirectory}/.local/bin"];
 
-      packages = with pkgs; [
-        fastfetch
-        home-manager
+      # programs.home-manager installs the CLI only when home-manager runs
+      # standalone (it is guarded on !submoduleSupport.enable), so under the
+      # NixOS module nothing else provides it. Add it exactly where it is
+      # missing — installing it unconditionally collides with the version-matched
+      # copy in the standalone profile.
+      packages =
+        lib.optional
+        (!(config.programs.home-manager.enable && !config.submoduleSupport.enable))
+        pkgs.home-manager
+        ++ (with pkgs; [
+          fastfetch
 
-        # Secret management
-        pass
+          # Secret management
+          pass
 
-        # Archives
-        zip
-        xz
-        unzip
-        p7zip
+          # Archives
+          zip
+          xz
+          unzip
+          p7zip
 
-        # CLI Utilities
-        ripgrep
-        fzf
-        lazygit
-        lazydocker
-        gh
-        direnv
-        zoxide
-        starship
-        fx
-        jaq
-        tokei
+          # CLI Utilities
+          ripgrep
+          fzf
+          lazygit
+          lazydocker
+          fx
+          jaq
+          tokei
 
-        # Misc
-        file
-        which
-        tree
-        gnutar
-        gnused
-        gawk
-        zstd
-        gnupg
-        opencode
-        claude-code
+          # Misc
+          file
+          which
+          tree
+          gnutar
+          gnused
+          gawk
+          zstd
+          gnupg
+          opencode
+          claude-code
 
-        fish
+          glow
+          btop
+          iotop
+          iftop
 
-        glow
-        btop
-        iotop
-        iftop
+          strace
+          ltrace
+          lsof
 
-        strace
-        ltrace
-        lsof
+          # System tools
+          sysstat
+          lm_sensors
+          ethtool
+          pciutils
+          usbutils
 
-        # System tools
-        sysstat
-        lm_sensors
-        ethtool
-        pciutils
-        usbutils
+          # Academic Writing (CLI)
+          tectonic
+          typst
 
-        # Academic Writing (CLI)
-        tectonic
-        typst
+          devenv
+          python314
+          proton-vpn-cli
+          nodejs
+          sqlite
+          harlequin
+          rclone
 
-        devenv
-        python314
-        proton-vpn-cli
-        nodejs
-        sqlite
-        harlequin
-        rclone
-
-        jujutsu
-      ];
+          jujutsu
+        ]);
     };
   };
 }

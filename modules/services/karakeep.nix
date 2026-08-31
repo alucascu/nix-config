@@ -1,5 +1,7 @@
 {
-  flake.modules.nixos.karakeep = {
+  flake.modules.nixos.karakeep = {inputs, ...}: {
+    imports = [inputs.self.modules.nixos.caddy];
+
     services.karakeep = {
       enable = true;
       meilisearch.enable = true;
@@ -13,8 +15,9 @@
       };
     };
 
-    services.caddy.virtualHosts."http://karakeep.lan" = {
+    services.caddy.virtualHosts."karakeep.lan" = {
       extraConfig = ''
+        tls internal
         reverse_proxy 127.0.0.1:3000
       '';
     };
