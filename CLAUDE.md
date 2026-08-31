@@ -131,7 +131,20 @@ grep; they live in `system/system-types/default.nix`.
 | `globalprotect` | `services/globalprotect.nix` |
 | `gnupg` | `home/gnupg.nix` |
 | `mpv` | `home/mpv.nix` |
-| `neovim` | `home/neovim/default.nix` — LazyVim + internals |
+| `neovim` | `home/neovim/default.nix` — LazyVim + internals; imports the default `neovim-*` languages |
+| `neovim-git` | `home/neovim-langs/git.nix` — default |
+| `neovim-markdown` | `home/neovim-langs/markdown.nix` — default |
+| `neovim-nix` | `home/neovim-langs/nix.nix` — default |
+| `neovim-python` | `home/neovim-langs/python.nix` — default |
+| `neovim-sql` | `home/neovim-langs/sql.nix` — default |
+| `neovim-toml` | `home/neovim-langs/toml.nix` — default |
+| `neovim-dotnet` | `home/neovim-langs/dotnet.nix` — opt-in, ~1.0 GB |
+| `neovim-haskell` | `home/neovim-langs/haskell.nix` — opt-in, ~8.1 GB |
+| `neovim-julia` | `home/neovim-langs/julia.nix` — opt-in, no packages |
+| `neovim-ocaml` | `home/neovim-langs/ocaml.nix` — opt-in, ~1.2 GB |
+| `neovim-rust` | `home/neovim-langs/rust.nix` — opt-in, ~1.6 GB |
+| `neovim-tex` | `home/neovim-langs/tex.nix` — opt-in, ~0.9 GB |
+| `neovim-typescript` | `home/neovim-langs/typescript.nix` — opt-in, ~0.4 GB |
 | `plasma` | `home/plasma.nix` — plasma-manager |
 | `shell` | `home/shell.nix` — fish, starship, direnv, tmux, zoxide, eza |
 | `ssh` | `home/ssh.nix` — defines `myConfig.sshKeyName` |
@@ -323,6 +336,35 @@ modules/home/<name>/
 
 Then add `<name>` to the user's homeManager aspect imports, or to the `desktop`
 profile if it is graphical.
+
+## Neovim Language Aspects
+
+Each language nvim supports is its own aspect in `modules/home/neovim-langs/`,
+named `neovim-<lang>`, carrying that language's `programs.lazyvim.extras.lang.*`
+toggle **and** its packages. All Lua stays in `modules/home/neovim/` — it costs
+nothing in the closure and splitting it would couple plugins to language choice.
+
+The `neovim` aspect imports the cheap languages itself (nix, git, toml, markdown,
+sql, python — about 1 GB together), so every target gets a usable editor. Anything
+heavier is opt-in per host:
+
+```nix
+    home-manager.sharedModules = with inputs.self.modules.homeManager; [
+      neovim-haskell
+      neovim-tex
+    ];
+```
+
+Every language aspect **must** declare `key = "neovim-<lang>"`. The module system
+dedupes imports by key, and without one an aspect reached through two paths (the
+default set *and* a host listing it again) is merged twice. When the aspect needs
+`pkgs`, put the config in an `imports = [({pkgs, ...}: {...})]` wrapper, since a
+`key` cannot be attached to a bare function.
+
+Set `installDependencies = true` only when the extra actually maps a package you
+want; lazyvim-nix's `data/dependencies.json` is the source of truth. Several
+extras (nix, ocaml, typescript, julia) map nothing at all, and one (tex) maps only
+an unmapped tool — enabling it there installs nothing and warns on every build.
 
 ## Adding a New NixOS Service/Program
 
