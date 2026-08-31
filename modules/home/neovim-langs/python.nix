@@ -13,6 +13,7 @@
         # listed here as the standalone binary rather than the python module.
         programs.lazyvim.extraPackages = with pkgs; [
           ruff
+          pyrefly
           basedpyright
         ];
       })
