@@ -39,6 +39,7 @@
             "browser.newtabpage.enabled" = false;
             "browser.shell.checkDefaultBrowser" = false;
             "dom.security.https_only_mode" = true;
+            "security.enterprise_roots.enabled" = true;
             "privacy.trackingprotection.enabled" = true;
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           };
