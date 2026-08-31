@@ -33,6 +33,12 @@
           IdentityFile = "~/.ssh/${config.myConfig.sshKeyName}";
         };
 
+        "gitlab.tantalus.lan" = {
+          HostName = "gitlab.tantalus.lan";
+          User = "gitlab";
+          IdentityFile = "~/.ssh/${config.myConfig.sshKeyName}";
+        };
+
         "codeberg" = {
           HostName = "codeberg.org";
           User = "git";
