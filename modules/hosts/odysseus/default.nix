@@ -70,10 +70,8 @@
       ffmpeg
       mpv
 
-      neovim-haskell
       neovim-rust
       neovim-ocaml
-      neovim-dotnet
       neovim-tex
       neovim-typescript
       neovim-julia
