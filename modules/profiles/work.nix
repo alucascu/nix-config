@@ -4,6 +4,8 @@
       chromium
       globalprotect
     ];
+
+    home-manager.sharedModules = [inputs.self.modules.homeManager.work];
   };
 
   flake.modules.homeManager.work = {pkgs, ...}: {
@@ -11,11 +13,5 @@
       slack
       zoom-us
     ];
-
-    programs.firefox.profiles.alucascu.settings = {
-      "network.protocol-handler.expose.globalprotectcallback" = false;
-      "network.protocol-handler.external.globalprotectcallback" = true;
-      "network.protocol-handler.warn-external.globalprotectcallback" = false;
-    };
   };
 }

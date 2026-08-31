@@ -1,5 +1,7 @@
-{...}: {
-  flake.modules.nixos.restic = {
+{inputs, ...}: {
+  flake.modules.nixos.restic = {config, ...}: {
+    age.secrets.restic-env.file = "${inputs.self}/secrets/restic-env.age";
+
     services.restic.backups.home = {
       repository = "/run/media/alucascu/Extreme SSD/restic/";
       paths = ["/home/alucascu"];
@@ -16,8 +18,10 @@
         "--keep-weekly 4"
         "--keep-monthly 6"
       ];
-      # Reference a file containing RESTIC_PASSWORD and any repo credentials
-      environmentFile = "/run/secrets/restic-env";
+      # Contains RESTIC_PASSWORD and any repo credentials. Create
+      # secrets/restic-env.age and list it in secrets/secrets.nix before
+      # importing this aspect on a host.
+      environmentFile = config.age.secrets.restic-env.path;
     };
   };
 }

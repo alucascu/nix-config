@@ -59,8 +59,7 @@
       KWIN_DRM_DEVICES = "/dev/dri/card2";
     };
 
-    home-manager.users.alucascu.imports = with inputs.self.modules.homeManager; [
-      gaming
+    home-manager.sharedModules = with inputs.self.modules.homeManager; [
       vlc
       ffmpeg
       mpv

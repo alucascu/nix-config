@@ -1,11 +1,13 @@
 {...}: {
-  flake.modules.homeManager.core = {pkgs, ...}: {
+  flake.modules.homeManager.core = {
+    config,
+    pkgs,
+    ...
+  }: {
     home = {
-      username = "alucascu";
-      homeDirectory = "/home/alucascu";
       stateVersion = "25.11";
 
-      sessionPath = ["/home/alucascu/.local/bin"];
+      sessionPath = ["${config.home.homeDirectory}/.local/bin"];
 
       packages = with pkgs; [
         fastfetch

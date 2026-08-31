@@ -1,11 +1,14 @@
 {inputs, ...}: {
   flake.modules.homeManager.starttree = {
+    config,
     pkgs,
     lib,
     ...
   }: let
     python = pkgs.python3.withPackages (ps: [ps.pyyaml ps.beautifulsoup4]);
   in {
+    imports = [inputs.self.modules.homeManager.browser];
+
     home.file.".config/StartTree/config.yaml".source = ./config.yaml;
 
     # generate.py reads its skeletons/themes from and writes index.html into
@@ -20,8 +23,8 @@
       ${python}/bin/python3 ${inputs.starttree}/generate.py
     '';
 
-    programs.firefox.profiles.alucascu.settings = {
-      "browser.startup.homepage" = "file:///home/alucascu/.cache/StartTree/index.html";
+    programs.firefox.profiles.${config.myConfig.firefoxProfile}.settings = {
+      "browser.startup.homepage" = "file://${config.home.homeDirectory}/.cache/StartTree/index.html";
     };
   };
 }

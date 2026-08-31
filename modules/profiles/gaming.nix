@@ -1,9 +1,7 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   flake.modules.nixos.gaming = {pkgs, ...}: {
+    home-manager.sharedModules = [inputs.self.modules.homeManager.gaming];
+
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
