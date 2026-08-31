@@ -31,6 +31,11 @@ update:
 update-input input:
     nix flake update {{input}}
 
+# Point this repo's git at the local commit template
+commit-template:
+    git config --local commit.template .gitmessage
+    @echo "commit.template set to .gitmessage for this repo"
+
 # ── Inventory ─────────────────────────────────────────────────────────────────
 
 # Rebuild machines.db from schema + seed

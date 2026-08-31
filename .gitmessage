@@ -1,0 +1,56 @@
+# <type>(<scope>): <subject> (72 characters) which is here             #
+
+# Leave the next line blank
+
+# Body - the *why*. For refactors, which boundary was wrong. For
+# services, what broke or what the old setting cost you.
+# Wrap at 72 chars. ################################## which is here:  #
+
+# The following fields are optional. Fill them out if they apply.
+# Rebuilt-on:   hosts actually switched onto this commit before pushing
+# Breaking:     manual steps needed on rebuild (state migration, rekey)
+# Refs:
+
+# ----- END COMMIT MESSAGE -----
+#
+# <type> is one of:
+#   feat      New capability - a new aspect, service, host, or user
+#   fix       Something was broken - eval failure, wrong port, dead
+#             service, a setting that did not do what it claimed
+#   tune      Settings change on something that already works -
+#             keybinds, theme, package set, retention windows
+#   refactor  Restructure the module tree; evaluated config unchanged
+#   flake     Input bumps and lockfile changes
+#   secrets   agenix - new .age files, rekeying, recipient changes
+#   docs      CLAUDE.md, README, regenerated aspect index
+#   chore     Repo maintenance - justfile, gitignore, formatter,
+#             inventory
+#
+# <scope> is optional. Pick the first that applies:
+#   1. the aspect name       wireguard, caddy, neovim, plasma
+#   2. the host              hades, odysseus, tantalus, ubuntu
+#   3. the tree area         profiles, system, home, inventory
+#   4. omit it               the change is genuinely repo-wide
+#
+# <subject> is imperative mood, as if "This commit will..." is
+# prepended. Do not capitalize, and omit the full stop.
+#
+# Examples:
+#   feat(wireguard): add wireguard aspect
+#   feat(hades): import wireguard aspect
+#   feat(tantalus): add self-hosted gitlab instance
+#   fix(caddy): stop freshrss vhost from stealing :443
+#   fix(tex): stop eager `mat` -> matrix substitution
+#   tune(plasma): rebind emoji selector to meta+.
+#   tune(neovim): add markdown preview
+#   refactor(profiles): split gui apps out of core
+#   refactor: hoist libreoffice into system-desktop
+#   flake: bump nixpkgs and home-manager
+#   secrets(freshrss): rekey for tantalus host key
+#   docs: regenerate aspect index
+#   chore(inventory): add hades to machines.toml
+#
+# Three exceptions to the subject line rules:
+#   1. "Initial commit"     for the first commit in a repository
+#   2. "Merge branch..."    the default message for automatic merges
+#   3. "Revert..."          the default message for reverting commits
