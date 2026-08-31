@@ -61,6 +61,11 @@
       };
     };
 
+    services.openssh = {
+      authorizedKeysCommand = "${config.services.gitlab.packages.gitlab-shell}/bin/gitlab-shell-authorized-keys-check git %u %k";
+      authorizedKeysCommandUser = config.services.gitlab.user;
+    };
+
     services.caddy.virtualHosts."gitlab.tantalus.lan".extraConfig = ''
       tls internal
       reverse_proxy unix//run/gitlab/gitlab-workhorse.socket
