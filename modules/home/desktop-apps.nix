@@ -1,9 +1,6 @@
 {
   flake.modules.homeManager.desktop-apps = {pkgs, ...}: {
     home.packages = with pkgs; [
-      # Encryption (GUI)
-      veracrypt
-
       # Fonts
       nerd-fonts.lilex
 
@@ -17,12 +14,8 @@
       teams-for-linux
       thunderbird
       protonmail-bridge-gui
-      digikam
       qbittorrent
-      megasync
       onlyoffice-desktopeditors
-      gitify
-      jetbrains.pycharm
 
       anki
     ];
