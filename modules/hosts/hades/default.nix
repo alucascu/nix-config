@@ -15,6 +15,7 @@
         alucascu
         work
         fprintd
+        wireguard
         pki
         agenix
       ]);
