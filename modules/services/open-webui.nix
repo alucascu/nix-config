@@ -32,7 +32,8 @@
       };
     };
 
-    services.caddy.virtualHosts."http://ai.tantalus.lan".extraConfig = ''
+    services.caddy.virtualHosts."ai.tantalus.lan".extraConfig = ''
+      tls internal
       reverse_proxy 127.0.0.1:11435
     '';
   };

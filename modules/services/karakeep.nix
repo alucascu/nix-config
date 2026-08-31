@@ -15,8 +15,9 @@
       };
     };
 
-    services.caddy.virtualHosts."http://karakeep.lan" = {
+    services.caddy.virtualHosts."karakeep.lan" = {
       extraConfig = ''
+        tls internal
         reverse_proxy 127.0.0.1:3000
       '';
     };

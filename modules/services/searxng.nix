@@ -18,7 +18,7 @@
         server = {
           port = 8081;
           bind_address = "127.0.0.1";
-          base_url = "http://search.tantalus.lan/";
+          base_url = "https://search.tantalus.lan/";
           # Placeholder — searx-init runs envsubst over settings.yml with
           # environmentFile loaded, so the real key never enters the store.
           secret_key = "$SEARXNG_SECRET";
@@ -31,7 +31,8 @@
       };
     };
 
-    services.caddy.virtualHosts."http://search.tantalus.lan".extraConfig = ''
+    services.caddy.virtualHosts."search.tantalus.lan".extraConfig = ''
+      tls internal
       reverse_proxy 127.0.0.1:8081
     '';
   };
