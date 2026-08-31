@@ -23,6 +23,16 @@
     swapDevices = lib.mkForce [];
 
     home-manager.users.alucascu.myConfig.sshKeyName = "hades";
+
+    home-manager.sharedModules = with inputs.self.modules.homeManager; [
+      neovim-haskell
+      neovim-rust
+      neovim-ocaml
+      neovim-dotnet
+      neovim-tex
+      neovim-typescript
+      neovim-julia
+    ];
     networking = {
       hostName = "hades";
       networkmanager.enable = true;
