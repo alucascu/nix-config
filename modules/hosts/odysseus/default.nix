@@ -17,6 +17,7 @@
         agenix
         v4l2loopback
         obs-studio
+        nvidia-telemetry
         pki
         wireguard
       ]);
