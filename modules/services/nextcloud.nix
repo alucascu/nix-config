@@ -21,6 +21,11 @@
       configureRedis = true;
       database.createLocally = true;
 
+      extraApps = {
+        inherit (config.services.nextcloud.package.packages.apps) calendar contacts tasks;
+      };
+      extraAppsEnable = true;
+
       config = {
         dbtype = "pgsql";
         adminuser = "alucascu";
