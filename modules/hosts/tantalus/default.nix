@@ -16,6 +16,7 @@
         searxng
         karakeep
         gitlab
+        nextcloud
         immich-backup
         alucascu
       ]);
@@ -59,6 +60,8 @@
       };
 
       immich.mediaLocation = "/mnt/atlas/immich";
+
+      nextcloud.home = "/mnt/atlas/nextcloud";
     };
 
     boot = {

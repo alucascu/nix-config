@@ -22,4 +22,5 @@ in {
   "gitlab-active-record-primary-key.age".publicKeys = systems ++ users;
   "gitlab-active-record-deterministic-key.age".publicKeys = systems ++ users;
   "gitlab-active-record-salt.age".publicKeys = systems ++ users;
+  "nextcloud-admin-password.age".publicKeys = systems ++ users;
 }

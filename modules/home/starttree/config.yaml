@@ -9,6 +9,7 @@ tree_1:
     immich: "http://immich.lan/"
     ai: "http://ai.tantalus.lan:8080"
     karakeep: "http://karakeep.lan"
+    nextcloud: "https://cloud.tantalus.lan/"
   daily:
     gmail: "https://mail.google.com/"
     proton:

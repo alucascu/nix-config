@@ -99,6 +99,7 @@ grep; they live in `system/system-types/default.nix`.
 | `libreoffice` | `programs/libreoffice.nix` | |
 | `limine-nix-gruvbox` | `boot/limine-nix-gruvbox/default.nix` | boot menu styling only |
 | `locale` | `system/settings/locale.nix` | timezone America/Detroit, i18n |
+| `nextcloud` | `services/nextcloud.nix` | uses agenix; served by `caddy`; data on `/mnt/atlas` |
 | `nix-settings` | `system/settings/nix.nix` | allowUnfree, flakes |
 | `obs-studio` | `programs/obs-studio.nix` | |
 | `ollama` | `services/ollama.nix` | |
