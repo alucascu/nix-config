@@ -10,6 +10,7 @@ tree_1:
     ai: "http://ai.tantalus.lan:8080"
     karakeep: "http://karakeep.lan"
     nextcloud: "https://cloud.tantalus.lan/"
+    gitlab: "https://gitlab.tantalus.lan/"
   daily:
     gmail: "https://mail.google.com/"
     proton:
@@ -43,9 +44,19 @@ tree_2:
 tree_3:
   media:
     youtube: "https://www.youtube.com/"
-    tidal: "https://tidal.com/"
   social:
     reddit: "https://www.reddit.com/"
     hacker-news:
       - "https://news.ycombinator.com/"
       - "hacker news"
+
+tree_4:
+  apps:
+    proton-calendar:
+      - "https://calendar.proton.me/"
+      - "proton calendar"
+    proton-mail:
+      - "https://mail.proton.me/"
+      - "proton mail"
+    ticktick: "https://ticktick.com/"
+    tidal: "https://tidal.com/"
