@@ -8,6 +8,12 @@
 
     age.secrets.wireguard.file = "${inputs.self}/secrets/wireguard-${config.networking.hostName}.age";
     services.resolved.enable = true;
+
+    services.resolved.dnsDelegates.tantalus-lan.Delegate = {
+      DNS = "10.93.247.97";
+      Domains = "~lan";
+    };
+
     networking.wireguard.interfaces.wg0 = {
       ips = ["10.100.0.2/24"];
       listenPort = 51820;
