@@ -16,6 +16,7 @@
       protonmail-bridge-gui
       qbittorrent
       onlyoffice-desktopeditors
+      sone
 
       anki
     ];
