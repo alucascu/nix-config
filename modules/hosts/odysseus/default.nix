@@ -70,6 +70,7 @@
       vlc
       ffmpeg
       mpv
+      math
 
       neovim-rust
       neovim-ocaml

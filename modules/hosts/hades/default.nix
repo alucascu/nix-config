@@ -25,6 +25,8 @@
     home-manager.users.alucascu.myConfig.sshKeyName = "hades";
 
     home-manager.sharedModules = with inputs.self.modules.homeManager; [
+      math
+
       neovim-rust
       neovim-ocaml
       neovim-tex

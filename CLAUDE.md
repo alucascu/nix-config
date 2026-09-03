@@ -131,6 +131,7 @@ grep; they live in `system/system-types/default.nix`.
 | `git` | `home/git.nix` — git + gh |
 | `globalprotect` | `services/globalprotect.nix` |
 | `gnupg` | `home/gnupg.nix` |
+| `math` | `home/math.nix` — sagemath |
 | `mpv` | `home/mpv.nix` |
 | `neovim` | `home/neovim/default.nix` — LazyVim + internals; imports the default `neovim-*` languages |
 | `neovim-git` | `home/neovim-langs/git.nix` — default |
