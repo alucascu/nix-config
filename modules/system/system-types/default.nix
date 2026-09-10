@@ -17,6 +17,7 @@
       };
       services.dbus.implementation = "broker";
       programs.nix-ld.enable = true;
+      boot.tmp.cleanOnBoot = true;
     };
 
     system-cli = {pkgs, ...}: {
