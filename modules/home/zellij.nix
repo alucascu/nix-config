@@ -1,4 +1,4 @@
-{...}: {
+{
   flake.modules.homeManager.zellij = {pkgs, ...}: {
     programs.zellij = {
       enable = true;
@@ -13,6 +13,8 @@
         copy_command = "${pkgs.wl-clipboard}/bin/wl-copy";
         pane_frames = true;
         session_serialization = true;
+
+        host_notification_protocol = "osc9";
       };
     };
   };
