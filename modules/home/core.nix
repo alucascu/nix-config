@@ -10,6 +10,15 @@
 
       sessionPath = ["${config.home.homeDirectory}/.local/bin"];
 
+      sessionVariables = {
+        EDITOR = "nvim";
+        VISUAL = "nvim";
+        # :Man! renders the page in the current window instead of a split.
+        MANPAGER = "nvim +Man!";
+        PAGER = "less";
+        LESS = "-R";
+      };
+
       # programs.home-manager installs the CLI only when home-manager runs
       # standalone (it is guarded on !submoduleSupport.enable), so under the
       # NixOS module nothing else provides it. Add it exactly where it is
