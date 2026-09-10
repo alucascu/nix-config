@@ -8,6 +8,7 @@
       imports = with inputs.self.modules.nixos; [
         nix-settings
         locale
+        fwupd
       ];
 
       hardware = {
