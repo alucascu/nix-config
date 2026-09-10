@@ -14,6 +14,8 @@
     home-manager.users.alucascu.imports = [
       inputs.self.modules.homeManager.alucascu
     ];
+
+    programs.nh.flake = "/home/alucascu/nixConfig";
   };
 
   flake.modules.homeManager.alucascu = {
@@ -26,6 +28,7 @@
       gnupg
       zellij
       uv-tools
+      nix-tools
     ];
 
     home = {

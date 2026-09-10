@@ -2,7 +2,6 @@
   flake.modules.nixos.nvidia-telemetry = {
     config,
     lib,
-    pkgs,
     ...
   }: {
     # Samples dGPU health into the journal so that an Xid event has the

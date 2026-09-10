@@ -1,0 +1,2 @@
+# `.direnv` is a symlink farm into nixpkgs; the hardware configs are generated.
+ignore = [".direnv", "_hardware-configuration.nix"]

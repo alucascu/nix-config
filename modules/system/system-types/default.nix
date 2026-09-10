@@ -1,8 +1,4 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
+{inputs, ...}: {
   flake.modules.nixos = {
     system-default = {
       imports = with inputs.self.modules.nixos; [
@@ -24,6 +20,8 @@
     system-cli = {pkgs, ...}: {
       imports = with inputs.self.modules.nixos; [
         system-default
+        nh
+        nix-index
       ];
       # Rescue tools: available to root and to any user without a home config.
       # The user-facing, configured copies of these come from home-manager.

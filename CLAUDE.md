@@ -17,6 +17,7 @@ generated rather than maintained by hand.
 ├── flake.nix              # inputs + import-tree bootstrap only
 ├── flake.lock
 ├── justfile               # task runner shortcuts (see Commands)
+├── statix.toml            # statix lint config, shared by `just lint` and nvim
 ├── secrets/               # agenix .age files + secrets.nix recipient list
 ├── assets/                # wallpapers referenced by home aspects
 ├── inventory/             # machine inventory: toml source, sqlite schema,
@@ -58,10 +59,11 @@ has both halves, the nixos half attaches its own home-manager side via
 - `system-default` — imports `nix-settings`, `locale`, `fwupd`, `earlyoom`; adds
   redistributable firmware, bluetooth, dbus-broker, nix-ld, and clears `/tmp` on
   boot
-- `system-cli` — inherits `system-default`; enables fish, sets `EDITOR=nvim`,
-  generates the man cache (`apropos`, fish man completions), and installs
-  `git neovim wget just` as *rescue* tools for root and for users with no home
-  config. The configured copies come from home-manager.
+- `system-cli` — inherits `system-default`; imports `nh` and `nix-index`;
+  enables fish, sets `EDITOR=nvim`, generates the man cache (`apropos`, fish man
+  completions), and installs `git neovim wget just` as *rescue* tools for root
+  and for users with no home config. The configured copies come from
+  home-manager.
 - `system-desktop` — inherits `system-cli`; imports `desktop-kde`,
   `libreoffice`, `pipewire`, `printing`, `plymouth-nix-gruvbox`,
   `limine-nix-gruvbox`, `fonts`, `appimage`; enables pcscd and dconf
@@ -106,6 +108,8 @@ grep; they live in `system/system-types/default.nix`.
 | `limine-nix-gruvbox` | `boot/limine-nix-gruvbox/default.nix` | boot menu styling only |
 | `locale` | `system/settings/locale.nix` | timezone America/Detroit, i18n |
 | `nextcloud` | `services/nextcloud.nix` | uses agenix; served by `caddy`; data on `/mnt/atlas` |
+| `nh` | `programs/nh.nix` | nixos-rebuild wrapper + the periodic `nh clean` that replaces `nix.gc` |
+| `nix-index` | `programs/nix-index.nix` | prebuilt file index: `comma`, command-not-found |
 | `nix-settings` | `system/settings/nix.nix` | allowUnfree, flakes |
 | `nvidia-telemetry` | `services/nvidia-telemetry.nix` | Xid/clock logging unit on odysseus |
 | `obs-studio` | `programs/obs-studio.nix` | |
@@ -156,6 +160,7 @@ grep; they live in `system/system-types/default.nix`.
 | `neovim-rust` | `home/neovim-langs/rust.nix` — opt-in, ~1.6 GB |
 | `neovim-tex` | `home/neovim-langs/tex.nix` — opt-in, ~0.9 GB |
 | `neovim-typescript` | `home/neovim-langs/typescript.nix` — opt-in, ~0.4 GB |
+| `nix-tools` | `home/nix-tools.nix` — nom, nvd, nix-tree, nix-diff, statix, deadnix |
 | `plasma` | `home/plasma.nix` — plasma-manager |
 | `shell` | `home/shell.nix` — fish, starship, direnv, tmux, zoxide, eza |
 | `ssh` | `home/ssh.nix` — defines `myConfig.sshKeyName` |
@@ -173,14 +178,18 @@ grep; they live in `system/system-types/default.nix`.
 ## Commands
 
 ```bash
-# NixOS system + home-manager (home-manager is managed by the NixOS module)
-sudo nixos-rebuild switch --flake .#hades
-sudo nixos-rebuild switch --flake .#odysseus
-sudo nixos-rebuild switch --flake .#tantalus
+# NixOS system + home-manager (home-manager is managed by the NixOS module).
+# nh wraps nixos-rebuild and elevates itself, so no leading sudo.
+nh os switch .                          # whichever host this is
+nh os switch . --hostname odysseus      # a named one
+nh os switch . --target-host tantalus   # build here, activate there
 
 # Standalone home-manager, for the non-NixOS targets in modules/homes/
 home-manager switch --flake .#ubuntu
 ```
+
+`nixos-rebuild` still works and is what to reach for if `nh` itself is what
+broke.
 
 `just` wraps the common ones:
 
@@ -188,11 +197,18 @@ home-manager switch --flake .#ubuntu
 |---|---|
 | `just rebuild` | rebuild the current host |
 | `just rebuild-host <name>` | rebuild a named host |
-| `just check` | `nix flake check` |
+| `just deploy <host>` | build here, switch there over SSH |
+| `just build <host>` / `just dry` | build or describe a switch without activating |
+| `just boot` / `just rollback` | stage for next boot / return to the previous generation |
+| `just repl <host>` | `nix repl` with that host's evaluated config |
+| `just check` | `nix flake check` — now builds every host and home target |
 | `just fmt` / `just fmt-check` | alejandra over the tree |
+| `just lint` | statix + deadnix over the tree |
 | `just update` / `just update-input <i>` | flake inputs |
+| `just up` | update every input and commit `flake.lock` |
 | `just validate` | rebuild inventory db and check it against the module tree |
 | `just fetch-hwconfig <host>` | pull and stage a host's hardware config |
+| `just rekey` | re-encrypt `secrets/` to the current recipient list |
 | `just gc` / `just gc-system` / `just diff` | maintenance |
 
 ## Adding a New Host
@@ -406,6 +422,7 @@ rather than relying on another service to have enabled it.
 | `starttree` | StartTree browser start page (Paul-Houser), `flake = false` |
 | `agenix` | age-encrypted secrets (ryantm) |
 | `tagstudio` | TagStudio file tagging (TagStudioDev) |
+| `nix-index-database` | prebuilt nix-index database; backs `comma` and command-not-found |
 
 ## Important Rules
 
