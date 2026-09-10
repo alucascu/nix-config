@@ -41,6 +41,26 @@
         enable = true;
         mouse = true;
         keyMode = "vi";
+        focusEvents = true;
+        aggressiveResize = true;
+
+        plugins = with pkgs.tmuxPlugins; [
+          {
+            plugin = resurrect;
+            extraConfig = ''
+              set -g @resurrect-capture-pane-contents 'on'
+              set -g @resurrect-strategy-nvim 'session'
+            '';
+          }
+          {
+            plugin = continuum;
+            extraConfig = ''
+              set -g @continuum-restore 'on'
+              set -g @continuum-save-interval '15'
+            '';
+          }
+        ];
+
         extraConfig = ''
           set-option -sa terminal-features ',kitty:RGB'
           set-option -g default-shell "${pkgs.fish}/bin/fish"
@@ -63,9 +83,6 @@
           bind -r J resize-pane -D 5
           bind -r K resize-pane -U 5
           bind -r L resize-pane -R 5
-
-          set -g focus-events on
-          setw -g aggresive-resize on
 
           ## Color
           set -g default-terminal "tmux-256color"
