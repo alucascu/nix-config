@@ -15,6 +15,7 @@
       discord
       tagstudio
       plasma
+      gtk
     ];
   };
 }

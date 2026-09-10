@@ -48,6 +48,8 @@
       services = {
         pcscd.enable = true;
       };
+      # Backing store for the GTK settings the `gtk` home aspect writes.
+      programs.dconf.enable = true;
     };
   };
 }
