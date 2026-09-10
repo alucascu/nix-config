@@ -43,6 +43,7 @@
         pipewire
         printing
         limine-nix-gruvbox
+        fonts
       ];
       services = {
         pcscd.enable = true;

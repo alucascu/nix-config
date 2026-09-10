@@ -1,9 +1,6 @@
 {
   flake.modules.homeManager.desktop-apps = {pkgs, ...}: {
     home.packages = with pkgs; [
-      # Fonts
-      nerd-fonts.lilex
-
       # Academic (GUI)
       zathura
       zotero
