@@ -45,6 +45,7 @@
         printing
         limine-nix-gruvbox
         fonts
+        appimage
       ];
       services = {
         pcscd.enable = true;
