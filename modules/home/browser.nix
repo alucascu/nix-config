@@ -17,14 +17,26 @@
     config = {
       home.sessionVariables.BROWSER = "firefox";
 
-      xdg.mimeApps = {
-        enable = true;
-        defaultApplications = {
-          "text/html" = "firefox.desktop";
-          "x-scheme-handler/http" = "firefox.desktop";
-          "x-scheme-handler/https" = "firefox.desktop";
-          "x-scheme-handler/about" = "firefox.desktop";
-          "x-scheme-handler/unknown" = "firefox.desktop";
+      # Firefox rewrites profiles.ini on startup, so home-manager keeps finding
+      # an unmanaged file where its symlink should be. See the note in `gtk` --
+      # backupFileExtension only tolerates one such rewrite.
+      home.file."${config.programs.firefox.configPath}/profiles.ini".force = true;
+
+      xdg = {
+        # Same story: anything that sets a default handler rewrites both copies
+        # of mimeapps.list, and both are generated in full from mimeApps below.
+        configFile."mimeapps.list".force = true;
+        dataFile."applications/mimeapps.list".force = true;
+
+        mimeApps = {
+          enable = true;
+          defaultApplications = {
+            "text/html" = "firefox.desktop";
+            "x-scheme-handler/http" = "firefox.desktop";
+            "x-scheme-handler/https" = "firefox.desktop";
+            "x-scheme-handler/about" = "firefox.desktop";
+            "x-scheme-handler/unknown" = "firefox.desktop";
+          };
         };
       };
 
