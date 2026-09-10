@@ -15,6 +15,7 @@
         alucascu
         work
         fprintd
+        thermald
         wireguard
         pki
         agenix

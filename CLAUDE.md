@@ -110,6 +110,7 @@ grep; they live in `system/system-types/default.nix`.
 | `printing` | `services/printing.nix` | cups + avahi |
 | `restic` | `services/restic.nix` | **unused** — imported by no host |
 | `searxng` | `services/searxng.nix` | |
+| `thermald` | `services/thermald.nix` | Intel RAPL/DPTF management; hades' PL1 is firmware-capped |
 | `system-default` / `system-cli` / `system-desktop` | `system/system-types/default.nix` | see above |
 | `v4l2loopback` | `services/v4l2loopback.nix` | |
 | `wireguard` | `services/wireguard.nix` | also registers a homeManager aspect |
