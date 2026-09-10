@@ -33,6 +33,7 @@
       ];
       programs.fish.enable = true;
       environment.variables.EDITOR = "nvim";
+      documentation.man.cache.enable = true;
     };
 
     system-desktop = {
