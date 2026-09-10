@@ -5,9 +5,21 @@
     enable = true;
 
     extras = {
+      coding.mini-surround.enable = true;
       dap.core.enable = true;
-      editor.aerial.enable = true;
-      util.octo.enable = true;
+
+      editor = {
+        aerial.enable = true;
+        harpoon2.enable = true;
+        inc-rename.enable = true;
+      };
+
+      test.core.enable = true;
+
+      util = {
+        mini-hipatterns.enable = true;
+        octo.enable = true;
+      };
     };
   };
 }
