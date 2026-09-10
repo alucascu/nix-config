@@ -55,14 +55,16 @@ has both halves, the nixos half attaches its own home-manager side via
 
 **System types** form an inheritance ladder:
 
-- `system-default` — imports `nix-settings` + `locale`; adds redistributable
-  firmware, bluetooth, dbus-broker, nix-ld
+- `system-default` — imports `nix-settings`, `locale`, `fwupd`, `earlyoom`; adds
+  redistributable firmware, bluetooth, dbus-broker, nix-ld, and clears `/tmp` on
+  boot
 - `system-cli` — inherits `system-default`; enables fish, sets `EDITOR=nvim`,
-  and installs `git neovim wget just` as *rescue* tools for root and for users
-  with no home config. The configured copies come from home-manager.
+  generates the man cache (`apropos`, fish man completions), and installs
+  `git neovim wget just` as *rescue* tools for root and for users with no home
+  config. The configured copies come from home-manager.
 - `system-desktop` — inherits `system-cli`; imports `desktop-kde`,
-  `libreoffice`, `pipewire`, `printing`, `plymouth-nix-gruvbox`, and
-  `limine-nix-gruvbox`; enables pcscd
+  `libreoffice`, `pipewire`, `printing`, `plymouth-nix-gruvbox`,
+  `limine-nix-gruvbox`, `fonts`, `appimage`; enables pcscd and dconf
 
 ## Aspect index
 
@@ -83,13 +85,17 @@ grep; they live in `system/system-types/default.nix`.
 |---|---|---|
 | `agenix` | `services/agenix.nix` | secret decryption |
 | `alucascu` | `users/alucascu.nix` | the NixOS user; pulls in the homeManager half |
+| `appimage` | `programs/appimage.nix` | `appimage-run` + binfmt registration |
 | `caddy` | `services/caddy.nix` | reverse proxy; owns ports 80/443 |
 | `chromium` | `programs/chromium.nix` | managed policies + `chromium-work` launcher |
 | `desktop` | `profiles/desktop.nix` | profile: `system-desktop` + homeManager `desktop` |
 | `desktop-kde` | `programs/desktop-kde.nix` | plasma6 + sddm |
 | `docker` | `services/docker.nix` | |
+| `earlyoom` | `services/earlyoom.nix` | userspace OOM killer; no host has swap |
+| `fonts` | `system/settings/fonts.nix` | system fonts + fontconfig defaults |
 | `fprintd` | `services/fprintd.nix` | fingerprint reader |
 | `freshrss` | `services/freshrss.nix` | uses agenix; served by `caddy` |
+| `fwupd` | `services/fwupd.nix` | LVFS firmware updates |
 | `gaming` | `profiles/gaming.nix` | profile: steam, gamemode + homeManager `gaming` |
 | `gitlab` | `services/gitlab.nix` | |
 | `globalprotect` | `services/globalprotect.nix` | VPN; also registers a homeManager aspect |
@@ -101,6 +107,7 @@ grep; they live in `system/system-types/default.nix`.
 | `locale` | `system/settings/locale.nix` | timezone America/Detroit, i18n |
 | `nextcloud` | `services/nextcloud.nix` | uses agenix; served by `caddy`; data on `/mnt/atlas` |
 | `nix-settings` | `system/settings/nix.nix` | allowUnfree, flakes |
+| `nvidia-telemetry` | `services/nvidia-telemetry.nix` | Xid/clock logging unit on odysseus |
 | `obs-studio` | `programs/obs-studio.nix` | |
 | `ollama` | `services/ollama.nix` | |
 | `open-webui` | `services/open-webui.nix` | |
@@ -132,6 +139,7 @@ grep; they live in `system/system-types/default.nix`.
 | `git` | `home/git.nix` — git + gh |
 | `globalprotect` | `services/globalprotect.nix` |
 | `gnupg` | `home/gnupg.nix` |
+| `gtk` | `home/gtk.nix` — Gruvbox GTK2/3/4 theming for non-Qt apps |
 | `math` | `home/math.nix` — sagemath |
 | `mpv` | `home/mpv.nix` |
 | `neovim` | `home/neovim/default.nix` — LazyVim + internals; imports the default `neovim-*` languages |
