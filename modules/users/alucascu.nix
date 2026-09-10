@@ -8,7 +8,14 @@
       isNormalUser = true;
       shell = pkgs.fish;
       extraGroups = ["wheel" "networkmanager" "docker"];
-      openssh.authorizedKeys.keys = [];
+      # Public halves of the two user keys already declared as agenix
+      # recipients in secrets/secrets.nix; kept in sync by hand.
+      openssh.authorizedKeys.keys = [
+        # alucascu@hades
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILjientAZiNuoiwFV7bMdkNZB0j5qM+TsHGKwG2KXbO5 alucascu@hades"
+        # alucascu@odysseus
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICVLgoxrHCSzVI2X1hgL/cN+VYot2TA3N+cTe/9oL3os alucascu@proton.me"
+      ];
     };
 
     home-manager.users.alucascu.imports = [
