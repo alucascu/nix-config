@@ -9,6 +9,7 @@
         nix-settings
         locale
         fwupd
+        earlyoom
       ];
 
       hardware = {
