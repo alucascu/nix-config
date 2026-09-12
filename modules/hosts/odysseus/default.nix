@@ -17,6 +17,7 @@
         agenix
         v4l2loopback
         obs-studio
+        sunshine
         nvidia-telemetry
         pki
         wireguard

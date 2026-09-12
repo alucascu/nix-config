@@ -121,6 +121,7 @@ grep; they live in `system/system-types/default.nix`.
 | `printing` | `services/printing.nix` | cups + avahi |
 | `restic` | `services/restic.nix` | **unused** — imported by no host |
 | `searxng` | `services/searxng.nix` | |
+| `sunshine` | `services/sunshine.nix` | Moonlight game-stream host; KMS capture, opens its own ports |
 | `thermald` | `services/thermald.nix` | Intel RAPL/DPTF management; hades' PL1 is firmware-capped |
 | `system-default` / `system-cli` / `system-desktop` | `system/system-types/default.nix` | see above |
 | `v4l2loopback` | `services/v4l2loopback.nix` | |
