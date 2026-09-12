@@ -57,8 +57,8 @@ has both halves, the nixos half attaches its own home-manager side via
 **System types** form an inheritance ladder:
 
 - `system-default` — imports `nix-settings`, `locale`, `fwupd`, `earlyoom`; adds
-  redistributable firmware, bluetooth, dbus-broker, nix-ld, and clears `/tmp` on
-  boot
+  redistributable firmware, bluetooth, dbus-broker, nix-ld, clears `/tmp` on
+  boot, and caps Limine at 5 boot generations so the ESP cannot fill
 - `system-cli` — inherits `system-default`; imports `nh` and `nix-index`;
   enables fish, sets `EDITOR=nvim`, generates the man cache (`apropos`, fish man
   completions), and installs `git neovim wget just` as *rescue* tools for root

@@ -1,6 +1,6 @@
 {inputs, ...}: {
   flake.modules.nixos = {
-    system-default = {
+    system-default = {lib, ...}: {
       imports = with inputs.self.modules.nixos; [
         nix-settings
         locale
@@ -15,6 +15,9 @@
       services.dbus.implementation = "broker";
       programs.nix-ld.enable = true;
       boot.tmp.cleanOnBoot = true;
+      # Limine copies a kernel + initrd per listed generation onto the ESP and
+      # only prunes after copying the new pair; unbounded, a 512M ESP fills up.
+      boot.loader.limine.maxGenerations = lib.mkDefault 5;
     };
 
     system-cli = {pkgs, ...}: {

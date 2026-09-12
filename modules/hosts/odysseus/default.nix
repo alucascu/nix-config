@@ -48,7 +48,6 @@
     boot = {
       loader.limine.enable = true;
       loader.efi.canTouchEfiVariables = true;
-      initrd.kernelModules = ["amdgpu"];
       kernelPackages = pkgs.linuxPackages_latest;
       kernelParams = ["iommu=pt" "panic=30"];
       extraModprobeConfig = ''
