@@ -31,6 +31,22 @@
       networkmanager = {
         enable = true;
         wifi.backend = "iwd";
+        ensureProfiles.profiles.eno1 = {
+          connection = {
+            id = "eno1";
+            type = "ethernet";
+            interface-name = "eno1";
+            autoconnect-priority = 10;
+          };
+          ipv4 = {
+            method = "manual";
+            address1 = "10.93.247.120/24";
+            gateway = "10.93.247.97";
+            dns = "10.93.247.97;";
+            dns-search = "home.arpa;";
+          };
+          ipv6.method = "auto";
+        };
       };
     };
 
@@ -44,6 +60,11 @@
       modesetting.enable = true;
     };
     services.xserver.videoDrivers = ["nvidia"];
+
+    # nixpkgs builds sunshine without CUDA, so NVENC cannot dlopen libcuda and
+    # encoding falls back to Vulkan with a GPU -> RAM -> GPU copy per frame.
+    # Overridden per-package: a global cudaSupport would rebuild half the closure.
+    services.sunshine.package = pkgs.sunshine.override {cudaSupport = true;};
 
     boot = {
       loader.limine.enable = true;
