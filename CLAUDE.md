@@ -139,6 +139,7 @@ grep; they live in `system/system-types/default.nix`.
 | `desktop` | `profiles/desktop.nix` — the graphical bundle |
 | `desktop-apps` | `home/desktop-apps.nix` |
 | `discord` | `home/discord.nix` |
+| `drawio` | `home/drawio.nix` — draw.io desktop (electron) |
 | `ffmpeg` | `home/ffmpeg.nix` |
 | `gaming` | `profiles/gaming.nix` — mangohud |
 | `git` | `home/git.nix` — git + gh |

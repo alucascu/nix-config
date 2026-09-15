@@ -44,6 +44,7 @@
 
     home-manager.sharedModules = with inputs.self.modules.homeManager; [
       math
+      drawio
 
       neovim-rust
       neovim-ocaml

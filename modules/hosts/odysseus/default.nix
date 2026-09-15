@@ -92,6 +92,7 @@
       ffmpeg
       mpv
       math
+      drawio
 
       neovim-rust
       neovim-ocaml
