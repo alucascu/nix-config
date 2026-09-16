@@ -1,11 +1,7 @@
-{pkgs, ...}: {
+{
   programs.lazyvim.plugins."markdown-preview" = ''
     return {
-      dir = "${pkgs.vimPlugins.markdown-preview-nvim}",
-      name = "markdown-preview.nvim",
-      lazy = true,
-      ft = { "markdown" },
-      cmd = { "MarkdownPreview", "MarkdownPreviewStop", "MarkdownPreviewToggle" },
+      "iamcco/markdown-preview.nvim",
       init = function()
         vim.g.mkdp_auto_close = 1
         vim.g.mkdp_theme = "dark"

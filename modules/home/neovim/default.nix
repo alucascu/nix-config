@@ -4,6 +4,7 @@
       [
         inputs.lazyvim.homeManagerModules.default
         ./_extras.nix
+        ./_luac_cache.nix
         ./plugins/_conform.nix
         ./plugins/_lsp.nix
         ./plugins/_colorscheme.nix
