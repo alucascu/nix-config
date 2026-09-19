@@ -19,7 +19,6 @@
         obs-studio
         sunshine
         nvidia-telemetry
-        fan-curve
         pki
         wireguard
       ]);

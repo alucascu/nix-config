@@ -94,7 +94,6 @@ grep; they live in `system/system-types/default.nix`.
 | `desktop-kde` | `programs/desktop-kde.nix` | plasma6 + sddm |
 | `docker` | `services/docker.nix` | |
 | `earlyoom` | `services/earlyoom.nix` | userspace OOM killer; no host has swap |
-| `fan-curve` | `services/fan-curve.nix` | NCT6799D Smart Fan IV curve points on odysseus |
 | `fonts` | `system/settings/fonts.nix` | system fonts + fontconfig defaults |
 | `fprintd` | `services/fprintd.nix` | fingerprint reader |
 | `freshrss` | `services/freshrss.nix` | uses agenix; served by `caddy` |
