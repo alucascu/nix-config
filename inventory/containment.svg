@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="704" height="1086" viewBox="0 0 704 1086" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
-<rect width="704" height="1086" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="704" height="1312" viewBox="0 0 704 1312" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+<rect width="704" height="1312" fill="#FFFFFF"/>
 <rect x="32" y="32" width="640" height="726" rx="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.0" />
 <text x="52" y="63" text-anchor="start" font-size="15" font-weight="500" fill="#3C3489" dominant-baseline="central">greek  —  Physical</text>
 <rect x="52" y="84" width="600" height="176" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8" />
@@ -58,4 +58,14 @@
 <path d="M 72,950 L 74,950 Q 68,950 68,956 L 68,988 Q 68,994 74,994 L 72,994 Z" fill="#16A34A"/>
 <text x="80" y="964" text-anchor="start" font-size="13" font-weight="500" fill="#712B13" dominant-baseline="auto">apsu</text>
 <text x="80" y="980" text-anchor="start" font-size="11" font-weight="400" fill="#993C1D" dominant-baseline="auto">pfSense  ·  bash</text>
+<rect x="32" y="1054" width="640" height="202" rx="14" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.0" />
+<text x="52" y="1085" text-anchor="start" font-size="15" font-weight="500" fill="#3C3489" dominant-baseline="central">norse  —  VM</text>
+<rect x="52" y="1106" width="600" height="130" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.8" />
+<path d="M 57,1106 L 62,1106 Q 52,1106 52,1116 L 52,1226 Q 52,1236 62,1236 L 57,1236 Z" fill="#16A34A"/>
+<text x="68" y="1133" text-anchor="start" font-size="14" font-weight="500" fill="#085041" dominant-baseline="central">asgard</text>
+<text x="68" y="1152" text-anchor="start" font-size="11" font-weight="400" fill="#0F6E56" dominant-baseline="central">VM  ·  quickemu Windows 11 guest on elysium  ·  Asher Lucas-Cuddeback</text>
+<rect x="68" y="1176" width="279" height="44" rx="6" fill="#FAECE7" stroke="none" stroke-width="1.0" />
+<path d="M 72,1176 L 74,1176 Q 68,1176 68,1182 L 68,1214 Q 68,1220 74,1220 L 72,1220 Z" fill="#16A34A"/>
+<text x="80" y="1190" text-anchor="start" font-size="13" font-weight="500" fill="#712B13" dominant-baseline="auto">heimdall</text>
+<text x="80" y="1206" text-anchor="start" font-size="11" font-weight="400" fill="#993C1D" dominant-baseline="auto">NixOS  ·  fish</text>
 </svg>

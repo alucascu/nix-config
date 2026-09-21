@@ -35,6 +35,7 @@ A **realm** represents a physical or logical device. It belongs to a pantheon (a
 | olympus | greek | NCG | laptop | HP Elitebook 840 G11 | active |
 | tartarus | greek | Asher Lucas-Cuddeback | ATX | AMD Ryzen 5 7600X  ·  32 GB RAM  ·  MSI GAMING X Radeon RX 6600 XT 8 GB  ·  4.0 TB | active |
 | kur | mesopotamian | Asher Lucas-Cuddeback | ATX | Intel Core i5-10400  ·  12 GB RAM  ·  NULL  ·  0.2 TB | active |
+| asgard | norse | Asher Lucas-Cuddeback | VM | quickemu Windows 11 guest on elysium | active |
 
 ## Hosts
 
@@ -42,6 +43,7 @@ A **host** represents a specific OS environment running on a realm. Multiple hos
 
 | Host | Realm | OS | WM | Shell | User | Status |
 | --- | --- | --- | --- | --- | --- | --- |
+| heimdall | asgard | NixOS | — | fish | alucascu | active |
 | diomedes | elysium | Omarchy | hyprland | bash | asher | active |
 | odysseus | elysium | NixOS | KDE Plasma 6 | fish | alucascu | active |
 | hades | erebus | NixOS | KDE | fish | alucascu | active |

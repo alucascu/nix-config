@@ -119,7 +119,7 @@ grep; they live in `system/system-types/default.nix`.
 | `pki` | `system/settings/pki.nix` | org CA trust |
 | `plymouth-nix-gruvbox` | `boot/plymouth-nix-gruvbox/default.nix` | splash + silent boot |
 | `printing` | `services/printing.nix` | cups + avahi |
-| `quickemu` | `programs/quickemu.nix` | desktop VMs on QEMU; nested virt so WSL2 runs in a Windows guest |
+| `quickemu` | `programs/quickemu.nix` | desktop VMs on QEMU; nested virt so WSL2 runs in a Windows guest. Also exports `packages.virtio-win-iso`, since quickget's own virtio download is bot-gated |
 | `restic` | `services/restic.nix` | **unused** — imported by no host |
 | `searxng` | `services/searxng.nix` | |
 | `sunshine` | `services/sunshine.nix` | Moonlight game-stream host; KMS capture, opens its own ports |
@@ -128,7 +128,7 @@ grep; they live in `system/system-types/default.nix`.
 | `v4l2loopback` | `services/v4l2loopback.nix` | |
 | `wireguard` | `services/wireguard.nix` | also registers a homeManager aspect |
 | `work` | `profiles/work.nix` | profile: chromium + globalprotect |
-| `hades` / `odysseus` / `tantalus` | `hosts/<name>/default.nix` | the machines |
+| `hades` / `heimdall` / `odysseus` / `tantalus` | `hosts/<name>/default.nix` | the machines |
 
 ### `homeManager`
 
@@ -265,8 +265,22 @@ broke.
    `_hardware-configuration.nix` — `just fetch-hwconfig <hostname>` does this
    over SSH and stages it.
 3. `git add` the new files — `import-tree` picks them up automatically.
-4. Add the host to `inventory/machines.toml` so `just validate` passes.
+4. Add the host to `inventory/seed.sql` (the inventory's source of truth —
+   `just validate` reads the db built from it) and mirror it into
+   `inventory/machines.toml`. Regenerate the derived docs with
+   `python inventory/scripts/gen_readme.py` and
+   `python inventory/scripts/gen_containment.py inventory/machines.db inventory/containment.svg`.
 5. `sudo nixos-rebuild switch --flake .#<hostname>`
+
+### WSL hosts
+
+A NixOS-WSL instance is still a host — it produces a `nixosConfiguration` — but
+it has no `_hardware-configuration.nix` and no bootloader: it imports
+`inputs.nixos-wsl.nixosModules.default` instead and sets `wsl.enable` plus
+`wsl.defaultUser`. `heimdall` is the worked example. Skip steps 2 and 5's
+`--flake .#<hostname>` on a foreign machine; the rebuild runs inside the
+instance itself. `networking.hostName` feeds `wsl.conf`, so Windows only picks
+a rename up after `wsl.exe --terminate <distro>`.
 
 ## Adding a Standalone Home Target
 
@@ -427,6 +441,7 @@ rather than relying on another service to have enabled it.
 | `agenix` | age-encrypted secrets (ryantm) |
 | `tagstudio` | TagStudio file tagging (TagStudioDev) |
 | `nix-index-database` | prebuilt nix-index database; backs `comma` and command-not-found |
+| `nixos-wsl` | NixOS as a WSL2 distribution (nix-community); used by `heimdall` |
 
 ## Important Rules
 

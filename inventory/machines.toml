@@ -47,6 +47,13 @@ ram_gb = 32
 gpu = "AMD Radeon RX 6600 XT"
 storage_tb = 4
 
+[realms.asgard]
+pantheon = "norse"
+owner = "Asher Lucas-Cuddeback"
+status = "active"
+form_factor = "VM"
+model = "quickemu Windows 11 guest on elysium"
+
 
 [hosts.hades]
 realm = "erebus"
@@ -100,3 +107,11 @@ user = "alucascu"
 status = "active"
 restic_local = "/home/alucascu/.local/restic-repo/"
 restic_ssd = "/run/media/alucascu/Extreme SSD/restic/"
+
+[hosts.heimdall]
+realm = "asgard"
+os = "NixOS"
+shell = "fish"
+terminal_emulator = "Windows Terminal"
+user = "alucascu"
+status = "active"

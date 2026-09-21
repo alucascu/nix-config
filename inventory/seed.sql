@@ -10,7 +10,8 @@ INSERT INTO realms (name, pantheon, owner, status, form_factor, model) VALUES
     ('olympus', 'greek', 'NCG', 'active', 'laptop', 'HP Elitebook 840 G11'),
     ('elysium', 'greek', 'Asher Lucas-Cuddeback', 'active', 'Mini-ITX', NULL),
     ('tartarus', 'greek', 'Asher Lucas-Cuddeback', 'active', 'ATX', NULL),
-    ('kur', 'mesopotamian', 'Asher Lucas-Cuddeback', 'active', 'ATX', NULL);
+    ('kur', 'mesopotamian', 'Asher Lucas-Cuddeback', 'active', 'ATX', NULL),
+    ('asgard', 'norse', 'Asher Lucas-Cuddeback', 'active', 'VM', 'quickemu Windows 11 guest on elysium');
 
 INSERT INTO realm_hardware (realm, cpu, ram_gb, gpu, storage_tb) VALUES
     ('elysium', 'AMD Ryzen 9 9900x3d', 64, 'Zotac RTX 4070 Twin Edge', 4),
@@ -24,4 +25,5 @@ INSERT INTO hosts (name, realm, owner, os, wm, shell, terminal_emulator, user, s
     ('diomedes', 'elysium', NULL, 'Omarchy', 'hyprland', 'bash', 'kitty', 'asher', 'active', '/home/asher/.local/restic', '/run/media/asher/Extreme SSD/restic/'),
     ('odysseus', 'elysium', NULL, 'NixOS', 'KDE Plasma 6', 'fish', 'kitty', 'alucascu', 'active', NULL, NULL),
     ('tantalus', 'tartarus', NULL, 'NixOS', 'KDE Plasma 6', 'fish', 'kitty', 'alucascu', 'active', NULL, NULL),
-    ('apsu', 'kur', NULL, 'pfSense', NULL, 'bash', 'NULL', 'admin', 'active', NULL, NULL);
+    ('apsu', 'kur', NULL, 'pfSense', NULL, 'bash', 'NULL', 'admin', 'active', NULL, NULL),
+    ('heimdall', 'asgard', NULL, 'NixOS', NULL, 'fish', 'Windows Terminal', 'alucascu', 'active', NULL, NULL);
