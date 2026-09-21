@@ -99,14 +99,24 @@ fetch-hwconfig hostname host=hostname:
 
 # ── Virtual machines ──────────────────────────────────────────────────────────
 
-# quickemu keeps a VM's disk, ISOs and TPM state in a directory beside its
-# .conf, and the paths inside that conf are relative, so both recipes run from
-# ~/vms rather than the repo.
+windows_iso := "https://go.microsoft.com/fwlink/?linkid=2334167&clcid=0x409&culture=en-us&country=us"
 
-# Download Windows 11 + the virtio driver ISO and write windows-11.conf (~7 GB)
 windows-fetch:
-    mkdir -p ~/vms
-    cd ~/vms && quickget windows 11
+    #!/usr/bin/env bash
+    set -euo pipefail
+    mkdir -p ~/vms/windows-11
+    cd ~/vms
+    rm -f windows-11/virtio-win.iso
+    quickget windows 11 || true
+    python3 -c 'import pathlib,re; p=pathlib.Path("windows-11/unattended/autounattend.xml"); p.write_text(re.sub(r"\s*<ProductKey>.*?</ProductKey>","",p.read_text(),flags=re.S))'
+    mkisofs -quiet -J -o windows-11/unattended.iso windows-11/unattended/
+    if [ ! -s windows-11/windows-11.iso ]; then
+        curl -L --fail --progress-bar -C - -o windows-11/windows-11.iso.part "{{windows_iso}}"
+        mv windows-11/windows-11.iso.part windows-11/windows-11.iso
+    fi
+    rm -f windows-11/virtio-win.iso
+    nix build --out-link windows-11/virtio-win.iso "{{justfile_directory()}}#virtio-win-iso"
+    echo "Fetched. Boot it with: just windows"
 
 # Boot the Windows 11 VM
 windows:
