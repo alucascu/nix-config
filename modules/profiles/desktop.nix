@@ -1,6 +1,6 @@
 {inputs, ...}: {
   flake.modules.nixos.desktop = {
-    imports = with inputs.self.modules.nixos; [system-desktop];
+    imports = with inputs.self.modules.nixos; [system-desktop ventoy];
 
     home-manager.sharedModules = [inputs.self.modules.homeManager.desktop];
   };

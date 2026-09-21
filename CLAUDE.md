@@ -90,7 +90,7 @@ grep; they live in `system/system-types/default.nix`.
 | `appimage` | `programs/appimage.nix` | `appimage-run` + binfmt registration |
 | `caddy` | `services/caddy.nix` | reverse proxy; owns ports 80/443 |
 | `chromium` | `programs/chromium.nix` | managed policies + `chromium-work` launcher |
-| `desktop` | `profiles/desktop.nix` | profile: `system-desktop` + homeManager `desktop` |
+| `desktop` | `profiles/desktop.nix` | profile: `system-desktop` + `ventoy` + homeManager `desktop` |
 | `desktop-kde` | `programs/desktop-kde.nix` | plasma6 + sddm |
 | `docker` | `services/docker.nix` | |
 | `earlyoom` | `services/earlyoom.nix` | userspace OOM killer; no host has swap |
@@ -126,6 +126,7 @@ grep; they live in `system/system-types/default.nix`.
 | `thermald` | `services/thermald.nix` | Intel RAPL/DPTF management; hades' PL1 is firmware-capped |
 | `system-default` / `system-cli` / `system-desktop` | `system/system-types/default.nix` | see above |
 | `v4l2loopback` | `services/v4l2loopback.nix` | |
+| `ventoy` | `programs/ventoy.nix` | bootable-USB writer; needs the insecure permit it carries |
 | `wireguard` | `services/wireguard.nix` | also registers a homeManager aspect |
 | `work` | `profiles/work.nix` | profile: chromium + globalprotect |
 | `hades` / `heimdall` / `odysseus` / `tantalus` | `hosts/<name>/default.nix` | the machines |
