@@ -11,6 +11,7 @@
       ++ (with inputs.self.modules.nixos; [
         desktop
         docker
+        quickemu
         gaming
         work
         alucascu

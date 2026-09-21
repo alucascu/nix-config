@@ -97,6 +97,21 @@ fetch-hwconfig hostname host=hostname:
     git add modules/hosts/{{hostname}}/_hardware-configuration.nix
     @echo "Staged _hardware-configuration.nix for {{hostname}}"
 
+# ── Virtual machines ──────────────────────────────────────────────────────────
+
+# quickemu keeps a VM's disk, ISOs and TPM state in a directory beside its
+# .conf, and the paths inside that conf are relative, so both recipes run from
+# ~/vms rather than the repo.
+
+# Download Windows 11 + the virtio driver ISO and write windows-11.conf (~7 GB)
+windows-fetch:
+    mkdir -p ~/vms
+    cd ~/vms && quickget windows 11
+
+# Boot the Windows 11 VM
+windows:
+    cd ~/vms && quickemu --vm windows-11.conf
+
 # ── Maintenance ───────────────────────────────────────────────────────────────
 
 # Garbage collect this user's profiles, keeping a floor of 5 generations

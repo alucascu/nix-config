@@ -119,6 +119,7 @@ grep; they live in `system/system-types/default.nix`.
 | `pki` | `system/settings/pki.nix` | org CA trust |
 | `plymouth-nix-gruvbox` | `boot/plymouth-nix-gruvbox/default.nix` | splash + silent boot |
 | `printing` | `services/printing.nix` | cups + avahi |
+| `quickemu` | `programs/quickemu.nix` | desktop VMs on QEMU; nested virt so WSL2 runs in a Windows guest |
 | `restic` | `services/restic.nix` | **unused** — imported by no host |
 | `searxng` | `services/searxng.nix` | |
 | `sunshine` | `services/sunshine.nix` | Moonlight game-stream host; KMS capture, opens its own ports |
@@ -210,6 +211,7 @@ broke.
 | `just up` | update every input and commit `flake.lock` |
 | `just validate` | rebuild inventory db and check it against the module tree |
 | `just fetch-hwconfig <host>` | pull and stage a host's hardware config |
+| `just windows-fetch` / `just windows` | fetch the Windows 11 VM into `~/vms` / boot it |
 | `just rekey` | re-encrypt `secrets/` to the current recipient list |
 | `just gc` / `just gc-system` / `just diff` | maintenance |
 
