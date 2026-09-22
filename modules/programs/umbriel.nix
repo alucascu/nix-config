@@ -13,7 +13,11 @@
       include.files = ["${pkgs.umbriel}/share/umbriel/config.toml"];
 
       general.autostart = ["noctalia"];
-      input.keyboard.layout = "us";
+
+      input.keyboard = {
+        layout = "us,fi";
+      };
+
       keybinds = {
         "Mod+S" = "spawn:noctalia msg panel-toggle control-center";
         "Mod+Shift+A" = "spawn:noctalia msg screenshot-annotate";
@@ -36,6 +40,7 @@
         "Mod+Ctrl+S" = "workspace-set-layout:scrolling";
         "Mod+Ctrl+D" = "workspace-set-layout:dwindle";
         "Mod+Ctrl+M" = "workspace-set-layout:master";
+        "Super+Alt+K" = "keyboard-layout-next";
       };
     };
   };
