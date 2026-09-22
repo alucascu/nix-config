@@ -28,6 +28,7 @@
   flake.modules.homeManager.alucascu = {
     imports = with inputs.self.modules.homeManager; [
       core
+      claude-code
       shell
       git
       neovim

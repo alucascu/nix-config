@@ -64,6 +64,18 @@ up:
     git add flake.lock
     git diff --cached --quiet || git commit -m "chore(flake): update inputs"
 
+# Repin Claude Code to the newest upstream release (or a named version)
+claude-update version="latest":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    base=https://downloads.claude.ai/claude-code-releases
+    v={{version}}
+    if [ "$v" = latest ]; then v=$(curl -fsSL "$base/latest"); fi
+    curl -fsSL "$base/$v/manifest.zst.json" \
+        -o modules/home/claude-code/_manifest.json
+    git add modules/home/claude-code/_manifest.json
+    echo "claude-code pinned to $v"
+
 # Lint the tree: anti-patterns, then dead code
 lint:
     statix check .

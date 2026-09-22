@@ -4,6 +4,7 @@
   flake.modules.homeManager.ubuntu = {
     imports = with inputs.self.modules.homeManager; [
       core
+      claude-code
       shell
       git
       neovim

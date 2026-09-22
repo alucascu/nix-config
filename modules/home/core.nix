@@ -59,7 +59,6 @@
           zstd
           gnupg
           opencode
-          claude-code
 
           glow
           btop
