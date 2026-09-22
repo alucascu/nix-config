@@ -125,6 +125,7 @@ grep; they live in `system/system-types/default.nix`.
 | `sunshine` | `services/sunshine.nix` | Moonlight game-stream host; KMS capture, opens its own ports |
 | `thermald` | `services/thermald.nix` | Intel RAPL/DPTF management; hades' PL1 is firmware-capped |
 | `system-default` / `system-cli` / `system-desktop` | `system/system-types/default.nix` | see above |
+| `umbriel` | `programs/umbriel.nix` | second SDDM session on hades: Umbriel compositor + the Noctalia shell; also registers both homeManager halves |
 | `v4l2loopback` | `services/v4l2loopback.nix` | |
 | `ventoy` | `programs/ventoy.nix` | bootable-USB writer; needs the insecure permit it carries |
 | `wireguard` | `services/wireguard.nix` | also registers a homeManager aspect |
@@ -165,6 +166,7 @@ grep; they live in `system/system-types/default.nix`.
 | `neovim-tex` | `home/neovim-langs/tex.nix` — opt-in, ~0.9 GB |
 | `neovim-typescript` | `home/neovim-langs/typescript.nix` — opt-in, ~0.4 GB |
 | `nix-tools` | `home/nix-tools.nix` — nom, nvd, nix-tree, nix-diff, statix, deadnix |
+| `noctalia` | `home/noctalia.nix` — Noctalia shell settings; imported by `umbriel` |
 | `plasma` | `home/plasma.nix` — plasma-manager |
 | `shell` | `home/shell.nix` — fish, starship, direnv, tmux, zoxide, eza |
 | `ssh` | `home/ssh.nix` — defines `myConfig.sshKeyName` |
@@ -172,6 +174,7 @@ grep; they live in `system/system-types/default.nix`.
 | `tagstudio` | `home/tagstudio.nix` |
 | `terminal` | `home/terminal.nix` — kitty (Gruvbox, Lilex Nerd Font) |
 | `ubuntu` | `homes/ubuntu/default.nix` — standalone target |
+| `umbriel` | `programs/umbriel.nix` — Umbriel's config.toml |
 | `uv-tools` | `home/uv-tools.nix` |
 | `vlc` | `home/vlc.nix` |
 | `vscode` | `home/vscode.nix` |

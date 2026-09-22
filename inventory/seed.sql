@@ -19,7 +19,7 @@ INSERT INTO realm_hardware (realm, cpu, ram_gb, gpu, storage_tb) VALUES
     ('kur', 'Intel Core i5-10400', 12, 'NULL', 0.2);
 
 INSERT INTO hosts (name, realm, owner, os, wm, shell, terminal_emulator, user, status, restic_local, restic_ssd) VALUES
-    ('hades', 'erebus', NULL, 'NixOS', 'KDE', 'fish', 'kitty', 'alucascu', 'active', '/home/alucascu/.local/restic-repo/', '/run/media/alucascu/Extreme SSD/restic/'),
+    ('hades', 'erebus', NULL, 'NixOS', 'KDE, Umbriel', 'fish', 'kitty', 'alucascu', 'active', '/home/alucascu/.local/restic-repo/', '/run/media/alucascu/Extreme SSD/restic/'),
     ('hestia', 'olympus', NULL, 'CachyOS', 'hyprland', 'zsh', 'kitty', 'asherl', 'active', '/home/asherl/.local/restic-repo/', '/run/media/asherl/Extreme SSD/restic/'),
     ('helios', 'erebus', NULL, 'Windows 11', NULL, 'powershell', 'wezterm', 'ncgmail/alucascuddeback', 'unprovisioned', NULL, NULL),
     ('diomedes', 'elysium', NULL, 'Omarchy', 'hyprland', 'bash', 'kitty', 'asher', 'active', '/home/asher/.local/restic', '/run/media/asher/Extreme SSD/restic/'),

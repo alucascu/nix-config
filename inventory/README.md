@@ -46,7 +46,7 @@ A **host** represents a specific OS environment running on a realm. Multiple hos
 | heimdall | asgard | NixOS | — | fish | alucascu | active |
 | diomedes | elysium | Omarchy | hyprland | bash | asher | active |
 | odysseus | elysium | NixOS | KDE Plasma 6 | fish | alucascu | active |
-| hades | erebus | NixOS | KDE | fish | alucascu | active |
+| hades | erebus | NixOS | KDE, Umbriel | fish | alucascu | active |
 | helios | erebus | Windows 11 | — | powershell | ncgmail/alucascuddeback | unprovisioned |
 | apsu | kur | pfSense | — | bash | admin | active |
 | hestia | olympus | CachyOS | hyprland | zsh | asherl | active |

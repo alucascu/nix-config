@@ -58,7 +58,7 @@ model = "quickemu Windows 11 guest on elysium"
 [hosts.hades]
 realm = "erebus"
 os = "NixOS"
-wm = "KDE"
+wm = "KDE, Umbriel"
 shell = "fish"
 terminal_emulator = "kitty"
 user = "alucascu"
