@@ -72,7 +72,7 @@
       loader.limine.enable = true;
       loader.efi.canTouchEfiVariables = true;
       kernelPackages = pkgs.linuxPackages_latest;
-      kernelParams = ["iommu=pt" "panic=30"];
+      kernelParams = ["iommu=pt" "panic=30" "pcie_aspm.policy=performance"];
       extraModprobeConfig = ''
         options mt7925e disable_aspm=1
       '';
@@ -101,6 +101,7 @@
       neovim-tex
       neovim-typescript
       neovim-julia
+
       {
         myConfig.umbriel.settings.output = {
           "HDMI-A-2" = {
