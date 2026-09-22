@@ -22,6 +22,7 @@
         nvidia-telemetry
         pki
         wireguard
+        umbriel
       ]);
 
     home-manager.users.alucascu.myConfig.sshKeyName = "odysseus";
@@ -100,6 +101,25 @@
       neovim-tex
       neovim-typescript
       neovim-julia
+      {
+        myConfig.umbriel.settings.output = {
+          "HDMI-A-2" = {
+            mode = "2560x1440@100";
+            scale = 1.0;
+            position = [2560 0];
+          };
+          "DP-2" = {
+            mode = "2560x1440@100";
+            scale = 1.0;
+            position = [0 0];
+          };
+          "DP-3" = {
+            mode = "2560x1440@60";
+            scale = 1.0;
+            position = [5120 0];
+          };
+        };
+      }
     ];
 
     system.stateVersion = "25.11";
