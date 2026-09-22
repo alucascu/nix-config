@@ -19,6 +19,7 @@
         wireguard
         pki
         agenix
+        umbriel
       ]);
 
     # p3 is a leftover LUKS swap partition the initrd never unlocked -- the
