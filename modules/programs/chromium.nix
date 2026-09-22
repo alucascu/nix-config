@@ -1,5 +1,7 @@
 {...}: {
-  flake.modules.nixos.chromium = {pkgs, ...}: {
+  flake.modules.nixos.chromium = {pkgs, ...}: let
+    chromium = pkgs.chromium.override {commandLineArgs = "--password-store=kwallet6";};
+  in {
     programs.chromium = {
       enable = true;
 
@@ -49,14 +51,14 @@
     # This aspect owns the browser as well as its managed policies, so a host
     # importing it always gets both.
     environment.systemPackages = [
-      pkgs.chromium
+      chromium
 
       # Dedicated launcher so it always opens into the work profile.
       (pkgs.makeDesktopItem {
         name = "chromium-work";
         desktopName = "Chromium (Work)";
         genericName = "Web Browser";
-        exec = "${pkgs.chromium}/bin/chromium --profile-directory=work %U --enable-features=WebUIDarkMode --force-dark-mode";
+        exec = "${chromium}/bin/chromium --profile-directory=work %U --enable-features=WebUIDarkMode --force-dark-mode";
         icon = "chromium";
         categories = ["Network" "WebBrowser"];
         comment = "Chromium locked to the work profile";
