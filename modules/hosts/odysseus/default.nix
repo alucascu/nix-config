@@ -20,6 +20,7 @@
         obs-studio
         sunshine
         nvidia-telemetry
+        lact
         pki
         wireguard
         umbriel

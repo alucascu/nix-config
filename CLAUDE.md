@@ -104,6 +104,7 @@ grep; they live in `system/system-types/default.nix`.
 | `immich` | `services/immich.nix` | |
 | `immich-backup` | `services/immich-backup.nix` | the restic backups that actually run |
 | `karakeep` | `services/karakeep.nix` | |
+| `lact` | `services/lact.nix` | GPU fan curve daemon + GUI; config lives in `/etc/lact`, not Nix |
 | `libreoffice` | `programs/libreoffice.nix` | |
 | `limine-nix-gruvbox` | `boot/limine-nix-gruvbox/default.nix` | boot menu styling only |
 | `locale` | `system/settings/locale.nix` | timezone America/Detroit, i18n |
