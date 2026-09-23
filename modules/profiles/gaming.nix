@@ -16,7 +16,17 @@
   };
 
   flake.modules.homeManager.gaming = {pkgs, ...}: {
-    programs.mangohud.enable = true;
+    programs.mangohud = {
+      enable = true;
+      settings = {
+        fps = true;
+        frametime = true;
+        cpu_temp = true;
+        gpu_temp = true;
+        ram = true;
+        vram = true;
+      };
+    };
     home.packages = [pkgs.prismlauncher];
   };
 }
