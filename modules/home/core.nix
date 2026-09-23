@@ -61,7 +61,6 @@
           opencode
 
           glow
-          btop
           iotop
           iftop
 
@@ -90,6 +89,16 @@
 
           jujutsu
         ]);
+    };
+
+    programs.btop = {
+      enable = true;
+      package = pkgs.btop.override {cudaSupport = true;};
+      settings = {
+        shown_boxes = "cpu mem net proc gpu0";
+        check_temp = true;
+        show_coretemp = true;
+      };
     };
   };
 }
