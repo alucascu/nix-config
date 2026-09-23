@@ -51,6 +51,21 @@
       neovim-ocaml
       neovim-tex
       neovim-julia
+
+      {
+        myConfig.umbriel.settings.output = {
+          "HDMI-A-1" = {
+            mode = "1920x1080@60";
+            scale = 1.0;
+            position = [0 0];
+          };
+          "eDP-1" = {
+            mode = "1920x1200@60";
+            scale = 1.0;
+            position = [1920 0];
+          };
+        };
+      }
     ];
     networking = {
       hostName = "hades";
