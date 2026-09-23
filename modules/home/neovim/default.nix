@@ -15,6 +15,7 @@
         ./plugins/_oil.nix
         ./plugins/_tex.nix
         ./plugins/_markdown_preview.nix
+        ./plugins/_rustaceanvim.nix
       ]
       # Languages every target gets — cheap, and as useful on a server as on
       # a workstation. Heavier toolchains are opt-in per host; see
