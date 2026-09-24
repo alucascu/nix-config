@@ -4,14 +4,14 @@
       "neovim/nvim-lspconfig",
       opts = function(_, opts)
         opts.servers = opts.servers or {}
-        opts.servers.pyright = {enabled = false}
-        opts.servers.basedpyright = {
+        opts.servers.pyright = { enabled = false }
+        opts.servers.basedpyright = { enabled = false }
+        opts.servers.pyrefly = {
           settings = {
-            basedpyright = {
-              typeCheckingMode = "strict",
-              reportUnknownMemberType = false,
-              reportUnknownVariableType = false,
-              reportUnknownArgumentType = false,
+            python = {
+              pyrefly = {
+                typeCheckingMode = "strict",
+              },
             },
           },
         }

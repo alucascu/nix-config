@@ -9,12 +9,9 @@
           installDependencies = true; # python3Packages.ruff
         };
 
-        # pyrefly and basedpyright have no mapping in the extra; ruff is
-        # listed here as the standalone binary rather than the python module.
         programs.lazyvim.extraPackages = with pkgs; [
           ruff
           pyrefly
-          basedpyright
         ];
       })
     ];
