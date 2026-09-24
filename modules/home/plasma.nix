@@ -55,7 +55,11 @@
         }
       ];
 
-      configFile.kdeglobals.General.TerminalApplication = "kitty";
+      configFile = {
+        kdeglobals.General.TerminalApplication = "kitty";
+
+        kded5rc.Module-gtkconfig.autoload = false;
+      };
     };
   };
 }

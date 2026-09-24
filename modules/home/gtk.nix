@@ -44,6 +44,10 @@
     };
 
     xdg.configFile = {
+      "gtk-3.0/gtk.css" = {
+        text = "";
+        force = true;
+      };
       "gtk-3.0/settings.ini".force = true;
       "gtk-4.0/settings.ini".force = true;
       "gtk-4.0/gtk.css".force = true;
