@@ -22,6 +22,14 @@
               nixpkgs = {
                 expr = 'import (builtins.getflake "/home/alucascu/nix-config").inputs.nixpkgs {}',
               },
+              options = {
+                nixos = {
+                  expr = '(builtins.getFlake "/home/alucascu/nix-config").nixosConfigurations.hades.options',
+                },
+                home_manager = {
+                  expr = '(builtins.getFlake "/home/alucascu/nix-config").nixosConfigurations.hades.options.home-manager.users.type.getSubOptions []',
+                },
+              },
               formatting = {
                 command = { "alejandra" },
               },
