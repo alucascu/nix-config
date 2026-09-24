@@ -1,4 +1,11 @@
 {
+  lib,
+  pkgs,
+  ...
+}: let
+  lsp = import ../../_lsp-settings.nix {inherit lib pkgs;};
+  toLua = lib.generators.toLua {multiline = false;};
+in {
   programs.lazyvim.plugins.lsp-config = ''
     return {
       "neovim/nvim-lspconfig",
@@ -6,36 +13,9 @@
         opts.servers = opts.servers or {}
         opts.servers.pyright = { enabled = false }
         opts.servers.basedpyright = { enabled = false }
-        opts.servers.pyrefly = {
-          settings = {
-            python = {
-              pyrefly = {
-                typeCheckingMode = "strict",
-              },
-            },
-          },
-        }
+        opts.servers.pyrefly = ${toLua {settings.python.pyrefly = lsp.pyrefly;}}
         opts.servers.nil_ls = { enabled = false }
-        opts.servers.nixd = {
-          settings = {
-            nixd = {
-              nixpkgs = {
-                expr = 'import (builtins.getflake "/home/alucascu/nix-config").inputs.nixpkgs {}',
-              },
-              options = {
-                nixos = {
-                  expr = '(builtins.getFlake "/home/alucascu/nix-config").nixosConfigurations.hades.options',
-                },
-                home_manager = {
-                  expr = '(builtins.getFlake "/home/alucascu/nix-config").nixosConfigurations.hades.options.home-manager.users.type.getSubOptions []',
-                },
-              },
-              formatting = {
-                command = { "alejandra" },
-              },
-            },
-          },
-        }
+        opts.servers.nixd = ${toLua {settings.nixd = lsp.nixd;}}
         opts.servers.ocamllsp = {
           settings = {
             ocamllsp = {

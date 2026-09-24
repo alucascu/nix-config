@@ -17,20 +17,24 @@
           end,
         })
 
-        local ls = require("luasnip")
-        local s = ls.snippet
-        local t = ls.text_node
-        local i = ls.insert_node
+        -- LuaSnip is not on the LazyVim vscode extra's allowlist, so under
+        -- vscode-neovim the require would fail.
+        if not vim.g.vscode then
+          local ls = require("luasnip")
+          local s = ls.snippet
+          local t = ls.text_node
+          local i = ls.insert_node
 
-        ls.add_snippets("markdown", {
-          s("tree", {
-            t({ "```", ".", "├── " }),
-            i(1, "file"),
-            t({ "", "└── " }),
-            i(2, "file"),
-            t({ "", "```" }),
-          }),
-        })
+          ls.add_snippets("markdown", {
+            s("tree", {
+              t({ "```", ".", "├── " }),
+              i(1, "file"),
+              t({ "", "└── " }),
+              i(2, "file"),
+              t({ "", "```" }),
+            }),
+          })
+        end
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "markdown",
