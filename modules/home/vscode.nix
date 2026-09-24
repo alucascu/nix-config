@@ -45,6 +45,8 @@
           "editor.formatOnSave" = true;
           "editor.fontFamily" = "'Lilex Nerd Font', monospace";
 
+          "extensions.experimental.affinity"."asvetliakov.vscode-neovim" = 1;
+
           "nix.enableLanguageServer" = true;
           "nix.serverPath" = lib.getExe pkgs.nixd;
           "nix.serverSettings".nixd = lsp.nixd;
