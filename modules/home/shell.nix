@@ -45,6 +45,7 @@
 
           right_format = lib.concatStrings [
             "$env_var"
+            "$custom"
             "$nix_shell"
             "$direnv"
             "$cmd_duration"

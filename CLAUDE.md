@@ -138,7 +138,7 @@ grep; they live in `system/system-types/default.nix`.
 | Aspect | File |
 |---|---|
 | `alucascu` | `users/alucascu.nix` — identity + the CLI set |
-| `browser` | `home/browser.nix` — firefox, BROWSER, xdg mime |
+| `browser` | `home/browser.nix` — firefox (`personal` profile + baseline settings for every profile), BROWSER, xdg mime |
 | `claude-code` | `home/claude-code/default.nix` — pins its own release manifest; `just claude-update`. `claude-account personal\|work` switches the shell's `CLAUDE_CONFIG_DIR` |
 | `core` | `home/core.nix` — packages, session vars, stateVersion |
 | `desktop` | `profiles/desktop.nix` — the graphical bundle |
@@ -181,7 +181,7 @@ grep; they live in `system/system-types/default.nix`.
 | `vlc` | `home/vlc.nix` |
 | `vscode` | `home/vscode.nix` |
 | `wireguard` | `services/wireguard.nix` |
-| `work` | `profiles/work.nix` |
+| `work` | `profiles/work.nix` — slack, zoom, the `work` Firefox profile + `firefox-work` launcher |
 | `zellij` | `home/zellij.nix` |
 
 ## Commands

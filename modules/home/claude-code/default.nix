@@ -35,10 +35,20 @@
       '';
     };
 
-    # Shown by `$env_var` in the shell aspect's right_format, only while set.
-    programs.starship.settings.env_var.CLAUDE_CONFIG_DIR = {
-      format = "[󰚩 work]($style) ";
-      style = "bold orange";
+    # Shown by `$env_var` and `$custom` in the shell aspect's right_format.
+    # env_var can only show a variable that is set, so personal -- the unset
+    # case -- needs a custom module; `sh` keeps its check to a millisecond.
+    programs.starship.settings = {
+      env_var.CLAUDE_CONFIG_DIR = {
+        format = "[󰚩 work]($style) ";
+        style = "bold orange";
+      };
+      custom.claude_personal = {
+        when = ''[ -z "$CLAUDE_CONFIG_DIR" ]'';
+        shell = ["sh"];
+        format = "[󰚩 personal]($style) ";
+        style = "bold aqua";
+      };
     };
   };
 }

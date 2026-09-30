@@ -8,10 +8,28 @@
     # the module system dedupe those so the option is declared exactly once.
     key = "flake.modules.homeManager.browser";
 
-    options.myConfig.firefoxProfile = lib.mkOption {
-      type = lib.types.str;
-      default = "alucascu";
-      description = "Firefox profile that browser-adjacent aspects write into.";
+    options = {
+      myConfig.firefoxProfile = lib.mkOption {
+        type = lib.types.str;
+        default = "personal";
+        description = "Firefox profile that browser-adjacent aspects write into.";
+      };
+
+      # Extends home-manager's profile submodule, so every profile -- personal
+      # here, work from the `work` aspect -- starts from the same baseline.
+      programs.firefox.profiles = lib.mkOption {
+        type = lib.types.attrsOf (lib.types.submodule {
+          settings = {
+            "browser.startup.homepage" = lib.mkDefault "about:blank";
+            "browser.newtabpage.enabled" = false;
+            "browser.shell.checkDefaultBrowser" = false;
+            "dom.security.https_only_mode" = true;
+            "security.enterprise_roots.enabled" = true;
+            "privacy.trackingprotection.enabled" = true;
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          };
+        });
+      };
     };
 
     config = {
@@ -43,18 +61,11 @@
       programs.firefox = {
         enable = true;
         configPath = "${config.xdg.configHome}/mozilla/firefox";
+        # The personal profile predates its name; `path` keeps it pointed at
+        # the existing directory rather than starting a fresh one.
         profiles.${config.myConfig.firefoxProfile} = {
-          isDefault = true;
           id = 0;
-          settings = {
-            "browser.startup.homepage" = lib.mkDefault "about:blank";
-            "browser.newtabpage.enabled" = false;
-            "browser.shell.checkDefaultBrowser" = false;
-            "dom.security.https_only_mode" = true;
-            "security.enterprise_roots.enabled" = true;
-            "privacy.trackingprotection.enabled" = true;
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-          };
+          path = "alucascu";
         };
 
         policies = {
