@@ -41,6 +41,10 @@
     # Priority 5, so it is preferred over the disk swap above (default -2).
     zramSwap.enable = true;
 
+    # Steam for the Steam Controller; steam-hardware installs its udev rules.
+    programs.steam.enable = true;
+    hardware.steam-hardware.enable = true;
+
     home-manager.users.alucascu.myConfig.sshKeyName = "hades";
 
     home-manager.sharedModules = with inputs.self.modules.homeManager; [
