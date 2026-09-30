@@ -139,7 +139,7 @@ grep; they live in `system/system-types/default.nix`.
 |---|---|
 | `alucascu` | `users/alucascu.nix` — identity + the CLI set |
 | `browser` | `home/browser.nix` — firefox, BROWSER, xdg mime |
-| `claude-code` | `home/claude-code/default.nix` — pins its own release manifest; `just claude-update` |
+| `claude-code` | `home/claude-code/default.nix` — pins its own release manifest; `just claude-update`. `claude-account personal\|work` switches the shell's `CLAUDE_CONFIG_DIR` |
 | `core` | `home/core.nix` — packages, session vars, stateVersion |
 | `desktop` | `profiles/desktop.nix` — the graphical bundle |
 | `desktop-apps` | `home/desktop-apps.nix` |
