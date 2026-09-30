@@ -38,7 +38,7 @@
               iconTasks.launchers = [
                 "applications:kitty.desktop"
                 "applications:org.kde.dolphin.desktop"
-                "applications:obsidian.desktop"
+                "applications:md.obsidian.Obsidian.desktop"
                 "applications:firefox.desktop"
               ];
             }
